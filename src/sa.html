@@ -166,8 +166,8 @@ th:last-child,td:last-child{padding-right:0}
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5mm;border-top:1.1pt solid var(--ink);padding-top:4mm;max-width:166mm">
         <div><div style="font-size:20pt;font-weight:700;color:var(--teal);line-height:1">75%</div>
           <div style="font-size:6.8pt;color:var(--mute);margin-top:1.2mm;line-height:1.4">机构已用 AI<br>但 17% 才是基础模型<span class="ref">[4]</span></div></div>
-        <div><div style="font-size:20pt;font-weight:700;color:var(--teal);line-height:1">9<span style="font-size:11pt">/21</span></div>
-          <div style="font-size:6.8pt;color:var(--mute);margin-top:1.2mm;line-height:1.4">受监管环节的渗透位次<br>越靠近钱，越靠后<span class="ref">[4][5]</span></div></div>
+        <div><div style="font-size:20pt;font-weight:700;color:var(--teal);line-height:1">2%</div>
+          <div style="font-size:6.8pt;color:var(--mute);margin-top:1.2mm;line-height:1.4">用例是完全自主决策<br>其余都有人在回路里<span class="ref">[4]</span></div></div>
         <div><div style="font-size:20pt;font-weight:700;color:var(--teal);line-height:1">$1.9T</div>
           <div style="font-size:6.8pt;color:var(--mute);margin-top:1.2mm;line-height:1.4">一家公司的年支付量<br>执行权的规模基准<span class="ref">[16]</span></div></div>
         <div><div style="font-size:20pt;font-weight:700;color:var(--rust);line-height:1">≈ 0</div>
@@ -242,22 +242,22 @@ th:last-child,td:last-child{padding-right:0}
 </section>
 
 <!-- ═════════ 前言 03 ═════════ -->
-<section class="pg" data-fit style="--fs:9.7pt">
+<section class="pg" data-fit style="--fs:9.4pt">
   <div class="rh"><span>前言</span><span><b>一个一直是零的数字</b></span></div>
   <div class="bd">
     <h2 class="ch">一个一直是零的数字</h2>
     <div class="rail">
       <div class="m">
         <p>2024 年，英国央行和金融行为监管局做了一次全行业调查：75% 的受访金融机构已经在使用 AI，另有 10% 计划在三年内采用。这个数字被广泛引用，通常用来证明"金融业已经全面拥抱 AI"。<span class="ref">[4]</span></p>
-        <p>但同一份调查里还有两个数字，几乎没有人引用。第一，基础模型只占全部用例的约 17%——四分之三的"AI 应用"仍然是十年前那套预测式模型。第二，也是更关键的：把二十一类业务环节按渗透程度排序，<b>受监管程度最高的那些环节系统性地排在后面</b>，大约在第九到二十一位之间。<span class="ref">[4][5]</span></p>
+        <p>但同一份调查里还有三个数字，几乎没有人引用。第一，基础模型只占全部用例的约 17%——四分之三的"AI 应用"仍然是十年前那套预测式模型。第二，55% 的用例含有某种程度的自动化决策，但<b>完全自主决策的只有 2%</b>。第三，62% 的用例被机构自己评为低重要性，只有 16% 被评为高重要性。<span class="ref">[4]</span></p>
         <p>把这三个数字放在一起，得到的结论和"全面拥抱"正好相反：AI 已经渗透进金融业的<b>周边</b>，但还没有进入<b>核心</b>。它在写营销文案、在做客服问答、在辅助开发，但它不批贷款、不下单、不划账、不签申报表。</p>
         <p>这不是因为模型不够聪明。在很多受监管环节，模型的判断质量早已超过初级人工。真正的障碍在别处：<em>没有人愿意为一个无法解释、无法追溯、无法赔付的系统承担后果</em>。</p>
         <p>所以真正值得跟踪的变量不是模型能力，而是授权。具体说，是这个数字：</p>
       </div>
       <div class="s">
-        <div class="sn q"><span class="num">75%</span><b>已使用 AI</b>英国监管调查，2024。看起来像终局，实际是起点——它统计的是"用过"，不是"托付过"。<span class="ref">[4]</span></div>
+        <div class="sn q"><span class="num">75%</span><b>已使用 AI</b>英国监管调查，2024，118 家机构。看起来像终局，实际是起点——它统计的是"用过"，不是"托付过"。<span class="ref">[4]</span></div>
         <div class="sn q"><span class="num">17%</span><b>基础模型占比</b>四分之三的用例仍是传统预测模型。生成式 AI 的渗透远没有叙事中那么深。<span class="ref">[4]</span></div>
-        <div class="sn w"><span class="num">9 / 21</span><b>受监管环节的位次</b>越靠近资金与责任，渗透越靠后。这不是技术曲线，是准入曲线。<span class="ref">[4][5]</span></div>
+        <div class="sn w"><span class="num">2%</span><b>完全自主决策的用例</b>另有 24% 是半自主——能自己做一部分决定，但关键或模糊的决策仍设计为由人介入。<span class="ref">[4]</span></div>
       </div>
     </div>
 
@@ -269,7 +269,7 @@ th:last-child,td:last-child{padding-right:0}
       <div class="m">
         <p>今天，在绝大多数金融机构里，这个数字是零。不是"很小"，是<b>零</b>：任何涉及资金、授信或申报的动作，都必须有一个自然人在某个环节签字，哪怕签字本身只是走个形式。</p>
         <p>零是一个特殊的数字。它意味着这条曲线还没有开始，因此没有人给它建模，也没有人为它定价。市场目前给 AI 金融公司的估值逻辑，仍然建立在"节省了多少人力"上——这是把第三代产品按第二代的方式定价。</p>
-        <p>但零正在被打破。2024 年，Stripe 披露 Radar 帮助商户恢复了约 60 亿美元合法但被误拒的交易，用户争议率下降 17%。<span class="ref">[17][18]</span> Intuit 披露其 AI 银行流水功能可以让部分客户每月节省最多 12 小时、回款平均快 5 天。<span class="ref">[19][20]</span> 蚂蚁推出支付 MCP 与 AI 钱包，明确意图是把智能体接入资金动作。<span class="ref">[14][24]</span></p>
+        <p>但零正在被打破。Stripe 披露其自适应受理能力在 2024 年恢复了创纪录的约 60 亿美元被误拒的合法交易，同比增长 60%；Radar 自称为用户平均减少 32% 的欺诈。<span class="ref">[16][17][18]</span> Intuit 披露已有超过 300 万客户让 AI 代理替自己完成工作，历史重复使用率超过 85%。<span class="ref">[19][20]</span> 蚂蚁推出支付 MCP 与 AI 钱包，意图明确指向把智能体接入资金动作。<span class="ref">[14][24]</span></p>
         <p>这些都还是低金额、高频次、可回滚的动作。但它们的共同点是：<b>系统在没有人逐笔看的情况下做了决定，并且这个决定直接改变了钱的流向</b>。零已经不是零了。</p>
       </div>
       <div class="s">
@@ -301,7 +301,7 @@ th:last-child,td:last-child{padding-right:0}
         <p>这就是我说"没有人计入定价"的意思。今天的市场在为一个软件市场估值；如果这条趋势线成立，实际形成的是一个<b>基础设施市场</b>——像清算所、像卡组织、像交易所那样，按流量而不是按席位收费。</p>
         <h3 class="sec" style="margin-top:5mm">本书的三个前提</h3>
         <p><b>前提一：模型能力会持续商品化。</b>我不假设任何一家公司在模型上取得持久领先。恰恰相反，本书的全部论证都建立在"模型会变成可替换输入"这个假设上。如果这个假设错了，本书的结论会显著弱化。</p>
-        <p><b>前提二：监管趋向收紧而非放松。</b>中国 2026 年的 32 项意见、美国的 FS AI RMF 与修订后的模型风险指南、欧盟的 AI Act 与 DORA，方向高度一致：按风险分级、覆盖全生命周期、要求可追溯。<span class="ref">[10][11][12][13]</span> 我假设这个方向延续。</p>
+        <p><b>前提二：监管趋向收紧而非放松。</b>中国 2026 年 6 月的 32 项指导意见、美国财政部 2026 年 2 月发布的 FS AI RMF（含 230 项控制目标）、欧盟的 AI Act 与 DORA，方向高度一致：按风险分级、覆盖全生命周期、要求可追溯。<span class="ref">[10][11][12][13]</span> 我假设这个方向延续。</p>
         <p><b>前提三：责任不会消失。</b>无论技术怎么变，金融业最终要回答"出事了谁赔"。任何绕开这个问题的产品设计，都会在进入核心流程时被挡住。</p>
       </div>
       <div class="s">
@@ -868,6 +868,7 @@ th:last-child,td:last-child{padding-right:0}
         <p>接入成本由四样东西构成，它们与算力毫无关系。<b>牌照</b>：发起资金动作通常需要资质，而资质的获取周期以年计。<b>清算网络</b>：接入需要对手方接受你，而对手方的接受取决于历史、规模与信任。<b>争议流程</b>：出错之后的处理能力是一整套组织能力，不是一个接口。<b>责任能力</b>：你得有资产负债表或保险去承担后果。</p>
         <p>这四样东西的成本曲线是<b>平的甚至向上的</b>——监管趋严会让牌照更贵、让责任要求更高。于是出现一个剪刀差：判断成本快速下降，接入成本不降反升。<em>剪刀差的两侧，就是价值转移的方向</em>。</p>
         <p>这解释了一个否则很难解释的现象。过去两年，模型能力最强的公司并没有在金融业获得对应的商业地位；反而是那些模型能力平平、但握有支付或账本接口的公司，把 AI 变成了收入。差别不在谁更聪明，在谁被允许动手。</p>
+        <p>网络的价值也体现在同一处。Stripe 称其网络上约 <b>92% 的交易来自它此前见过的卡</b>，模型训练于 70 万亿以上的数据点。<span class="ref">[18]</span> 这种数据不是买得到的——它是执行权持续运行的副产品。<em>一家公司必须先被允许动手，才能积累起让它继续被允许动手的证据</em>。</p>
         <p>由此可以推出一个对创业者相当残酷的结论：<b>如果你的产品价值完全来自判断质量，那么你正站在成本快速下降的那一侧</b>。你今天的优势会被下一代模型抹平，而你并没有在积累任何不随技术下降的资产。唯一的出路是尽快把判断接到某种执行或责任上——哪怕这意味着更慢、更重、更不性感。</p>
       </div>
       <div class="s">
@@ -933,7 +934,7 @@ th:last-child,td:last-child{padding-right:0}
           <td>记录与责任双强，短板是全球化与标准化外延</td></tr>
         <tr><td class="k">同花顺</td><td style="text-align:center">中</td><td style="text-align:center">强</td>
           <td style="text-align:center">弱</td><td style="text-align:center">中</td>
-          <td>有入口缺执行与责任，上限受制于流量变现</td></tr>
+          <td>有入口缺执行与责任；2025 年广告与互联网推广占其收入 57%，上限受制于流量变现<span class="ref">[23]</span></td></tr>
       </table>
       <div class="note">强弱为本书研究判断，依据公开披露的产品能力与业务结构，不构成评级。<span class="ref">[14][16][19][21][23][24]</span></div>
     </div>
@@ -959,7 +960,7 @@ th:last-child,td:last-child{padding-right:0}
     <div class="rail">
       <div class="m">
         <p>把同一套框架套到中国市场，会得到一个结构清晰但不对称的画面：<b>执行权极强，事实层薄弱，治理层在建</b>。</p>
-        <p><b>执行权是中国最厚的一层。</b>移动支付的渗透深度、场景密度和身份绑定程度在全球范围内都属领先。蚂蚁国际披露的 Alipay+ 等已覆盖 200 多个国家和地区，连接 1 亿以上商户与 17 亿消费者账户；支付 MCP 与 AI 钱包等尝试，方向明确指向把智能体接进资金动作。<span class="ref">[14][15][24]</span> 这是中国公司在本轮竞争中最真实的资产。</p>
+        <p><b>执行权是中国最厚的一层。</b>移动支付的渗透深度、场景密度和身份绑定程度在全球范围内都属领先；Alipay+ 通过与本地钱包和各国二维码标准互通，把这套执行能力延伸到了境外受理侧。支付 MCP 与 AI 钱包等尝试，方向明确指向把智能体接进资金动作。<span class="ref">[14][15][24]</span> 这是中国公司在本轮竞争中最真实的资产。</p>
         <p><b>事实层是最薄的一层。</b>企业侧的系统记录高度分散：财税、ERP、供应链、银行流水分属不同厂商，且渗透率远低于成熟市场的对应产品。这直接导致跨流程扩张的成本更高——你想串起对账到申报，可能要对接五套互不兼容的系统。这也是中国 AI 交付偏项目制、毛利偏低的结构性原因。</p>
         <p><b>治理层正在被监管快速塑形。</b>2026 年金融监管总局的 32 项意见，明确了"谁使用谁负责"、自主可控，以及覆盖需求、数据、开发、部署、运行、退出的全生命周期管理。<span class="ref">[10]</span> 这既是约束也是机会：<em>约束在于合规成本前置，机会在于它把治理能力变成了可以标价的产品</em>。</p>
         <p>三层放在一起，给出的战略含义相当具体。中国公司在执行层已经领先，不需要再证明；在事实层追赶的性价比不高，因为那是长期积累；<b>真正值得抢的是治理层</b>——它刚刚被监管定义出来，还没有在位者，而且一旦成型就会成为所有跨机构交易的必经环节。</p>
@@ -1049,7 +1050,7 @@ th:last-child,td:last-child{padding-right:0}
     <div class="rail">
       <div class="m">
         <p>单家机构的权限配置错误是产品缺陷，可以靠工程规范解决。真正难处理的是另一类问题：<b>整个行业依赖同一批供应商</b>。</p>
-        <p>金融稳定理事会已经明确提示了这一点：算力与模型供应的集中、对第三方的依赖、模型风险、数据质量、网络攻击，以及市场同质性。<span class="ref">[7][8]</span> 其中最容易被产品团队忽略的是最后一项——当大量机构使用相似的模型、相似的提示词、相似的数据源，它们的判断会同时出错，而且是<em>朝同一个方向</em>出错。</p>
+        <p>这不是一个理论担忧。英国监管调查显示，<b>三分之一的 AI 用例是第三方实现</b>，且其中 16% 被评为高重要性。<span class="ref">[4]</span> 金融稳定理事会也已明确提示：算力与模型供应的集中、对第三方的依赖、模型风险、数据质量、网络攻击，以及市场同质性。<span class="ref">[7][8]</span> 其中最容易被产品团队忽略的是最后一项——当大量机构使用相似的模型、相似的提示词、相似的数据源，它们的判断会同时出错，而且是<em>朝同一个方向</em>出错。</p>
         <p>这与传统的模型风险有本质区别。一个银行自研的信用模型失效，损失局限于这家银行；如果全行业的反欺诈系统都建立在同几个基础模型上，一次共同的失效模式就可能同时打开许多家的口子。金融业过去在评级机构、在风险模型上都经历过类似的教训。</p>
         <p>目前对这类风险的定价几乎是零。采购流程会评估供应商的财务稳定性和信息安全资质，但很少评估<b>"如果这家供应商同时服务了我的十个同业，会发生什么"</b>。这个问题短期内不会自发解决，因为它对任何单一买方都不是最优先的。</p>
         <p>我的判断是：<em>集中度将成为下一轮金融科技监管的重点议题之一，并且会以采购要求的形式落到供应商头上</em>。具体形态可能包括：要求模型来源多样性、要求可切换性证明、要求披露上游依赖、以及对关键第三方实施直接监管。对产品团队来说，这意味着"可替换性"会从一个谈判劣势变成一个卖点。</p>
@@ -1392,7 +1393,7 @@ th:last-child,td:last-child{padding-right:0}
       <div class="m">
         <p>金融监管很少直接禁止一项技术。它更常用的手段是<b>提高使用它的条件</b>——要求验证、要求留痕、要求资本、要求人审。效果上，这与部分禁止相似，但形式完全不同：技术不违法，只是使用它的成本被显著提高了。</p>
         <p>这个区别对产品团队至关重要。如果你预期的是禁令，你的应对是游说与观望；如果你预期的是准入条件，你的应对应该是<em>提前把条件做成功能</em>。后者是一个可以现在就动手的工程任务。</p>
-        <p>已经能看到这个形态的雏形。三地文件共同要求的那几项——分级、全生命周期、可追溯、第三方风险、人类监督——不是抽象原则，它们最终都会落成采购清单上的具体项目。<span class="ref">[10][11][12]</span> 一旦落成，不满足的供应商不是被罚款，而是<b>连投标资格都没有</b>。</p>
+        <p>已经能看到这个形态的雏形。美国财政部 2026 年 2 月发布的 FS AI RMF 本身不具法律约束力，却把 AI 治理拆成了<b>230 项控制目标</b>，按治理、映射、度量、管理四类排布。<span class="ref">[11]</span> 这类"软法"的真正作用不是处罚，而是定义了检查人员会问什么——而检查人员问什么，采购清单上就会写什么。三地文件共同要求的分级、全生命周期、可追溯、第三方风险与人类监督，最终都会落成清单上的具体项目。<span class="ref">[10][11][12]</span> 一旦落成，不满足的供应商不是被罚款，而是<b>连投标资格都没有</b>。</p>
         <p>这就是我说"洗牌在没有禁令的情况下发生"的意思。假设某年起，主要金融机构的招标文件统一要求提供：独立的评测报告、不可篡改的审计事件、细粒度权限模型、经过演练的回退方案、以及可执行的退出与数据返还条款。绝大多数今天活跃的 AI 供应商，会在这一页上直接出局——不是因为产品不好，而是因为这些东西从来不在他们的路线图上。</p>
         <p>反过来说，这也是本书认为最明确的一个机会。<b>准入条件是可以提前知道的</b>：监管文件已经公开，方向已经一致，剩下的只是把它们翻译成功能与文档。愿意在还没有人要求的时候就做完这件事的团队，会在洗牌那一刻拥有一个别人需要两年才能补上的差距。</p>
       </div>
@@ -1585,7 +1586,7 @@ th:last-child,td:last-child{padding-right:0}
 </section>
 
 <!-- ═════════ 附录 37 ═════════ -->
-<section class="pg" data-fit style="--fs:9.7pt">
+<section class="pg" data-fit style="--fs:9.4pt">
   <div class="rh"><span>附录</span><span><b>B</b> 资料来源</span></div>
   <div class="bd">
     <h2 class="ch">附录 B &nbsp;资料来源</h2>
@@ -1603,26 +1604,26 @@ th:last-child,td:last-child{padding-right:0}
         <tr><td class="k">[1]</td><td>毛泽东，《反对本本主义》，1930</td><td>方法论</td><td>调查方法</td></tr>
         <tr class="alt"><td class="k">[2]</td><td>毛泽东，《〈农村调查〉的序言和跋》，1941</td><td>方法论</td><td>调查方法</td></tr>
         <tr><td class="k">[3]</td><td>毛泽东，《实践论》，1937</td><td>方法论</td><td>判断方法</td></tr>
-        <tr class="alt"><td class="k">[4]</td><td>Bank of England / FCA, Artificial Intelligence in UK Financial Services, 2024</td><td>监管调查</td><td>采用率与渗透落差</td></tr>
+        <tr class="alt"><td class="k">[4]</td><td>BoE / FCA, AI in UK Financial Services, 2024（118 家机构）</td><td>监管调查</td><td>采用率与自主决策占比</td></tr>
         <tr><td class="k">[5]</td><td>World Economic Forum, Artificial Intelligence in Financial Services, 2025</td><td>国际组织</td><td>支出规模与方向</td></tr>
         <tr class="alt"><td class="k">[6]</td><td>BIS, Intelligent Financial System: How AI is Transforming Finance, 2024</td><td>国际组织</td><td>产业结构</td></tr>
         <tr><td class="k">[7]</td><td>Financial Stability Board, The Financial Stability Implications of AI, 2024</td><td>国际组织</td><td>系统性风险与同质化</td></tr>
         <tr class="alt"><td class="k">[8]</td><td>FSB, Sound Practices for Responsible Adoption of AI — Consultation, 2026</td><td>国际组织</td><td>治理实践</td></tr>
         <tr><td class="k">[9]</td><td>中国信通院，《数字金融创新发展研究报告（2025 年）》，2026</td><td>研究机构</td><td>中国产业现状</td></tr>
-        <tr class="alt"><td class="k">[10]</td><td>国家金融监督管理总局，《银行业保险业人工智能安全开发应用指导意见》，2026</td><td>法规</td><td>中国治理逻辑</td></tr>
-        <tr><td class="k">[11]</td><td>U.S. Treasury, Financial Services AI Risk Management Framework, 2026</td><td>监管框架</td><td>美国治理逻辑</td></tr>
+        <tr class="alt"><td class="k">[10]</td><td>国家金融监督管理总局，《关于银行业保险业人工智能安全开发应用的指导意见》，2026-06-18</td><td>监管文件</td><td>中国治理逻辑</td></tr>
+        <tr><td class="k">[11]</td><td>U.S. Treasury, Financial Services AI RMF ＋ AI Lexicon, 2026-02-19（230 项控制目标，非约束性）</td><td>监管框架</td><td>美国治理逻辑</td></tr>
         <tr class="alt"><td class="k">[12]</td><td>European Commission, AI Act — Regulatory Framework and Timeline, 2026</td><td>法规</td><td>欧盟风险分级</td></tr>
         <tr><td class="k">[13]</td><td>EUR-Lex, Digital Operational Resilience Act (DORA), applicable since 2025</td><td>法规</td><td>第三方与韧性</td></tr>
         <tr class="alt"><td class="k">[14]</td><td>蚂蚁集团，《2025 世界人工智能大会产品与技术进展》，2025</td><td>公司披露</td><td>代理支付方向</td></tr>
         <tr><td class="k">[15]</td><td>Ant Group, 2024 Sustainability Report Highlights, 2025</td><td>公司披露</td><td>全球覆盖规模</td></tr>
         <tr class="alt"><td class="k">[16]</td><td>Stripe, 2025 Annual Letter, 2026</td><td>公司披露</td><td>支付量与代理商务</td></tr>
-        <tr><td class="k">[17]</td><td>Stripe, Payments Intelligence Suite / Radar Outcomes, 2025</td><td>公司披露</td><td>风控结果数据</td></tr>
-        <tr class="alt"><td class="k">[18]</td><td>Stripe, Radar Product Facts, accessed 2026-09</td><td>官方产品页</td><td>网络数据规模</td></tr>
-        <tr><td class="k">[19]</td><td>Intuit, Fiscal 2026 Form 10-K, 2026</td><td>审计年报</td><td>收入与业务结构</td></tr>
+        <tr><td class="k">[17]</td><td>Stripe, 2025 Annual Letter：自适应受理于 2024 年恢复约 60 亿美元误拒交易</td><td>公司披露</td><td>误拒恢复数据</td></tr>
+        <tr class="alt"><td class="k">[18]</td><td>Stripe, Radar 产品页，2026-09：70 万亿+ 数据点、平均减少 32% 欺诈</td><td>官方产品页</td><td>网络数据规模</td></tr>
+        <tr><td class="k">[19]</td><td>Intuit, FY2026 全年业绩公告，2026-08-25：收入 $21.4B（+14%）</td><td>公司财报</td><td>收入与业务结构</td></tr>
         <tr class="alt"><td class="k">[20]</td><td>Intuit, Virtual Team of AI Agents for QuickBooks, 2025</td><td>官方产品页</td><td>Agent 与专家复核</td></tr>
         <tr><td class="k">[21]</td><td>Bloomberg Professional, AI on Bloomberg / ASKB, accessed 2026-09</td><td>官方产品页</td><td>数据与工作流</td></tr>
         <tr class="alt"><td class="k">[22]</td><td>Wu et al., BloombergGPT: A Large Language Model for Finance, arXiv, 2023</td><td>学术</td><td>领域模型先发认知</td></tr>
-        <tr><td class="k">[23]</td><td>同花顺，《2025 年年度报告摘要》，2026</td><td>审计年报</td><td>中国投研与评测资产</td></tr>
+        <tr><td class="k">[23]</td><td>同花顺，《2025 年年度报告》，2026：收入 60.29 亿元、归母净利 32.05 亿元</td><td>审计年报</td><td>中国投研与评测资产</td></tr>
         <tr class="alt"><td class="k">[24]</td><td>蚂蚁集团，公司主页：AI 支付与集团业务事实，访问于 2026-09</td><td>官方产品页</td><td>支付 MCP 与 AI 钱包</td></tr>
       </table>
     </div>
