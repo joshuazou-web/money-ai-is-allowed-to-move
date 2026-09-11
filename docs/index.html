@@ -14,7 +14,7 @@
   --line:#E3E8EC; --line2:#C7D1D8;
   --teal:#0B6157; --tealL:#EDF4F2; --tealD:#07443E;
   --rust:#A94D17; --rustL:#FBF2EA;
-  --bg:#fff; --card:#fff; --tint:#F7F9F9;
+  --bg:#F2F4F5; --card:#fff; --tint:#F7F9F9; --paper:#FFFDFA; --edge:#D9E0E4;
 }
 @media (prefers-color-scheme:dark){
   :root{
@@ -22,7 +22,7 @@
     --line:#233240; --line2:#33485A;
     --teal:#5FBFAE; --tealL:#13302D; --tealD:#8FD8C9;
     --rust:#E09055; --rustL:#33221492;
-    --bg:#0C151E; --card:#111C27; --tint:#101A24;
+    --bg:#080F16; --card:#111C27; --tint:#101A24; --paper:#131E29; --edge:#2A3B4A;
   }
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -38,14 +38,34 @@ body{
 a{color:var(--teal)}
 
 /* hero */
-header{border-top:6px solid var(--teal);padding:64px 0 0}
+header{border-top:5px solid var(--teal);padding:0;background:var(--bg)}
+.wrap.hero{padding-top:46px;padding-bottom:8px}
+
+/* ── 封面：做成一本有装帧的书 ── */
+.cover{position:relative;background:var(--paper);border:1px solid var(--edge);
+  border-radius:3px 6px 6px 3px;overflow:hidden;
+  box-shadow:0 1px 1px rgba(16,31,51,.05), 0 2px 4px rgba(16,31,51,.05),
+             0 18px 38px -14px rgba(16,31,51,.28);}
+.cover::before{content:"";position:absolute;left:0;top:0;bottom:0;width:11px;
+  background:linear-gradient(90deg,var(--tealD) 0%,var(--teal) 46%,rgba(0,0,0,.16) 88%,transparent 100%)}
+.cover::after{content:"";position:absolute;left:11px;top:0;bottom:0;width:14px;
+  background:linear-gradient(90deg,rgba(16,31,51,.055),transparent);pointer-events:none}
+.cover-in{padding:56px 52px 30px 68px}
+@media(max-width:640px){.cover-in{padding:38px 24px 22px 34px}.cover::before{width:8px}.cover::after{left:8px;width:10px}}
+.cover .rule{margin:26px 0 24px}
+.byline{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  border-top:1px solid var(--line);margin-top:30px;padding-top:16px}
+.byline b{font-size:16px;font-weight:800;letter-spacing:.01em;display:block;color:var(--ink)}
+.byline span{font-size:12.5px;color:var(--mute);display:block;margin-top:3px}
+.byline .ed{font-size:12px;color:var(--faint);text-align:right;line-height:1.6}
+@media(max-width:640px){.byline .ed{text-align:left}}
 .kicker{font-size:12px;font-weight:700;letter-spacing:.22em;color:var(--teal);margin-bottom:22px}
 h1{font-size:clamp(38px,9vw,60px);font-weight:800;letter-spacing:-.03em;line-height:1.06}
 .sub{font-size:clamp(18px,4.4vw,24px);font-weight:600;color:var(--ink2);margin-top:10px;letter-spacing:-.01em}
 .rule{width:64px;height:3px;background:var(--teal);margin:30px 0}
 .thesis{font-size:clamp(18px,4.2vw,21px);font-weight:600;line-height:1.62}
 .thesis em{font-style:normal;color:var(--teal)}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin:34px 0 8px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 8px;align-items:center}
 .btn{display:inline-block;padding:13px 22px;border-radius:9px;font-size:15px;font-weight:700;
   text-decoration:none;border:1.5px solid var(--teal)}
 .btn.p{background:var(--teal);color:#fff}
@@ -54,13 +74,18 @@ h1{font-size:clamp(38px,9vw,60px);font-weight:800;letter-spacing:-.03em;line-hei
 .meta{font-size:13px;color:var(--mute);margin-top:14px}
 
 /* numbers */
-.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;
-  background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:52px 0}
-.nums div{background:var(--card);padding:20px 18px}
-.nums b{display:block;font-size:30px;font-weight:800;color:var(--teal);letter-spacing:-.02em;line-height:1.1}
-.nums span{display:block;font-size:13.5px;font-weight:700;margin-top:6px}
-.nums i{display:block;font-style:normal;font-size:12.5px;color:var(--mute);line-height:1.5;margin-top:4px}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:24px 16px;
+  border-top:1px solid var(--line);padding-top:22px;margin-top:34px}
+@media(max-width:640px){.nums{grid-template-columns:repeat(2,1fr);gap:20px 14px}}
+.nums div{padding:0}
+.nums b{display:block;font-size:25px;font-weight:800;color:var(--teal);letter-spacing:-.02em;line-height:1.1}
+.nums span{display:block;font-size:12.5px;font-weight:700;margin-top:6px;line-height:1.4}
+.nums i{display:block;font-style:normal;font-size:11.5px;color:var(--mute);line-height:1.45;margin-top:4px}
 
+.sheet{background:var(--card);border:1px solid var(--line);border-radius:6px;
+  margin:40px 0 56px;padding:8px 46px 30px;
+  box-shadow:0 1px 2px rgba(16,31,51,.04), 0 10px 26px -18px rgba(16,31,51,.22)}
+@media(max-width:640px){.sheet{padding:4px 22px 22px;margin:28px 0 40px;border-radius:4px}}
 section{padding:14px 0 46px}
 h2{font-size:clamp(23px,5.2vw,29px);font-weight:800;letter-spacing:-.02em;margin:44px 0 18px;line-height:1.25}
 h3{font-size:18px;font-weight:700;margin:30px 0 10px}
@@ -104,7 +129,7 @@ ol.bets .tm{font-size:12.5px;font-weight:700;color:var(--teal);letter-spacing:.0
 
 .note{font-size:13.5px;color:var(--mute);background:var(--tint);border:1px solid var(--line);
   border-radius:10px;padding:16px 18px;line-height:1.65;margin:22px 0}
-footer{border-top:1px solid var(--line);margin-top:40px;padding:30px 0 64px;font-size:13.5px;color:var(--mute)}
+footer{border-top:1px solid var(--edge);margin-top:40px;padding:30px 0 64px;font-size:13.5px;color:var(--mute)}
 footer b{color:var(--ink)}
 footer a{text-decoration:none}
 </style>
@@ -112,29 +137,39 @@ footer a{text-decoration:none}
 <body>
 
 <header>
-  <div class="wrap">
-    <div class="kicker">产业推演 · 2026 — 2035</div>
-    <h1>被允许动的钱</h1>
-    <div class="sub">金融科技的下一个十年</div>
-    <div class="rule"></div>
-    <p class="thesis">过去十年，AI 在金融业被允许动的钱一直是零。<br>
-      这个数字正在离开零——<em>而几乎没有人把它计入定价。</em></p>
+  <div class="wrap hero">
+    <article class="cover">
+      <div class="cover-in">
+        <div class="kicker">产业推演 · 2026 — 2035</div>
+        <h1>被允许动的钱</h1>
+        <div class="sub">金融科技的下一个十年</div>
+        <div class="rule"></div>
+        <p class="thesis">过去十年，AI 在金融业被允许动的钱一直是零。<br>
+          这个数字正在离开零——<em>而几乎没有人把它计入定价。</em></p>
+
+        <div class="nums">
+          <div><b>75%</b><span>机构已使用 AI</span><i>但基础模型只占用例 17%</i></div>
+          <div><b>2%</b><span>用例完全自主决策</span><i>其余都有人在回路里</i></div>
+          <div><b>62%</b><span>用例被自评为低重要性</span><i>渗透在周边，不在核心</i></div>
+          <div><b>≈ 0</b><span>可无人复核托付的金额</span><i>本书的核心变量</i></div>
+        </div>
+
+        <div class="byline">
+          <div><b>邹志华</b><span>与 Claude（Anthropic）共同撰写</span></div>
+          <div class="ed">第一版 · 2026 年 9 月<br>资料截至 2026-09-10</div>
+        </div>
+      </div>
+    </article>
+
     <div class="cta">
       <a class="btn p" href="被允许动的钱_金融科技的下一个十年.pdf">读全文 · PDF 40 页</a>
       <a class="btn s" href="https://github.com/joshuazou-web/money-ai-is-allowed-to-move">GitHub 仓库</a>
     </div>
-    <div class="meta">邹志华，与 Claude（Anthropic）共同撰写 · 第一版 2026 年 9 月 · 资料截至 2026-09-10</div>
   </div>
 </header>
 
 <div class="wrap">
-
-  <div class="nums">
-    <div><b>75%</b><span>机构已使用 AI</span><i>但基础模型只占用例 17%</i></div>
-    <div><b>2%</b><span>用例完全自主决策</span><i>其余都有人在回路里</i></div>
-    <div><b>62%</b><span>用例被自评为低重要性</span><i>渗透在周边，不在核心</i></div>
-    <div><b>≈ 0</b><span>当前可无人复核托付的金额</span><i>本书的核心变量</i></div>
-  </div>
+  <div class="sheet">
 
   <section>
     <h2>为什么跟踪这条线，而不是模型能力</h2>
@@ -238,6 +273,7 @@ footer a{text-decoration:none}
     </div>
   </section>
 
+  </div>
 </div>
 
 <footer><div class="wrap">
