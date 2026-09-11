@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>被允许动的钱：金融科技的下一个十年</title>
+<meta name="description" content="一份 39 页的独立产业推演。全文只跟踪一条趋势线：一个 AI 系统在无人逐笔复核的前提下，被允许动多少钱。">
+<meta property="og:title" content="被允许动的钱：金融科技的下一个十年">
+<meta property="og:description" content="过去十年，AI 在金融业被允许动的钱一直是零。这个数字正在离开零——而几乎没有人把它计入定价。">
+<meta property="og:type" content="article">
+<style>
+:root{
+  --ink:#101F33; --ink2:#2E4056; --mute:#66788A; --faint:#93A2AF;
+  --line:#E3E8EC; --line2:#C7D1D8;
+  --teal:#0B6157; --tealL:#EDF4F2; --tealD:#07443E;
+  --rust:#A94D17; --rustL:#FBF2EA;
+  --bg:#fff; --card:#fff; --tint:#F7F9F9;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --ink:#E8EDF2; --ink2:#B6C3CF; --mute:#8698A6; --faint:#6B7C8A;
+    --line:#233240; --line2:#33485A;
+    --teal:#5FBFAE; --tealL:#13302D; --tealD:#8FD8C9;
+    --rust:#E09055; --rustL:#33221492;
+    --bg:#0C151E; --card:#111C27; --tint:#101A24;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB",
+    "Source Han Sans SC","Noto Sans SC","Microsoft YaHei",sans-serif;
+  background:var(--bg); color:var(--ink);
+  font-size:17px; line-height:1.78; font-variant-numeric:tabular-nums;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:720px;margin:0 auto;padding:0 22px}
+a{color:var(--teal)}
+
+/* hero */
+header{border-top:6px solid var(--teal);padding:64px 0 0}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.22em;color:var(--teal);margin-bottom:22px}
+h1{font-size:clamp(38px,9vw,60px);font-weight:800;letter-spacing:-.03em;line-height:1.06}
+.sub{font-size:clamp(18px,4.4vw,24px);font-weight:600;color:var(--ink2);margin-top:10px;letter-spacing:-.01em}
+.rule{width:64px;height:3px;background:var(--teal);margin:30px 0}
+.thesis{font-size:clamp(18px,4.2vw,21px);font-weight:600;line-height:1.62}
+.thesis em{font-style:normal;color:var(--teal)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin:34px 0 8px}
+.btn{display:inline-block;padding:13px 22px;border-radius:9px;font-size:15px;font-weight:700;
+  text-decoration:none;border:1.5px solid var(--teal)}
+.btn.p{background:var(--teal);color:#fff}
+@media (prefers-color-scheme:dark){.btn.p{color:#08171A}}
+.btn.s{color:var(--teal)}
+.meta{font-size:13px;color:var(--mute);margin-top:14px}
+
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:52px 0}
+.nums div{background:var(--card);padding:20px 18px}
+.nums b{display:block;font-size:30px;font-weight:800;color:var(--teal);letter-spacing:-.02em;line-height:1.1}
+.nums span{display:block;font-size:13.5px;font-weight:700;margin-top:6px}
+.nums i{display:block;font-style:normal;font-size:12.5px;color:var(--mute);line-height:1.5;margin-top:4px}
+
+section{padding:14px 0 46px}
+h2{font-size:clamp(23px,5.2vw,29px);font-weight:800;letter-spacing:-.02em;margin:44px 0 18px;line-height:1.25}
+h3{font-size:18px;font-weight:700;margin:30px 0 10px}
+p{margin-bottom:18px;color:var(--ink2)}
+p strong,li strong{color:var(--ink);font-weight:700}
+mark{background:linear-gradient(transparent 60%,var(--tealL) 60%);color:inherit;font-weight:600}
+
+.pull{border-left:4px solid var(--teal);background:var(--tealL);padding:20px 24px;
+  border-radius:0 10px 10px 0;margin:28px 0}
+.pull p{margin:0;font-size:19px;font-weight:700;color:var(--tealD);line-height:1.55}
+
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:22px 0}
+th{text-align:left;font-size:12px;letter-spacing:.06em;color:var(--mute);font-weight:700;
+  padding:0 12px 9px 0;border-bottom:2px solid var(--ink)}
+td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);color:var(--ink2);vertical-align:top;line-height:1.55}
+td:first-child{color:var(--ink);font-weight:700;white-space:nowrap}
+th:last-child,td:last-child{padding-right:0}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* ladder */
+.ladder{display:grid;gap:10px;margin:26px 0}
+.lv{display:grid;grid-template-columns:60px 1fr;gap:16px;align-items:start;
+  border:1px solid var(--line);border-left:4px solid var(--line2);border-radius:10px;padding:15px 18px;background:var(--card)}
+.lv.now{border-left-color:var(--teal);background:var(--tealL)}
+.lv.next{border-left-color:var(--rust)}
+.lv b{font-size:16px;font-weight:800;color:var(--teal)}
+.lv .n{font-size:16px;font-weight:700;display:block;margin-bottom:3px}
+.lv .d{font-size:14px;color:var(--mute);line-height:1.55}
+.lv .t{font-size:12.5px;color:var(--faint);margin-top:5px}
+
+/* bets */
+ol.bets{list-style:none;counter-reset:b;margin:22px 0}
+ol.bets li{counter-increment:b;position:relative;padding:16px 0 16px 46px;border-top:1px solid var(--line)}
+ol.bets li:last-child{border-bottom:1px solid var(--line)}
+ol.bets li::before{content:counter(b);position:absolute;left:0;top:16px;width:28px;height:28px;
+  border-radius:50%;background:var(--tealL);color:var(--tealD);font-size:13px;font-weight:800;
+  display:flex;align-items:center;justify-content:center}
+ol.bets .h{font-weight:700;font-size:16.5px;display:block;margin-bottom:3px}
+ol.bets .w{font-size:13.5px;color:var(--mute);line-height:1.55}
+ol.bets .tm{font-size:12.5px;font-weight:700;color:var(--teal);letter-spacing:.03em;margin-top:5px;display:block}
+
+.note{font-size:13.5px;color:var(--mute);background:var(--tint);border:1px solid var(--line);
+  border-radius:10px;padding:16px 18px;line-height:1.65;margin:22px 0}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:30px 0 64px;font-size:13.5px;color:var(--mute)}
+footer b{color:var(--ink)}
+footer a{text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">产业推演 · 2026 — 2035</div>
+    <h1>被允许动的钱</h1>
+    <div class="sub">金融科技的下一个十年</div>
+    <div class="rule"></div>
+    <p class="thesis">过去十年，AI 在金融业被允许动的钱一直是零。<br>
+      这个数字正在离开零——<em>而几乎没有人把它计入定价。</em></p>
+    <div class="cta">
+      <a class="btn p" href="被允许动的钱_金融科技的下一个十年.pdf">读全文 · PDF 39 页</a>
+      <a class="btn s" href="https://github.com/joshuazou-web/money-ai-is-allowed-to-move">GitHub 仓库</a>
+    </div>
+    <div class="meta">邹志华，与 Claude（Anthropic）共同撰写 · 第一版 2026 年 9 月 · 资料截至 2026-09-10</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="nums">
+    <div><b>75%</b><span>机构已使用 AI</span><i>但基础模型只占用例 17%</i></div>
+    <div><b>2%</b><span>用例完全自主决策</span><i>其余都有人在回路里</i></div>
+    <div><b>62%</b><span>用例被自评为低重要性</span><i>渗透在周边，不在核心</i></div>
+    <div><b>≈ 0</b><span>当前可无人复核托付的金额</span><i>本书的核心变量</i></div>
+  </div>
+
+  <section>
+    <h2>为什么跟踪这条线，而不是模型能力</h2>
+    <p>公开讨论几乎全部集中在「模型什么时候能超过人类分析师」。这是个错误的问题。金融业从来不缺聪明的判断，缺的是<strong>敢把判断变成动作的授权</strong>。</p>
+    <p>英国央行与 FCA 在 2024 年对 118 家机构做过一次调查。被反复引用的是 75% 已使用 AI，但同一份调查里还有三个数字几乎没人提：基础模型只占全部用例的 17%；55% 的用例含某种程度的自动化决策，而<mark>完全自主决策的只有 2%</mark>；62% 的用例被机构自己评为低重要性。</p>
+    <p>把它们放在一起，结论和「全面拥抱」正好相反：AI 已经渗透进金融业的<strong>周边</strong>，还没有进入<strong>核心</strong>。它在写文案、做客服、辅助开发，但它不批贷款、不下单、不划账、不签申报表。</p>
+    <p>这不是因为模型不够聪明。真正的障碍在别处：没有人愿意为一个无法解释、无法追溯、无法赔付的系统承担后果。</p>
+    <div class="pull"><p>一个 AI 系统，在没有人逐笔复核的前提下，被允许动多少钱？</p></div>
+    <p>这条线值得跟踪，因为它<strong>可验证</strong>——招标文件、合同条款与事故披露会把它写出来；它<strong>决定收入结构</strong>——能动钱的系统按结果计价，不能动钱的按席位计价，两者相差一个数量级；它<strong>非线性</strong>——解锁一级需要治理、责任与保险同时到位，因此长期停滞、然后台阶式跳跃。</p>
+  </section>
+
+  <section>
+    <h2>核心框架：自动化深度 L0—L4</h2>
+    <p>划分依据不是模型能力，而是三个可观察的事实：能否自主产出结论、能否自主执行、后果由谁承担。</p>
+    <div class="ladder">
+      <div class="lv"><b>L0</b><div><span class="n">观察</span>
+        <span class="d">只读与整理，不产出面向业务的结论。可托付金额：0</span>
+        <span class="t">已普及</span></div></div>
+      <div class="lv"><b>L1</b><div><span class="n">建议</span>
+        <span class="d">产出结论，但每一条都由人逐条采纳。ROI 无法归因，因此最难卖第二年。</span>
+        <span class="t">2023 — 2025 的主流形态</span></div></div>
+      <div class="lv now"><b>L2</b><div><span class="n">受限执行</span>
+        <span class="d">在额度、白名单与场景边界内自动执行，人事后抽检。<strong>这是「零」被打破的那一级。</strong></span>
+        <span class="t">2026 — 2028 落地 · 当前前沿</span></div></div>
+      <div class="lv next"><b>L3</b><div><span class="n">有条件自治</span>
+        <span class="d">默认自动执行，异常才转人工；机构为结果配置准备金或保险。</span>
+        <span class="t">2029 — 2033 首现</span></div></div>
+      <div class="lv"><b>L4</b><div><span class="n">全自治</span>
+        <span class="d">无预设额度边界，系统之间跨机构协商与执行。</span>
+        <span class="t">2035 年前不会成为主流</span></div></div>
+    </div>
+    <div class="note"><strong>为什么是台阶而不是斜坡：</strong>责任、保险与审计三者都不接受连续取值——法律不认「百分之七十由系统负责」，没有事故数据就没有精算，审计师给不出「部分合规」的意见。每一次跃迁都需要一次明确的<strong>责任转移</strong>。因此该盯的不是模型发布会，是责任条款的措辞变化。</div>
+  </section>
+
+  <section>
+    <h2>四种控制权</h2>
+    <p>接入成本可以拆成四种能被分别持有、也能被分别夺走的权利。它们的组合决定一家公司能收租还是只能接单。</p>
+    <div class="scroll"><table>
+      <tr><th>控制权</th><th>是什么</th><th>怎么验证你真的有</th></tr>
+      <tr><td>数据权</td><td>持续回流的结果标签，而非买来的静态语料</td><td>停止经营后，这份数据会不会立刻变旧？</td></tr>
+      <tr><td>入口权</td><td>某类业务事实的权威存放位置</td><td>客户换掉你，要迁移多少年的历史与配置？</td></tr>
+      <tr><td>执行权</td><td>不经第三方即可发起真实资金或申报动作</td><td>你的结论能否不经别人的系统就变成一次动作？</td></tr>
+      <tr><td>责任权</td><td>出事后可完整举证并承担损失</td><td>你能否在监管面前复现决策链，并说明谁赔？</td></tr>
+    </table></div>
+    <p>模型进步降低的是<strong>判断成本</strong>，不是<strong>接入成本</strong>。后者由牌照、清算网络、争议流程与责任能力构成，随监管趋严不降反升。这道剪刀差的两侧，就是价值转移的方向。</p>
+  </section>
+
+  <section>
+    <h2>六个赌注</h2>
+    <p>每条都有时点与证伪条件。<strong>如果证伪条件先出现，正确的做法是推翻它，而不是解释它。</strong></p>
+    <ol class="bets">
+      <li><span class="h">治理栈会先于模型能力成为采购门槛</span>
+        <span class="w">评测、日志、权限、回退与退出以独立条款进入招标，不满足者失去投标资格。</span>
+        <span class="tm">2026 — 2028 · 高置信</span></li>
+      <li><span class="h">可托付金额会在若干场景明确离开零</span>
+        <span class="w">退款、对账、催收或反欺诈中至少一类，出现带额度与回滚的无人逐笔复核执行。</span>
+        <span class="tm">2026 — 2029 · 高置信</span></li>
+      <li><span class="h">强制事故披露会先于保险产品出现</span>
+        <span class="w">监管要求报告 AI 生产事故并共享失败模式，随后才有可承保的 AI 决策责任险。</span>
+        <span class="tm">2027 — 2031 · 中置信</span></li>
+      <li><span class="h">代理支付将长期多标准并存</span>
+        <span class="w">授权语义与拒付责任十年内不会统一，跨生态互认停留在双边协议层面。</span>
+        <span class="tm">2027 — 2035 · 中置信</span></li>
+      <li><span class="h">价值向执行层、事实层与治理层三分</span>
+        <span class="w">不会出现单一的金融 AI 操作系统；治理层最晚成型，也最被低估。</span>
+        <span class="tm">2028 — 2035 · 中置信</span></li>
+      <li><span class="h">全面自主金融不会在 2035 年前成为主流</span>
+        <span class="w">无人复核的授信、投顾与交易执行将长期保持额度与场景边界。</span>
+        <span class="tm">2030 — 2035 · 高置信</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>全书结构</h2>
+    <div class="scroll"><table>
+      <tr><th>章</th><th>标题</th><th>要回答的问题</th></tr>
+      <tr><td>前言</td><td>一个一直是零的数字</td><td>为什么「模型多强」是错误的问题</td></tr>
+      <tr><td>一</td><td>闭环的五级阶梯</td><td>五级框架各由什么解锁，六类场景现在各在哪一级</td></tr>
+      <tr><td>二</td><td>从执行体到金融操作系统</td><td>当机器成为客户，结算、身份与定价如何被重排</td></tr>
+      <tr><td>三 a</td><td>争夺轨道</td><td>判断成本崩塌与接入成本上升之间的剪刀差</td></tr>
+      <tr><td>三 b</td><td>锁住账本</td><td>数据权利、权限与供应链集中度</td></tr>
+      <tr><td>三 c</td><td>可托付性问题</td><td>让不可靠的组件在可靠的结构里工作：五个组件</td></tr>
+      <tr><td>三 d</td><td>标准之争</td><td>代理支付的授权语义、拒付责任与跨境互认</td></tr>
+      <tr><td>四</td><td>监管入场的形态</td><td>不是禁止，是采购准入</td></tr>
+      <tr><td>五</td><td>六个赌注</td><td>如果你在 2026 年做产品，具体该押什么</td></tr>
+      <tr><td>附录</td><td>跟踪清单 · 来源 · 方法</td><td>十个季度信号、24 条来源、证据折价规则</td></tr>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>方法与边界</h2>
+    <p>先用监管文件、审计年报与国际组织报告确定「已经发生了什么」，再在事实上做条件推演，并为每条推演给出可观察的触发与证伪条件。无法被证伪的主张，尽量不写。</p>
+    <div class="note"><strong>证据折价规则：</strong>公司自报的效率提升只用于判断方向；未经审计的收入与用户数不进入结构性结论；媒体估值与融资传闻完全不采用；产品发布数量不计入商业证明；「覆盖机构数」不等同于付费渗透率。<br><br>
+      <strong>已知的三个盲区：</strong>几乎未讨论保险业；假设了渐进的地缘环境；以机构视角为主，消费者接受度被当作外生变量。<br><br>
+      本书不构成投资建议。所有公司事实均来自公开披露，不含未公开信息。</div>
+    <div class="cta">
+      <a class="btn p" href="被允许动的钱_金融科技的下一个十年.pdf">读全文 · PDF 39 页</a>
+      <a class="btn s" href="https://github.com/joshuazou-web/money-ai-is-allowed-to-move">GitHub 仓库</a>
+    </div>
+  </section>
+
+</div>
+
+<footer><div class="wrap">
+  <b>被允许动的钱：金融科技的下一个十年</b><br>
+  邹志华，与 Claude（Anthropic）共同撰写。框架、判断与结论由作者确定，结构化写作与排版由 AI 协作完成，事实与推演经作者核对。<br><br>
+  第一版 · 2026 年 9 月 · 资料截至 2026-09-10 · <a href="https://github.com/joshuazou-web/money-ai-is-allowed-to-move">github.com/joshuazou-web/money-ai-is-allowed-to-move</a>
+</div></footer>
+
+</body>
+</html>
