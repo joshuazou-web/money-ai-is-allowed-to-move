@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Money AI Is Allowed to Move: Fintech's Next Decade</title>
+<meta name="description" content="A 40-page independent industry projection that tracks one line: how much money an AI system is allowed to move without a human reviewing each transaction.">
+<meta property="og:title" content="The Money AI Is Allowed to Move: Fintech's Next Decade">
+<meta property="og:description" content="For a decade, the amount of money AI has been allowed to move in finance has been zero. It is leaving zero now, and almost nobody is pricing it in.">
+<meta property="og:type" content="article">
+<link rel="alternate" hreflang="zh-CN" href="../">
+<style>
+:root{
+  --ink:#101F33; --ink2:#2E4056; --mute:#66788A; --faint:#93A2AF;
+  --line:#E3E8EC; --line2:#C7D1D8;
+  --teal:#0B6157; --tealL:#EDF4F2; --tealD:#07443E;
+  --rust:#A94D17; --rustL:#FBF2EA;
+  --bg:#F2F4F5; --card:#fff; --tint:#F7F9F9; --paper:#FFFDFA; --edge:#D9E0E4;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --ink:#E8EDF2; --ink2:#B6C3CF; --mute:#8698A6; --faint:#6B7C8A;
+    --line:#233240; --line2:#33485A;
+    --teal:#5FBFAE; --tealL:#13302D; --tealD:#8FD8C9;
+    --rust:#E09055; --rustL:#33221492;
+    --bg:#080F16; --card:#111C27; --tint:#101A24; --paper:#131E29; --edge:#2A3B4A;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB",
+    "Source Han Sans SC","Noto Sans SC","Microsoft YaHei",sans-serif;
+  background:var(--bg); color:var(--ink);
+  font-size:17px; line-height:1.65; font-variant-numeric:tabular-nums;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:720px;margin:0 auto;padding:0 22px}
+a{color:var(--teal)}
+
+/* hero */
+header{border-top:5px solid var(--teal);padding:0;background:var(--bg)}
+.wrap.hero{padding-top:46px;padding-bottom:8px}
+
+/* ── 封面：做成一本有装帧的书 ── */
+.cover{position:relative;background:var(--paper);border:1px solid var(--edge);
+  border-radius:3px 6px 6px 3px;overflow:hidden;
+  box-shadow:0 1px 1px rgba(16,31,51,.05), 0 2px 4px rgba(16,31,51,.05),
+             0 18px 38px -14px rgba(16,31,51,.28);}
+.cover::before{content:"";position:absolute;left:0;top:0;bottom:0;width:11px;
+  background:linear-gradient(90deg,var(--tealD) 0%,var(--teal) 46%,rgba(0,0,0,.16) 88%,transparent 100%)}
+.cover::after{content:"";position:absolute;left:11px;top:0;bottom:0;width:14px;
+  background:linear-gradient(90deg,rgba(16,31,51,.055),transparent);pointer-events:none}
+.cover-in{padding:56px 52px 30px 68px}
+@media(max-width:640px){.cover-in{padding:38px 24px 22px 34px}.cover::before{width:8px}.cover::after{left:8px;width:10px}}
+.cover .rule{margin:26px 0 24px}
+.byline{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  border-top:1px solid var(--line);margin-top:30px;padding-top:16px}
+.byline b{font-size:16px;font-weight:800;letter-spacing:.01em;display:block;color:var(--ink)}
+.byline span{font-size:12.5px;color:var(--mute);display:block;margin-top:3px}
+.byline .ed{font-size:12px;color:var(--faint);text-align:right;line-height:1.6}
+@media(max-width:640px){.byline .ed{text-align:left}}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.22em;color:var(--teal);margin-bottom:22px}
+h1{font-size:clamp(38px,9vw,60px);font-weight:800;letter-spacing:-.03em;line-height:1.06}
+.sub{font-size:clamp(18px,4.4vw,24px);font-weight:600;color:var(--ink2);margin-top:10px;letter-spacing:-.01em}
+.rule{width:64px;height:3px;background:var(--teal);margin:30px 0}
+.thesis{font-size:clamp(18px,4.2vw,21px);font-weight:600;line-height:1.62}
+.thesis em{font-style:normal;color:var(--teal)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 8px;align-items:center}
+.btn{display:inline-block;padding:13px 22px;border-radius:9px;font-size:15px;font-weight:700;
+  text-decoration:none;border:1.5px solid var(--teal)}
+.btn.p{background:var(--teal);color:#fff}
+@media (prefers-color-scheme:dark){.btn.p{color:#08171A}}
+.btn.s{color:var(--teal)}
+.meta{font-size:13px;color:var(--mute);margin-top:14px}
+
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:24px 16px;
+  border-top:1px solid var(--line);padding-top:22px;margin-top:34px}
+@media(max-width:640px){.nums{grid-template-columns:repeat(2,1fr);gap:20px 14px}}
+.nums div{padding:0}
+.nums b{display:block;font-size:25px;font-weight:800;color:var(--teal);letter-spacing:-.02em;line-height:1.1}
+.nums span{display:block;font-size:12.5px;font-weight:700;margin-top:6px;line-height:1.4}
+.nums i{display:block;font-style:normal;font-size:11.5px;color:var(--mute);line-height:1.45;margin-top:4px}
+
+.sheet{background:var(--card);border:1px solid var(--line);border-radius:6px;
+  margin:40px 0 56px;padding:8px 46px 30px;
+  box-shadow:0 1px 2px rgba(16,31,51,.04), 0 10px 26px -18px rgba(16,31,51,.22)}
+@media(max-width:640px){.sheet{padding:4px 22px 22px;margin:28px 0 40px;border-radius:4px}}
+section{padding:14px 0 46px}
+h2{font-size:clamp(23px,5.2vw,29px);font-weight:800;letter-spacing:-.02em;margin:44px 0 18px;line-height:1.25}
+h3{font-size:18px;font-weight:700;margin:30px 0 10px}
+p{margin-bottom:18px;color:var(--ink2)}
+p strong,li strong{color:var(--ink);font-weight:700}
+mark{background:linear-gradient(transparent 60%,var(--tealL) 60%);color:inherit;font-weight:600}
+
+.pull{border-left:4px solid var(--teal);background:var(--tealL);padding:20px 24px;
+  border-radius:0 10px 10px 0;margin:28px 0}
+.pull p{margin:0;font-size:19px;font-weight:700;color:var(--tealD);line-height:1.55}
+
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:22px 0}
+th{text-align:left;font-size:12px;letter-spacing:.06em;color:var(--mute);font-weight:700;
+  padding:0 12px 9px 0;border-bottom:2px solid var(--ink)}
+td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);color:var(--ink2);vertical-align:top;line-height:1.55}
+td:first-child{color:var(--ink);font-weight:700;white-space:nowrap}
+th:last-child,td:last-child{padding-right:0}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* ladder */
+.ladder{display:grid;gap:10px;margin:26px 0}
+.lv{display:grid;grid-template-columns:60px 1fr;gap:16px;align-items:start;
+  border:1px solid var(--line);border-left:4px solid var(--line2);border-radius:10px;padding:15px 18px;background:var(--card)}
+.lv.now{border-left-color:var(--teal);background:var(--tealL)}
+.lv.next{border-left-color:var(--rust)}
+.lv b{font-size:16px;font-weight:800;color:var(--teal)}
+.lv .n{font-size:16px;font-weight:700;display:block;margin-bottom:3px}
+.lv .d{font-size:14px;color:var(--mute);line-height:1.55}
+.lv .t{font-size:12.5px;color:var(--faint);margin-top:5px}
+
+/* bets */
+ol.bets{list-style:none;counter-reset:b;margin:22px 0}
+ol.bets li{counter-increment:b;position:relative;padding:16px 0 16px 46px;border-top:1px solid var(--line)}
+ol.bets li:last-child{border-bottom:1px solid var(--line)}
+ol.bets li::before{content:counter(b);position:absolute;left:0;top:16px;width:28px;height:28px;
+  border-radius:50%;background:var(--tealL);color:var(--tealD);font-size:13px;font-weight:800;
+  display:flex;align-items:center;justify-content:center}
+ol.bets .h{font-weight:700;font-size:16.5px;display:block;margin-bottom:3px}
+ol.bets .w{font-size:13.5px;color:var(--mute);line-height:1.55}
+ol.bets .tm{font-size:12.5px;font-weight:700;color:var(--teal);letter-spacing:.03em;margin-top:5px;display:block}
+
+.note{font-size:13.5px;color:var(--mute);background:var(--tint);border:1px solid var(--line);
+  border-radius:10px;padding:16px 18px;line-height:1.65;margin:22px 0}
+footer{border-top:1px solid var(--edge);margin-top:40px;padding:30px 0 64px;font-size:13.5px;color:var(--mute)}
+footer b{color:var(--ink)}
+footer a{text-decoration:none}
+.lang{text-align:right;font-size:13px;color:var(--mute);margin:-24px 0 14px}
+.lang a{text-decoration:none}
+h1{line-height:1.02}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hero">
+    <div class="lang"><a href="../">中文</a> · <b>English</b></div>
+    <article class="cover">
+      <div class="cover-in">
+        <div class="kicker">AN INDUSTRY PROJECTION · 2026 — 2035</div>
+        <h1>The Money AI Is Allowed to Move</h1>
+        <div class="sub">Fintech's Next Decade</div>
+        <div class="rule"></div>
+        <p class="thesis">For a decade, the amount of money AI has been allowed to move in finance has been zero.<br>
+          That number is now leaving zero — <em>and almost nobody is pricing it in.</em></p>
+
+        <div class="nums">
+          <div><b>75%</b><span>of firms already use AI</span><i>but only 17% of use cases are foundation models</i></div>
+          <div><b>2%</b><span>of use cases are fully autonomous</span><i>every other one keeps a human in the loop</i></div>
+          <div><b>62%</b><span>rated low materiality by firms themselves</span><i>AI sits at the periphery, not the core</i></div>
+          <div><b>≈ 0</b><span>money entrusted with no human review</span><i>the variable this book tracks</i></div>
+        </div>
+
+        <div class="byline">
+          <div><b>Zhihua Zou</b><span>Structured drafting and typesetting with Claude (Anthropic)</span></div>
+          <div class="ed">English edition · September 2026<br>Research current to 10 September 2026<br>© 2026 Zhihua Zou · CC BY-NC-ND 4.0</div>
+        </div>
+      </div>
+    </article>
+
+    <div class="cta">
+      <a class="btn p" href="../The_Money_AI_Is_Allowed_to_Move_Fintechs_Next_Decade.pdf">Read the full text · PDF, 40 pages</a>
+      <a class="btn s" href="https://github.com/joshuazou-web/money-ai-is-allowed-to-move">GitHub repository</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="sheet">
+
+  <section>
+    <h2>Why track this line, not model capability</h2>
+    <p>Almost every public conversation circles one question: when will models outperform human analysts? It is the wrong question. Finance has never been short of clever judgment. What it lacks is <strong>the authority to turn judgment into action</strong>.</p>
+    <p>In 2024 the Bank of England and the FCA surveyed 118 firms. The number everyone quotes is that 75% already use AI. The same survey holds three numbers almost nobody mentions: foundation models make up only 17% of use cases; 55% of use cases involve some automated decision-making, yet <mark>only 2% are fully autonomous</mark>; and firms rate 62% of their use cases as low materiality.</p>
+    <p>Put together, they point the opposite way from "full embrace": AI has spread through the <strong>periphery</strong> of finance but has not entered its <strong>core</strong>. It writes copy, answers customers and helps engineers code. It does not approve loans, place orders, move funds or sign filings.</p>
+    <p>That isn't because the models aren't smart enough. The real obstacle is elsewhere: nobody is willing to answer for a system that can't be explained, traced or made to pay for its mistakes.</p>
+    <div class="pull"><p>How much money is an AI system allowed to move without a human reviewing each transaction?</p></div>
+    <p>This line is worth tracking because it is <strong>verifiable</strong> — tenders, contract clauses and incident disclosures will spell it out; it <strong>shapes revenue models</strong> — systems that can move money are priced on outcomes, systems that can't are priced per seat, an order of magnitude apart; and it is <strong>non-linear</strong> — each step needs governance, liability and insurance to arrive together, so it stalls for years and then jumps.</p>
+  </section>
+
+  <section>
+    <h2>The core framework: automation depth L0–L4</h2>
+    <p>Levels are defined not by model capability but by three observable facts: can the system reach conclusions alone, can it act alone, and who bears the consequences.</p>
+    <div class="ladder">
+      <div class="lv"><b>L0</b><div><span class="n">Observe</span>
+        <span class="d">Reads and organizes; produces no business conclusions. Trusted amount: 0</span>
+        <span class="t">Widespread</span></div></div>
+      <div class="lv"><b>L1</b><div><span class="n">Advise</span>
+        <span class="d">Produces conclusions, but a human accepts each one. ROI can't be attributed, so it's the hardest product to renew.</span>
+        <span class="t">Mainstream form, 2023 — 2025</span></div></div>
+      <div class="lv now"><b>L2</b><div><span class="n">Bounded execution</span>
+        <span class="d">Acts automatically within limits, allowlists and scenario boundaries; humans spot-check afterwards. <strong>This is the rung where zero breaks.</strong></span>
+        <span class="t">In production 2026 — 2028 · today's frontier</span></div></div>
+      <div class="lv next"><b>L3</b><div><span class="n">Conditional autonomy</span>
+        <span class="d">Executes by default and escalates only exceptions; the institution holds reserves or insurance against outcomes.</span>
+        <span class="t">First seen 2029 — 2033</span></div></div>
+      <div class="lv"><b>L4</b><div><span class="n">Full autonomy</span>
+        <span class="d">No preset limits; systems negotiate and execute across institutions.</span>
+        <span class="t">Not mainstream before 2035</span></div></div>
+    </div>
+    <div class="note"><strong>Why steps, not a ramp:</strong> liability, insurance and audit are all discrete. The law doesn't accept "the system is 70% responsible," there's no actuarial pricing without incident data, and auditors can't issue a "partially compliant" opinion. Every step needs an explicit <strong>liability shift</strong>. So what's worth watching isn't model launches but the wording of liability clauses.</div>
+  </section>
+
+  <section>
+    <h2>Four control rights</h2>
+    <p>The cost of access breaks down into four rights that can be held — and taken away — separately. The combination decides whether a company collects rent or merely takes orders.</p>
+    <div class="scroll"><table>
+      <tr><th>Right</th><th>What it is</th><th>How to tell you really hold it</th></tr>
+      <tr><td>Data</td><td>Outcome labels that keep flowing back, not static purchased corpora</td><td>Would the data go stale the moment you stopped operating?</td></tr>
+      <tr><td>Entry</td><td>The authoritative home of a class of business facts</td><td>How many years of history and configuration would a customer have to migrate to replace you?</td></tr>
+      <tr><td>Execution</td><td>Initiating real money movement or filings without a third party</td><td>Can your conclusion become an action without going through someone else's system?</td></tr>
+      <tr><td>Liability</td><td>Presenting complete evidence and absorbing losses when things go wrong</td><td>Can you reconstruct the decision chain for a regulator and say who pays?</td></tr>
+    </table></div>
+    <p>Model progress lowers the <strong>cost of judgment</strong>, not the <strong>cost of access</strong>. Access is built from licences, clearing networks, dispute processes and liability capacity, and it rises rather than falls as regulation tightens. The two blades of that scissors gap point in the direction value is moving.</p>
+  </section>
+
+  <section>
+    <h2>Six bets</h2>
+    <p>Each has a time frame and a falsification condition. <strong>If a falsification condition appears first, the right response is to overturn the bet, not to explain it away.</strong></p>
+    <ol class="bets">
+      <li><span class="h">The governance stack becomes a procurement threshold before model capability does</span>
+        <span class="w">Evaluation, logging, permissions, fallback and exit enter tenders as standalone clauses; vendors that fall short can't bid.</span>
+        <span class="tm">2026 — 2028 · High confidence</span></li>
+      <li><span class="h">The trusted amount clearly leaves zero in several areas</span>
+        <span class="w">In at least one of refunds, reconciliation, collections or fraud prevention, execution without per-transaction review appears, with limits and rollback.</span>
+        <span class="tm">2026 — 2029 · High confidence</span></li>
+      <li><span class="h">Mandatory incident disclosure arrives before insurance products</span>
+        <span class="w">Regulators require AI production incidents to be reported and failure modes shared; only then does insurable AI-decision liability cover appear.</span>
+        <span class="tm">2027 — 2031 · Medium confidence</span></li>
+      <li><span class="h">Agent payments will run on competing standards for a long time</span>
+        <span class="w">Authorization semantics and chargeback liability won't unify within a decade; cross-ecosystem recognition stays bilateral.</span>
+        <span class="tm">2027 — 2035 · Medium confidence</span></li>
+      <li><span class="h">Value splits three ways: execution, facts and governance</span>
+        <span class="w">No single AI operating system for finance emerges; the governance layer forms last and is the most underrated.</span>
+        <span class="tm">2028 — 2035 · Medium confidence</span></li>
+      <li><span class="h">Fully autonomous finance won't be mainstream before 2035</span>
+        <span class="w">Unreviewed lending, advice and trade execution will keep limits and scope boundaries for a long time.</span>
+        <span class="tm">2030 — 2035 · High confidence</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>What's in the book</h2>
+    <div class="scroll"><table>
+      <tr><th>Part</th><th>Title</th><th>The question it answers</th></tr>
+      <tr><td>Preface</td><td>A Number That Has Always Been Zero</td><td>Why "how capable is the model" is the wrong question</td></tr>
+      <tr><td>1</td><td>The Five-Rung Ladder to Closed Loops</td><td>What unlocks each level, and where six areas of finance stand today</td></tr>
+      <tr><td>2</td><td>From Executor to Financial Operating System</td><td>How settlement, identity and pricing change once machines become customers</td></tr>
+      <tr><td>3a</td><td>Fighting for the Rails</td><td>The scissors gap between collapsing judgment costs and rising access costs</td></tr>
+      <tr><td>3b</td><td>Locking the Ledger</td><td>Data rights, permissions and supply-chain concentration</td></tr>
+      <tr><td>3c</td><td>The Trustworthiness Problem</td><td>Five components that let unreliable parts work inside a reliable structure</td></tr>
+      <tr><td>3d</td><td>The Standards War</td><td>Authorization semantics, chargeback liability and cross-border recognition for agent payments</td></tr>
+      <tr><td>4</td><td>How Regulation Arrives</td><td>Not prohibition, but procurement access</td></tr>
+      <tr><td>5</td><td>Six Bets</td><td>If you're building products in 2026, what exactly to bet on</td></tr>
+      <tr><td>Appendix</td><td>Tracking List · Sources · Method</td><td>Ten quarterly signals, 24 sources, evidence-discount rules</td></tr>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>Method and limits</h2>
+    <p>First establish what has already happened from regulatory documents, audited annual reports and international-organization reports; then build conditional projections on those facts, each with observable triggers and falsification conditions. Claims that can't be falsified are, as far as possible, left out.</p>
+    <div class="note"><strong>Data verification:</strong> every public figure was checked against its primary source on <strong>11 September 2026</strong> (original regulatory surveys and legislation, company financials and results announcements, official product pages). Nine statements were corrected before the first edition was finalized, three of them substantive errors; the corrections are preserved in the repository's commit history.<br><br>
+      That doesn't make the book error-free: company-reported figures can't be independently verified and are used only to judge direction; product-page figures change over time and reflect the access date; the author is not a finance professional and may misread regulatory documents; anything marked "research judgment" is inference, not fact. <strong>If you find an error, please raise it in the repository; corrections go into the version history.</strong></div>
+    <div class="note"><strong>Evidence-discount rules:</strong> company-reported efficiency gains indicate direction only; unaudited revenue and user numbers never enter structural conclusions; media valuations and funding rumors are not used; product launches don't count as commercial proof; "institutions covered" does not equal paid penetration.<br><br>
+      <strong>Three known blind spots:</strong> insurance is barely discussed; a gradual geopolitical environment is assumed; the perspective is mainly institutional, with consumer acceptance treated as exogenous.<br><br>
+      Nothing here is investment advice. All company facts come from public disclosures; no non-public information is used.</div>
+    <div class="cta">
+      <a class="btn p" href="../The_Money_AI_Is_Allowed_to_Move_Fintechs_Next_Decade.pdf">Read the full text · PDF, 40 pages</a>
+      <a class="btn s" href="https://github.com/joshuazou-web/money-ai-is-allowed-to-move">GitHub repository</a>
+    </div>
+  </section>
+
+  </div>
+</div>
+
+<footer><div class="wrap">
+  <b>The Money AI Is Allowed to Move: Fintech's Next Decade</b><br>
+  By Zhihua Zou. The thesis, framework, judgments and conclusions are the author's; structured drafting, research organization and typesetting were done with Claude (Anthropic), and every fact and projection was checked by the author line by line.<br><br>
+  <b>© 2026 Zhihua Zou</b>　Licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>: share, quote and redistribute freely with full attribution and a link to the source; no commercial use; no distribution of adapted versions. The writing process is preserved in the repository's commit history.<br><br>
+  English edition, translated from the Chinese first edition (<a href="../">被允许动的钱</a>) · September 2026 · Research current to 10 September 2026 · <a href="https://github.com/joshuazou-web/money-ai-is-allowed-to-move">github.com/joshuazou-web/money-ai-is-allowed-to-move</a>
+</div></footer>
+
+</body>
+</html>
