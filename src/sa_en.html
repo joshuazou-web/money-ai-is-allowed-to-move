@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Money AI Is Allowed to Move: Fintech's Next Decade</title>
+<style>
+:root{
+  --ink:#101F33; --ink2:#2E4056; --mute:#66788A; --faint:#93A2AF;
+  --line:#E3E8EC; --line2:#C7D1D8;
+  --teal:#0B6157; --tealL:#EDF4F2; --tealD:#07443E;
+  --rust:#A94D17; --rustL:#FBF2EA;
+  --slate:#3F5165; --slateL:#EDF0F3;
+  --tint:#F7F9F9; --paper:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{
+  font-family:"Segoe UI","Source Han Serif SC","Source Han Sans SC","Noto Sans SC","Microsoft YaHei",sans-serif;
+  color:var(--ink); background:#fff; font-size:9.4pt; line-height:1.78;
+  font-variant-numeric:tabular-nums;
+}
+@page{size:A4; margin:0}
+.pg{width:210mm; height:297mm; padding:15mm 16mm 11mm 18mm; display:flex; flex-direction:column;
+  position:relative; overflow:hidden; page-break-after:always; background:#fff}
+.pg:last-child{page-break-after:auto}
+.rh{flex:0 0 auto; display:flex; justify-content:space-between; align-items:baseline;
+  font-size:6.6pt; color:var(--faint); letter-spacing:.1em; padding-bottom:2mm;
+  border-bottom:.4pt solid var(--line); margin-bottom:5mm}
+.rh b{color:var(--teal); font-weight:700}
+.bd{flex:1 1 auto; min-height:0}
+.ft{flex:0 0 auto; display:flex; justify-content:space-between; align-items:baseline;
+  font-size:6.4pt; color:var(--faint); border-top:.4pt solid var(--line);
+  padding-top:1.8mm; margin-top:4mm; letter-spacing:.02em}
+
+/* ---------- rail: main + sidenote ---------- */
+.rail{display:grid; grid-template-columns:114mm 56mm; column-gap:6mm; align-items:start; margin-bottom:5mm}
+.rail:last-child{margin-bottom:0}
+.m>p{margin-bottom:var(--pm,3.5mm); text-align:justify; font-size:var(--fs,9.4pt); line-height:var(--lh,1.78)}
+.m>p:last-child{margin-bottom:0}
+.m p b{font-weight:700}
+.m p em{font-style:normal; background:linear-gradient(transparent 62%, #CFE6E1 62%); font-weight:600}
+.s{padding-top:.6mm}
+.sn{font-size:7.2pt; line-height:1.55; color:var(--mute); border-left:1.4pt solid var(--line2);
+  padding-left:2.6mm; margin-bottom:3mm}
+.sn:last-child{margin-bottom:0}
+.sn b{color:var(--ink2); font-weight:700; display:block; font-size:6.7pt; letter-spacing:.05em; margin-bottom:.6mm}
+.sn.q{border-left-color:var(--teal); color:var(--tealD)}
+.sn.w{border-left-color:var(--rust); color:var(--rust)}
+.sn .num{font-size:13pt; font-weight:700; color:var(--teal); line-height:1.05; display:block; letter-spacing:-.02em}
+.sn.w .num{color:var(--rust)}
+.ref{font-size:6pt; color:var(--faint); vertical-align:.6mm; font-weight:600}
+
+/* ---------- headings ---------- */
+h2.ch{font-size:17pt; font-weight:700; letter-spacing:-.01em; line-height:1.25; margin-bottom:3mm}
+h3.sec{font-size:11.6pt; font-weight:700; margin:0 0 2.6mm; letter-spacing:-.005em}
+h4.sub{font-size:9.8pt; font-weight:700; margin:0 0 1.6mm; color:var(--tealD)}
+.kicker{font-size:6.6pt; font-weight:700; letter-spacing:.2em; color:var(--teal); margin-bottom:1.8mm}
+
+/* ---------- chapter opener ---------- */
+.op{flex:1 1 auto; display:flex; flex-direction:column; justify-content:center}
+.op .no{font-size:9pt; font-weight:700; letter-spacing:.24em; color:var(--teal); margin-bottom:4mm}
+.op h1{font-size:30pt; font-weight:700; letter-spacing:-.03em; line-height:1.14; margin-bottom:5mm}
+.op .rule{width:30mm; height:1.8pt; background:var(--teal); margin-bottom:6mm}
+.op .lede{font-size:11pt; line-height:1.62; color:var(--ink2); max-width:150mm; margin-bottom:8mm}
+.op .claim{border-left:2.4pt solid var(--teal); background:var(--tealL); padding:4mm 5mm; max-width:158mm}
+.op .claim span{display:block; font-size:6.4pt; font-weight:700; letter-spacing:.14em; color:var(--teal); margin-bottom:1.6mm}
+.op .claim p{font-size:10pt; font-weight:600; line-height:1.55; color:var(--tealD)}
+.op .toc{margin-top:8mm; display:flex; gap:6mm; flex-wrap:wrap; font-size:7pt; color:var(--mute)}
+.op .toc span b{color:var(--ink); display:block; font-size:7.6pt}
+
+/* ---------- figures ---------- */
+.fig{width:176mm; margin:1mm 0 6mm; border-top:1.1pt solid var(--ink); padding-top:2.4mm}
+.fig.nb{border-top:0; padding-top:0}
+.fig .cap{font-size:6.6pt; color:var(--mute); letter-spacing:.04em; margin-bottom:2.8mm}
+.fig .cap b{color:var(--ink); font-weight:700; letter-spacing:0; font-size:7.2pt}
+.fig .note{font-size:6.4pt; color:var(--faint); margin-top:2mm; line-height:1.45}
+
+table{width:100%; border-collapse:collapse; font-size:7.7pt}
+th{font-size:6.5pt; font-weight:700; color:var(--mute); text-align:left; letter-spacing:.05em;
+  padding:0 2.4mm 1.4mm 0; border-bottom:.7pt solid var(--ink); vertical-align:bottom}
+td{padding:1.8mm 2.4mm 1.8mm 0; border-bottom:.4pt solid var(--line); vertical-align:top;
+  color:var(--ink2); line-height:1.45}
+td.k{color:var(--ink); font-weight:700}
+tr.alt td{background:var(--tint)}
+th:last-child,td:last-child{padding-right:0}
+
+/* ---------- ladder figure ---------- */
+.ladder{display:grid; grid-template-columns:repeat(5,1fr); gap:2mm; align-items:end; height:46mm}
+.ladder .step{display:flex; flex-direction:column; justify-content:flex-end; height:100%}
+.ladder .bar{background:var(--tealL); border:.4pt solid var(--teal); border-bottom:2pt solid var(--teal);
+  border-radius:.8mm .8mm 0 0; padding:2mm 2.2mm; display:flex; flex-direction:column; justify-content:flex-end}
+.ladder .lv{font-size:6.2pt; font-weight:700; letter-spacing:.1em; color:var(--teal)}
+.ladder .nm{font-size:8pt; font-weight:700; margin:.6mm 0 1mm; line-height:1.25}
+.ladder .de{font-size:6.4pt; color:var(--ink2); line-height:1.38}
+.ladder .yr{font-size:6.3pt; color:var(--mute); text-align:center; padding-top:1.4mm; font-weight:600}
+.ladder .step:nth-child(4) .bar{background:var(--rustL); border-color:var(--rust); border-bottom-color:var(--rust)}
+.ladder .step:nth-child(4) .lv{color:var(--rust)}
+.ladder .step:nth-child(5) .bar{background:var(--slateL); border-color:var(--slate); border-bottom-color:var(--slate); border-style:dashed dashed solid}
+.ladder .step:nth-child(5) .lv{color:var(--slate)}
+
+/* ---------- heat grid ---------- */
+.heat{width:100%; border-collapse:collapse; font-size:6.9pt}
+.heat th{font-size:6.2pt; text-align:center; padding:0 1mm 1.4mm; border-bottom:.7pt solid var(--ink)}
+.heat th:first-child{text-align:left; width:30mm}
+.heat td{text-align:center; padding:1.5mm 1mm; border-bottom:.4pt solid var(--line)}
+.heat td:first-child{text-align:left; font-weight:700; color:var(--ink); font-size:7.2pt}
+.cell{display:block; border-radius:.6mm; padding:.9mm 0; font-size:6.2pt; font-weight:700}
+.c0{background:#F1F4F6; color:#93A2AF}
+.c1{background:#DCEAE7; color:var(--tealD)}
+.c2{background:#9FC9C1; color:#05332E}
+.c3{background:var(--teal); color:#fff}
+.c4{background:var(--rustL); color:var(--rust); border:.4pt dashed var(--rust)}
+
+/* ---------- timeline gantt ---------- */
+.gantt{font-size:7pt}
+.gantt .hd{display:grid; grid-template-columns:44mm 1fr; font-size:6.2pt; color:var(--mute);
+  border-bottom:.7pt solid var(--ink); padding-bottom:1.2mm; margin-bottom:1.6mm}
+.gantt .hd .yrs{display:grid; grid-template-columns:repeat(10,1fr); text-align:center}
+.gantt .row{display:grid; grid-template-columns:44mm 1fr; align-items:center; padding:1.5mm 0;
+  border-bottom:.4pt solid var(--line)}
+.gantt .row b{font-size:7.2pt; color:var(--ink)}
+.gantt .row .lane{position:relative; height:4mm; background:linear-gradient(90deg,var(--line) .3pt,transparent .3pt);
+  background-size:10% 100%}
+.gantt .row .lane i{position:absolute; top:.5mm; bottom:.5mm; border-radius:.6mm; display:flex;
+  align-items:center; padding-left:1.6mm; font-size:5.9pt; font-weight:700; font-style:normal; color:#fff;
+  background:var(--teal); white-space:nowrap; overflow:hidden}
+.gantt .row .lane i.m{background:var(--rust)}
+.gantt .row .lane i.l{background:var(--slate); opacity:.55}
+
+/* ---------- callouts ---------- */
+.box{border:.4pt solid var(--line); border-radius:1mm; padding:3mm 3.4mm; background:var(--tint)}
+.box h5{font-size:6.4pt; font-weight:700; letter-spacing:.12em; color:var(--mute); margin-bottom:1.6mm}
+.box p{font-size:7.6pt; line-height:1.55; color:var(--ink2)}
+.pull{border-left:2.4pt solid var(--teal); background:var(--tealL); padding:3mm 4mm; border-radius:0 1mm 1mm 0}
+.pull p{font-size:9.4pt; font-weight:600; line-height:1.55; color:var(--tealD)}
+.bet{border:.4pt solid var(--line); border-radius:1mm; overflow:hidden}
+.bet .r{display:grid; grid-template-columns:7mm 1fr 26mm; gap:0 3mm; padding:2.4mm 3mm;
+  border-top:.4pt solid var(--line); align-items:start}
+.bet .r:first-child{border-top:0}
+.bet .r.alt{background:var(--tint)}
+.bet .n{font-size:11pt; font-weight:700; color:var(--teal); line-height:1}
+.bet h6{font-size:8.4pt; font-weight:700; margin-bottom:.9mm}
+.bet p{font-size:7.1pt; color:var(--ink2); line-height:1.45}
+.bet .w{font-size:6.6pt; color:var(--rust); line-height:1.4; margin-top:1mm}
+.bet .tm{font-size:6.6pt; font-weight:700; color:var(--mute); text-align:right; letter-spacing:.04em}
+.spacer{flex:1 1 auto; min-height:0}
+.lead-in::first-letter{font-size:20pt; font-weight:700; float:left; line-height:1; padding:1.2mm 2mm 0 0; color:var(--teal)}
+</style>
+<style>
+/* ---------- English typesetting overrides ---------- */
+body{font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif; line-height:1.5; font-kerning:normal;
+  text-rendering:optimizeLegibility; font-feature-settings:"kern","liga"}
+.m>p{line-height:var(--lh,1.46); hyphens:auto; -webkit-hyphens:auto; margin-bottom:var(--pm,2.8mm)}
+.sn{line-height:1.42; hyphens:auto; -webkit-hyphens:auto}
+.sn b{letter-spacing:0; font-size:7pt}
+.box p,.bet p,td{hyphens:auto; -webkit-hyphens:auto}
+th{letter-spacing:.02em}
+.op h1{letter-spacing:-.02em; line-height:1.08}
+.op .lede{line-height:1.5}
+.op .claim p{line-height:1.45}
+.op .no{letter-spacing:.2em}
+.pull p{line-height:1.42}
+.lead-in::first-letter{font-size:24pt; padding:.6mm 1.6mm 0 0}
+.fig .cap{letter-spacing:.02em}
+.tight td{padding:1.15mm 2.2mm 1.15mm 0; line-height:1.36}
+.tight{font-size:7.4pt}
+.gantt .row{padding:1.1mm 0}
+</style>
+</head>
+<body>
+
+<!-- ═════════ Cover ═════════ -->
+<section class="pg" style="padding:0">
+  <div style="height:8mm;background:var(--teal)"></div>
+  <div style="flex:1;padding:26mm 22mm 0;display:flex;flex-direction:column">
+    <div style="font-size:7.4pt;font-weight:700;letter-spacing:.26em;color:var(--teal);margin-bottom:8mm">
+      AN INDUSTRY PROJECTION ｜ 2026 — 2035</div>
+    <h1 style="font-size:40pt;font-weight:700;letter-spacing:-.03em;line-height:1.04">The Money AI Is<br>Allowed to Move</h1>
+    <h2 style="font-size:17pt;font-weight:600;color:var(--ink2);margin-top:4mm;letter-spacing:-.01em">
+      Fintech's Next Decade</h2>
+    <div style="width:38mm;height:2.2pt;background:var(--teal);margin:8mm 0"></div>
+    <p style="font-size:12pt;line-height:1.5;color:var(--ink);max-width:145mm;font-weight:600">
+      For a decade, the amount of money AI has been allowed to move in finance has been zero.<br>
+      That number is now leaving zero — and almost nobody is pricing it in.</p>
+    <div style="margin-top:auto;padding-bottom:24mm">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5mm;border-top:1.1pt solid var(--ink);padding-top:4mm;max-width:166mm">
+        <div><div style="font-size:20pt;font-weight:700;color:var(--teal);line-height:1">75%</div>
+          <div style="font-size:6.8pt;color:var(--mute);margin-top:1.2mm;line-height:1.4">of firms already use AI<br>but only 17% of use cases are foundation models<span class="ref">[4]</span></div></div>
+        <div><div style="font-size:20pt;font-weight:700;color:var(--teal);line-height:1">2%</div>
+          <div style="font-size:6.8pt;color:var(--mute);margin-top:1.2mm;line-height:1.4">of use cases are fully autonomous<br>every other one keeps a human in the loop<span class="ref">[4]</span></div></div>
+        <div><div style="font-size:20pt;font-weight:700;color:var(--teal);line-height:1">$1.9T</div>
+          <div style="font-size:6.8pt;color:var(--mute);margin-top:1.2mm;line-height:1.4">one company's annual payment volume<br>a yardstick for execution rights<span class="ref">[16]</span></div></div>
+        <div><div style="font-size:20pt;font-weight:700;color:var(--rust);line-height:1">≈ 0</div>
+          <div style="font-size:6.8pt;color:var(--mute);margin-top:1.2mm;line-height:1.4">money entrusted to AI today with no human review<br>the variable this book tracks</div></div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:0 22mm 13mm">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;
+      border-top:.4pt solid var(--line);padding-top:3.5mm">
+      <div>
+        <div style="font-size:9pt;font-weight:700;color:var(--ink);letter-spacing:.02em">Zhihua Zou</div>
+        <div style="font-size:6.8pt;color:var(--mute);margin-top:.8mm">An independent industry projection ｜ Structured drafting and typesetting with Claude (Anthropic)</div>
+        <div style="font-size:6.8pt;color:var(--teal);margin-top:1.6mm;font-weight:600">
+          github.com/joshuazou-web/money-ai-is-allowed-to-move</div>
+      </div>
+      <div style="font-size:6.8pt;color:var(--mute);text-align:right;line-height:1.6">
+        English edition ｜ September 2026<br>Research current to 10 September 2026<br>
+        <span style="color:var(--faint)">© 2026 Zhihua Zou ｜ CC BY-NC-ND 4.0</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ Contents ═════════ -->
+<section class="pg" data-fit style="--fs:8.7pt">
+  <div class="rh"><span>CONTENTS AND HOW TO READ</span><span><b>The Money AI Is Allowed to Move</b> ｜ Fintech's Next Decade</span></div>
+  <div class="bd">
+    <h2 class="ch">What this book argues</h2>
+    <div class="rail">
+      <div class="m">
+        <p class="lead-in">Almost every public conversation about AI in finance circles one question: when will models outperform human analysts? It is the wrong question. Finance has never been short of clever judgment. What it lacks is <b>the authority to turn judgment into action</b>.</p>
+        <p>So this book tracks a single line: <em>how much money an AI system is allowed to move without a human reviewing it</em>. I call it the <b>trusted-amount ceiling</b>. At most institutions today it is zero. But it is leaving zero, and it moves in steps: each step is unlocked by a specific, observable set of conditions.</p>
+        <p>This line is more worth watching than any capability curve. It is <b>verifiable</b> — tender documents and incident disclosures will spell it out. It <b>shapes revenue models</b> — systems that can move money are priced on outcomes, systems that cannot are priced per seat. And it is <b>non-linear</b>: unlocking each step needs governance, liability and insurance to fall into place together, so the line stalls for years and then jumps.</p>
+        <p>The book has five chapters: establish the trend line, project the end state, take apart four fronts of competition, examine how regulators enter, and close with six falsifiable bets and a tracking list.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>Method</b>I do not forecast model capability; I project the boundary of authority. Every forward-looking passage states its trigger and its falsification condition, so readers can update it each quarter as new facts arrive.</div>
+        <div class="sn"><b>Evidence hierarchy</b>Regulatory filings and audited annual reports come first. Company-reported figures confirm direction only and never drive a conclusion. Media valuations are not used at all. Full sources are in the appendix.</div>
+        <div class="sn w"><b>Disclosure</b>Nothing here is investment advice. No non-public information is used; every company fact comes from public disclosure.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Contents</b> &nbsp;· &nbsp;Five chapters and appendices</div>
+      <table class="tight">
+        <tr><th style="width:18mm">Part</th><th style="width:50mm">Title</th><th>The question it answers</th><th style="width:12mm;text-align:right">Page</th></tr>
+        <tr><td class="k">Preface</td><td class="k">A Number That Has Always Been Zero</td><td>Why "how capable is the model" is the wrong question, and "how much money may it move" is not</td><td style="text-align:right">03</td></tr>
+        <tr class="alt"><td class="k">Ch. 1</td><td class="k">The Five-Rung Ladder to Closed Loops</td><td>The five levels of the trusted-amount ceiling, what unlocks each, and where we stand now</td><td style="text-align:right">05</td></tr>
+        <tr><td class="k">Ch. 2</td><td class="k">From Executor to Financial Operating System</td><td>What settlement, identity and pricing look like once machines become customers</td><td style="text-align:right">12</td></tr>
+        <tr class="alt"><td class="k">Ch. 3a</td><td class="k">Fighting for the Rails</td><td>Why execution rights are the one asset model progress cannot dilute</td><td style="text-align:right">17</td></tr>
+        <tr><td class="k">Ch. 3b</td><td class="k">Locking the Ledger</td><td>Data rights, permissions and supply-chain concentration: misused permissions are more dangerous than bad judgment</td><td style="text-align:right">21</td></tr>
+        <tr class="alt"><td class="k">Ch. 3c</td><td class="k">The Trustworthiness Problem</td><td>How to let a system you don't fully understand move money — a product problem</td><td style="text-align:right">24</td></tr>
+        <tr><td class="k">Ch. 3d</td><td class="k">The Standards War</td><td>Whoever sets agent-payment protocols, liability splits and cross-border recognition collects the long-term rent</td><td style="text-align:right">28</td></tr>
+        <tr class="alt"><td class="k">Ch. 4</td><td class="k">How Regulation Arrives</td><td>Not prohibition but governance written into market access — and what that means for products</td><td style="text-align:right">32</td></tr>
+        <tr><td class="k">Ch. 5</td><td class="k">Six Bets</td><td>If you are building products in 2026, what exactly to bet on, and when to concede</td><td style="text-align:right">35</td></tr>
+        <tr class="alt"><td class="k">Appendix</td><td class="k">Tracking List and Sources</td><td>Signals to watch, definitions, 24 sources and the evidence-discount rules</td><td style="text-align:right">37</td></tr>
+      </table>
+    </div>
+
+    <div class="rail">
+      <div class="m">
+        <h4 class="sub">How to read this book</h4>
+        <p>If you have ten minutes: read the preface, the ladder figure in Chapter 1 (page 06) and the six bets in Chapter 5. Together they hold every conclusion.</p>
+        <p>If you are a product manager: Chapters 3c and 4 will be the most useful. They cover what goes into your PRD tomorrow — limits, circuit breakers, audit events and exit mechanisms.</p>
+        <p>If you want to prove me wrong: every chapter ends with "Where I might be wrong," listing the evidence most likely to overturn it. Start there.</p>
+      </div>
+      <div class="s">
+        <div class="sn"><b>On the title</b>"Allowed" is the book's entire position. What decides fintech's next decade is not the ceiling of capability but the boundary of authority — two things public debate routinely conflates.</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Fintech's Next Decade</span><span>02</span></div>
+</section>
+
+<!-- ═════════ Preface 03 ═════════ -->
+<section class="pg" data-fit style="--fs:8.8pt">
+  <div class="rh"><span>PREFACE</span><span><b>A Number That Has Always Been Zero</b></span></div>
+  <div class="bd">
+    <h2 class="ch">A number that has always been zero</h2>
+    <div class="rail">
+      <div class="m">
+        <p>In 2024 the Bank of England and the Financial Conduct Authority ran an industry-wide survey: 75% of responding financial firms were already using AI, and another 10% planned to within three years. The figure travelled widely, usually as proof that finance has "fully embraced AI."<span class="ref">[4]</span></p>
+        <p>The same survey contains three other numbers that almost nobody quotes. First, foundation models account for only about 17% of use cases — three-quarters of "AI applications" are still the predictive models of a decade ago. Second, 55% of use cases involve some degree of automated decision-making, but <b>only 2% are fully autonomous</b>. Third, firms rate 62% of their use cases as low materiality and only 16% as high.<span class="ref">[4]</span></p>
+        <p>Put the three together and the conclusion is the opposite of "full embrace": AI has spread through the <b>periphery</b> of finance but has not entered its <b>core</b>. It writes marketing copy, answers customer questions and helps engineers code. It does not approve loans, place orders, move funds or sign tax filings.</p>
+        <p>This is not because the models aren't smart enough. In many regulated activities, model judgment already beats a junior employee. The real obstacle lies elsewhere: <em>nobody is willing to answer for a system that can't be explained, traced or made to pay for its mistakes</em>.</p>
+        <p>So the variable worth tracking is not capability but authority. Specifically, this number:</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><span class="num">75%</span><b>Already using AI</b>UK regulators' survey, 2024, 118 firms. It looks like the finish line but is really the starting line — it counts "has used," not "has entrusted."<span class="ref">[4]</span></div>
+        <div class="sn q"><span class="num">17%</span><b>Share that are foundation models</b>Three-quarters of use cases are still traditional predictive models. Generative AI has gone nowhere near as deep as the narrative suggests.<span class="ref">[4]</span></div>
+        <div class="sn w"><span class="num">2%</span><b>Fully autonomous use cases</b>Another 24% are semi-autonomous: they make some decisions alone, but critical or ambiguous calls are designed to go to a human.<span class="ref">[4]</span></div>
+      </div>
+    </div>
+
+    <div class="pull" style="margin-bottom:5mm">
+      <p>How much money is an AI system allowed to move without a human reviewing each transaction?</p>
+    </div>
+
+    <div class="rail">
+      <div class="m">
+        <p>At the vast majority of financial institutions today, the answer is zero. Not "small" — <b>zero</b>. Any action that touches funds, credit or a regulatory filing needs a natural person to sign off somewhere, even when the signature is a formality.</p>
+        <p>Zero is a peculiar number. It means the curve hasn't started, so nobody models it and nobody prices it. The market still values AI-in-finance companies on "how much labor they save" — pricing third-generation products as if they were second-generation ones.</p>
+        <p>But zero is breaking. Stripe says its adaptive acceptance recovered a record of roughly $6 billion in falsely declined legitimate transactions in 2024, up 60% year on year, and Radar claims an average 32% reduction in fraud for its users.<span class="ref">[16][17][18]</span> Intuit reports that more than 3 million customers have let AI agents do work for them, with historical repeat usage above 85%.<span class="ref">[19][20]</span> Ant Group has launched a payments MCP server and an AI wallet, plainly aimed at plugging agents into money movement.<span class="ref">[14][24]</span></p>
+        <p>These are all still small-value, high-frequency, reversible actions. What they share is this: <b>the system made a decision without anyone looking at the individual case, and that decision directly changed where money went</b>. Zero is no longer zero.</p>
+      </div>
+      <div class="s">
+        <div class="sn"><b>Why "zero" matters so much</b>In self-driving the equivalent variable is hands-off time; in industrial automation, unattended run time. In finance it is the trusted amount. Every curve of this kind hugs the floor for years, then climbs in steps.</div>
+        <div class="sn q"><b>Shifts already under way</b>Automatic recovery of false declines, automatic matching of bank feeds, agent payment tokens — in all three the system changes where money flows, just in small, reversible amounts.</div>
+      </div>
+    </div>
+    <div class="rail">
+      <div class="m">
+        <p>The three examples come from very different companies: a payments network, a tax-and-accounting software firm and a super-app. They share no model vendor and no jurisdiction. <b>What they do share is an execution interface.</b> Capability spreads everywhere; authority does not. Authority flows only to those who already hold the interface and the capacity to bear liability.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>What the three have in common</b>None leads on models; all hold execution interfaces. This is the book's core observation.</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Preface</span><span>03</span></div>
+</section>
+
+<!-- ═════════ Preface 04 ═════════ -->
+<section class="pg" data-fit style="--fs:8.8pt">
+  <div class="rh"><span>PREFACE</span><span><b>Nobody is pricing this in</b></span></div>
+  <div class="bd">
+    <div class="rail">
+      <div class="m">
+        <h3 class="sec">Nobody is pricing this in</h3>
+        <p>The World Economic Forum estimates that AI spending in financial services will grow from about $35 billion in 2023 to about $97 billion in 2027.<span class="ref">[5]</span> The figure is often used to argue the market is large. But if you believe the trusted amount will leave zero, the forecast is <b>badly understated</b> — because it counts money spent <i>on</i> AI, not money that passes <i>through</i> AI.</p>
+        <p>The two differ by orders of magnitude. One payments company processes $1.9 trillion a year.<span class="ref">[16]</span> If even one ten-thousandth of those decisions shifted from people to systems, the commercial value would not be a software licence fee but a <b>take rate</b> on that flow. Software budgets and transaction take rates sit three to four orders of magnitude apart.</p>
+        <p>That is what I mean by "nobody is pricing it in." Today's market is valuing a software market. If this trend line holds, what actually forms is an <b>infrastructure market</b> — one that, like clearing houses, card networks and exchanges, charges by volume rather than by seat.</p>
+        <h3 class="sec" style="margin-top:5mm">Three premises</h3>
+        <p><b>Premise one: model capability will keep commoditizing.</b> I do not assume any company achieves a durable lead in models. On the contrary, the whole argument rests on models becoming interchangeable inputs. If that is wrong, the book's conclusions weaken considerably.</p>
+        <p><b>Premise two: regulation tightens rather than loosens.</b> China's 32 guiding opinions of June 2026, the US Treasury's FS AI RMF of February 2026 (with 230 control objectives), and the EU's AI Act and DORA all point the same way: risk-tiered, full-lifecycle, traceable.<span class="ref">[10][11][12][13]</span> I assume that direction holds.</p>
+        <p><b>Premise three: liability does not disappear.</b> However the technology changes, finance must ultimately answer "who pays when it goes wrong?" Any product design that sidesteps that question will be stopped at the door of the core process.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><span class="num">$35B→$97B</span><b>Global AI spend in finance</b>WEF: 2023 actual → 2027 forecast. This is money spent on AI.<span class="ref">[5]</span></div>
+        <div class="sn"><span class="num">$1.9T</span><b>One company's payment volume</b>This is money AI might handle. The two measures differ by more than three orders of magnitude.<span class="ref">[16]</span></div>
+        <div class="sn w"><b>If premise one is wrong</b>If one company builds a durable, hard-to-copy lead in finance-specific models, models are no longer interchangeable inputs and this book overvalues the control points. This is where I think I am most likely to be wrong.</div>
+        <div class="sn"><b>If premise two is wrong</b>If major markets loosen regulation markedly, the premium on early execution rights and governance capability is diluted, and speed beats compliance. Chapter 4 explores that scenario.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 0.1</b> &nbsp;· &nbsp;Where two narratives diverge: what the market is actually pricing</div>
+      <table>
+        <tr><th style="width:26mm">View</th><th style="width:44mm">Variable tracked</th><th style="width:46mm">Implied market structure</th><th>How it charges</th></tr>
+        <tr><td class="k">Mainstream</td><td>Model capability, parameters, benchmark scores</td><td>A software market priced on headcount replaced</td><td>Seats, subscriptions, API calls</td></tr>
+        <tr class="alt"><td class="k">This book</td><td>Trusted-amount ceiling, depth of authority</td><td>An infrastructure market priced on volume and liability</td><td>Take rates, outcome shares, governance subscriptions</td></tr>
+        <tr><td class="k">The fork</td><td colspan="3">If AI can only advise and never execute, the mainstream narrative is right. Once it may move money without review, the second narrative operates at a different order of magnitude.</td></tr>
+      </table>
+      <div class="note">This isn't about which view is more optimistic. For most of today's AI application companies the second narrative is actually more pessimistic — it means value will concentrate in the few institutions that hold execution rights and the capacity to bear liability.</div>
+    </div>
+
+    <div class="rail">
+      <div class="m">
+        <h4 class="sub">Where I might be wrong</h4>
+        <p>The strongest objection: the boundary of authority in finance is neither a technical nor a governance problem but one of <b>institutional inertia</b>, and it may not move for decades. Finance has historically adopted new technology on a timescale of decades. If this curve is still flat on zero by 2030, my timeline is wrong across the board, even if the direction is not.</p>
+      </div>
+      <div class="s">
+        <div class="sn w"><b>Falsification condition</b>If by end-2029 no category of financial action in any major market is broadly allowed to execute without per-transaction human review — not even small, reversible ones — the ladder extrapolation in Chapter 1 has failed.</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Preface</span><span>04</span></div>
+</section>
+
+<!-- ═════════ Chapter 1 opener ═════════ -->
+<section class="pg" data-fit style="--fs:9.7pt">
+  <div class="op">
+    <div class="no">CHAPTER ONE</div>
+    <h1>The Five-Rung Ladder<br>to Closed Loops</h1>
+    <div class="rule"></div>
+    <p class="lede">Advances in model capability don't translate directly into change in finance, because a gate stands in between: authority. This chapter quantifies the gate itself — five levels, each unlocked by a specific set of conditions — and asks which rung we are actually standing on.</p>
+    <div class="claim"><span>THE CLAIM</span>
+      <p>By 2030, at least one category of high-frequency, reversible financial action will be broadly allowed to execute without per-transaction human review in major markets. No model breakthrough is required — only governance, insurance and a clear allocation of liability, all arriving together.</p></div>
+    <div class="toc">
+      <span><b>1.1</b> Making "trusted" countable</span>
+      <span><b>1.2</b> What unlocks each rung</span>
+      <span><b>1.3</b> Where we stand</span>
+      <span><b>1.4</b> Why it moves in steps</span>
+      <span><b>1.5</b> Extrapolation and timeline</span>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 1</span><span>05</span></div>
+</section>
+
+<!-- ═════════ 1.1 ═════════ -->
+<section class="pg" data-fit style="--fs:9.2pt">
+  <div class="rh"><span>CHAPTER 1 · THE FIVE-RUNG LADDER</span><span><b>1.1</b> Making "trusted" countable</span></div>
+  <div class="bd">
+    <h2 class="ch">1.1 &nbsp;Making "trusted" countable</h2>
+    <div class="rail">
+      <div class="m">
+        <p>Self-driving levels are useful not because they describe the technology precisely, but because they <b>translate a continuous technical problem into a discrete liability problem</b>. The real difference between L2 and L3 isn't how well the car drives; it is who is responsible in a crash — the driver at L2, the system provider at L3. The industry was stuck between those two levels for years, and perception algorithms were never what held it back.</p>
+        <p>Finance needs the same kind of scale, and has better reason to: every action in finance already carries a clear owner and audit requirements. Yet no widely accepted framework exists, so the debate stays stuck on unfalsifiable questions like "can AI be a financial adviser?"</p>
+        <p>I propose a five-level framework. It is defined not by model capability but by three things: <b>whether the system can reach conclusions on its own, whether it can act on its own, and who bears the consequences when it does</b>.</p>
+        <p><b>L0 Observe.</b> The system only reads and organizes; it produces no business conclusions. Report generation, data retrieval and document classification live here. Most first-year "AI transformation" results stop at this level.</p>
+        <p><b>L1 Advise.</b> The system produces conclusions, but a human must accept each one. This was the standard shape of generative copilots from 2023 to 2025. Its commercial problem isn't that it doesn't work — it's that value can't be attributed. A person still makes the final call, so you can't prove the improvement came from AI.</p>
+        <p><b>L2 Bounded execution.</b> The system acts automatically within preset limits, allowlists and scenario boundaries; humans spot-check afterwards. <em>This is the rung where zero breaks</em>: from here on, the system's output directly changes where money goes. Today's most advanced products are early in this level.</p>
+        <p><b>L3 Conditional autonomy.</b> The system executes by default and escalates only exceptions. The institution formally accepts that routine decisions belong to the system and holds reserves or insurance against them. This level has not yet appeared widely in regulated core financial processes.</p>
+        <p><b>L4 Full autonomy.</b> No preset limits; systems negotiate and execute across institutions. It won't be mainstream within the foreseeable decade, but it shapes the end state, so it earns its own discussion (Chapter 2).</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>How levels are defined</b>Not by how strong the model is, but by three observable facts: can it reach conclusions alone, can it act alone, and who bears the consequences. All three leave evidence in contracts and incident disclosures.</div>
+        <div class="sn"><b>Why not an "automation rate"</b>An automation rate lumps L0 report generation together with L2 automatic loan disbursement. Their commercial and risk profiles differ by orders of magnitude; a metric that blends them means nothing.</div>
+        <div class="sn w"><b>The L1 commercial trap</b>Copilots are the easiest products to build and the hardest to renew. A human makes the final decision, so ROI can't be attributed, and you negotiate every renewal from weakness. This is a structural flaw of second-generation products, not an execution problem.</div>
+        <div class="sn"><b>L2 is the watershed</b>It is the first level at which outcome-based pricing makes logical sense — the system's action now has a direct causal link to the business result.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 1.1</b> &nbsp;· &nbsp;The five-rung ladder of the trusted-amount ceiling: each rung unlocks a business model</div>
+      <div class="ladder">
+        <div class="step"><div class="bar" style="height:38%">
+          <div class="lv">L0</div><div class="nm">Observe</div>
+          <div class="de">Reads and organizes; no business conclusions</div></div>
+          <div class="yr">Widespread</div></div>
+        <div class="step"><div class="bar" style="height:52%">
+          <div class="lv">L1</div><div class="nm">Advise</div>
+          <div class="de">Each output accepted by a human; trusted amount still zero</div></div>
+          <div class="yr">Mainstream 2023 — 25</div></div>
+        <div class="step"><div class="bar" style="height:70%">
+          <div class="lv">L2</div><div class="nm">Bounded execution</div>
+          <div class="de">Acts within limits and allowlists; spot-checked afterwards</div></div>
+          <div class="yr">In production 2026 — 28</div></div>
+        <div class="step"><div class="bar" style="height:87%">
+          <div class="lv">L3</div><div class="nm">Conditional autonomy</div>
+          <div class="de">Automatic by default; exceptions go to humans; firm holds reserves</div></div>
+          <div class="yr">First seen 2029 — 33</div></div>
+        <div class="step"><div class="bar" style="height:100%">
+          <div class="lv">L4</div><div class="nm">Full autonomy</div>
+          <div class="de">No preset limits; negotiates across institutions</div></div>
+          <div class="yr">After 2035, niche</div></div>
+      </div>
+      <div class="note">Bar height shows the relative magnitude of the trusted-amount ceiling on a non-linear scale; it conveys the step pattern, not actual values. Dates are this book's projections; triggers and falsification conditions are in Section 1.5.</div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 1</span><span>06</span></div>
+</section>
+
+<!-- ═════════ 1.2 ═════════ -->
+<section class="pg" data-fit style="--fs:8.5pt">
+  <div class="rh"><span>CHAPTER 1 · THE FIVE-RUNG LADDER</span><span><b>1.2</b> What unlocks each rung</span></div>
+  <div class="bd">
+    <h2 class="ch">1.2 &nbsp;What unlocks each rung</h2>
+    <div class="rail">
+      <div class="m">
+        <p>On technology alone, getting from L1 to L2 needs almost nothing new: wire the model's output to an API and you're done. Plenty of teams can demo it in a week. But what separates the demo from production isn't a technical gap. It is three sets of prerequisites, all missing at once.</p>
+        <p><b>Technical prerequisites</b> are usually met first, and are the easiest to mistake for the only ones: confidence can be estimated, actions can be rolled back, and everything leaves a trail. None of this is hard; many teams simply haven't done it, because a demo doesn't need it.</p>
+        <p><b>Governance prerequisites</b> are the real bottleneck. They require a jointly agreed evaluation set with a human baseline, tiered authorization, circuit breakers and fallback paths, a complete chain of audit events, and proof that the vendor can be replaced. <em>Not one of these can be solved by model capability</em>. They are all problems of product and organizational design.</p>
+        <p><b>Commercial prerequisites</b> are the most often overlooked: there must be a buyer willing to pay for outcomes and empowered to transfer some of the liability. When the buyer is the IT department, procurement inevitably falls back on "how many heads did it save." Only when the buyer owns the business line is there pricing room for products above L2.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>A demo in a week, not in production after two years</b>This is the shared experience of almost every AI project in finance. A demo needs only the technical prerequisites; production needs all three sets at once.</div>
+        <div class="sn"><b>Governance isn't compliance's job</b>Evaluation sets, tiered authorization, circuit breakers and audit events are all product features. Leaving them for compliance to "add later" pushes launch back a year.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 1.2</b> &nbsp;· &nbsp;What unlocks each rung: technical, governance and commercial prerequisites</div>
+      <table class="tight">
+        <tr><th style="width:16mm">Step</th><th style="width:34mm">Technical</th><th style="width:50mm">Governance</th>
+          <th style="width:36mm">Commercial</th><th>Status</th></tr>
+        <tr><td class="k">L0 → L1</td><td>Usable general models and retrieval</td><td>Clear data rights; outputs logged</td>
+          <td>Someone will pay for productivity tools</td><td>Met; widely deployed</td></tr>
+        <tr class="alt"><td class="k">L1 → L2</td><td>Estimable confidence; reversible actions</td>
+          <td>Gold-standard eval set, human baseline, tiered authorization, circuit breakers and fallback, audit event chain</td>
+          <td>Buyer shifts from IT to business owner</td><td><b>The current bottleneck</b></td></tr>
+        <tr><td class="k">L2 → L3</td><td>Long-run stability evidence; drift monitoring</td>
+          <td>Institutionalized liability, incident disclosure, independent third-party validation</td>
+          <td>Insurance or reserve arrangements mature</td><td>Scattered pilots; not standardized</td></tr>
+        <tr class="alt"><td class="k">L3 → L4</td><td>Cross-system mutual recognition of identity and permissions</td>
+          <td>Inter-institution protocols, chargeback and compensation rules, dispute arbitration</td>
+          <td>Volume-based clearing arrangements exist</td><td>Standards unsettled; see Ch. 3d</td></tr>
+      </table>
+      <div class="note">How to read it: the three prerequisites in each row are joined by AND — if any one is missing, the step doesn't happen. The industry as a whole is stuck on the governance column of the second row, not the technical one.</div>
+    </div>
+
+    <div class="rail">
+      <div class="m">
+        <p>The table explains a counter-intuitive fact: <b>three years of enormous progress in model capability have barely moved the boundary of authority in finance</b>. All the progress landed in the technical column; the bottleneck was always in governance. It also explains why some technically unremarkable companies closed the loop first.</p>
+        <p>Stripe's Radar may not lead on models, but it has network-scale outcome labels, an existing dispute process and a money-movement interface — all three prerequisites come built in.<span class="ref">[17][18]</span> Intuit builds CPAs and tax experts into the product, in effect <b>buying the liability prerequisite with human backstops</b>, which lets its agents enter a high-liability task like tax filing.<span class="ref">[19][20]</span></p>
+        <p>This leads to a corollary that isn't kind to startups: of the three prerequisites, only the technical one can be achieved by a team on its own. The other two must be built together with the buyer. <em>Products above L2 cannot be made in a lab</em>.</p>
+        <p>That is what makes a "design partner" special. What you need isn't feature feedback but an organization willing to share your first incident with you.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>The key corollary</b>The next winners won't be the companies with the best models but the ones that assemble all three prerequisites first. This frames the analysis in every chapter that follows.</div>
+        <div class="sn w"><b>Seen from the other side</b>If you are building a pure model or pure application-layer product, this table is bad news: your technical edge is depreciating, and the two columns you lack can't be closed by working weekends.</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 1</span><span>07</span></div>
+</section>
+
+<!-- ═════════ 1.3 ═════════ -->
+<section class="pg" data-fit style="--fs:9.6pt">
+  <div class="rh"><span>CHAPTER 1 · THE FIVE-RUNG LADDER</span><span><b>1.3</b> Where we stand</span></div>
+  <div class="bd">
+    <h2 class="ch">1.3 &nbsp;Where we stand</h2>
+    <div class="rail">
+      <div class="m">
+        <p>Place six major areas of finance on this framework and the picture is strikingly uneven. It says more about where the industry really is than any overall adoption rate.</p>
+        <p>Only one area runs steadily at L2: <b>payment risk</b>. It approves or blocks transactions automatically; humans only spot-check afterwards and handle disputes. The reason is easy to see — the area meets all three prerequisites by nature: outcome labels flow back in real time, actions are reversible, a dispute process already exists, and the buyer is the business itself.</p>
+        <p><b>Customer service and operations</b> are moving from L1 to L2. The boundary is "may change state but not move money": the system can update an address, cancel an order or reship, but refunds are still capped.</p>
+        <p><b>Tax, accounting and reconciliation</b> is the next most likely area to cross into L2: answers are objectively right or wrong, systems of record exist, and the industry has a tradition of expert backstops.<span class="ref">[19][20]</span></p>
+        <p><b>Research and wealth management</b> sits at L1 and won't move soon. The obstacle isn't technology but suitability obligations and mis-selling liability, which make "unreviewed advice" hard to sustain in law.</p>
+        <p><b>Credit and pricing</b> is also stuck at L1: explainability and fairness reviews require every feature to be justified, which rules out a large class of end-to-end approaches.</p>
+        <p><b>Trading and treasury</b> is the most conservative cell. It has sandboxes, limits and layered reviews, and its tail risk dwarfs the others — a failure doesn't lose one order; it can set off a market-wide chain reaction.<span class="ref">[7]</span></p>
+        <p>Look at the six together and a clear rule emerges: <b>how far an area can go depends on how quickly its errors are discovered, and whether they can be undone once they are</b>. A payment-risk error surfaces in seconds and can be reversed in minutes; bad investment advice may take months to show and can't be undone. This rule explains today's distribution better than "high risk versus low risk."</p>
+        <p>It also gives a practical filter. When assessing any AI opportunity in finance, ask three questions first: How quickly is an error discovered? Can it be undone? Who bears the cost of undoing it? If all three answers are clear, the area has a shot at L2. If any one is unclear, it will stay at the advice layer.</p>
+        <p>Note that the filter has nothing to do with how important an area is. Fraud prevention is not easier than financial advice — quite the reverse — but its error structure is friendlier. <em>Choosing an area is not about difficulty; it's about how observable the errors are</em>.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>The only area stable at L2</b>Payment risk. It is the reference case for the whole trend line — not because it's the hardest, but because it has all three prerequisites by nature.</div>
+        <div class="sn"><b>"May change state, not move money"</b>This is the real boundary of most controlled execution agents today. It is both a product boundary and a liability boundary.</div>
+        <div class="sn w"><b>Why research is stuck</b>Not because the model answers badly, but because suitability and mis-selling rules require an accountable natural person. Until the rules change, the level won't.</div>
+        <div class="sn"><b>The special nature of systemic risk</b>The FSB flags herding risk specifically: when many institutions use similar models, individual rationality can become collective resonance. This is the root reason trading is more conservative than every other area.<span class="ref">[7]</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 1</span><span>08</span></div>
+</section>
+
+<!-- ═════════ 1.3 cont. ═════════ -->
+<section class="pg" data-fit style="--fs:9.4pt">
+  <div class="rh"><span>CHAPTER 1 · THE FIVE-RUNG LADDER</span><span><b>1.3</b> Where we stand (continued)</span></div>
+  <div class="bd">
+    <div class="rail">
+      <div class="m">
+        <p>This chart is easy to misread: a cell further right doesn't mean a bigger opportunity. Quite the opposite — <b>areas stuck at L1 with no near-term path forward are the least worth investing in</b>. You'll exhaust yourself building a product whose value can never be attributed and whose price can therefore never rise. The real opportunity lies in the cells that are "L1 now, reachable L2 within three years."</p>
+        <p>A second observation: the three blocked areas are stuck for different reasons — research because <em>the accountable party must be a natural person</em>, credit because <em>decisions must be explainable</em>, trading because <em>the scale of failure can't be contained</em>. They won't unlock together, and lumping them together as "high-risk areas" misses each one's real trigger.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>Don't group by "risk level"</b>The three blocked areas are stuck for different reasons, so they won't unlock at the same time or because of the same event.</div>
+        <div class="sn w"><b>The cells least worth investing in</b>Areas at L1 that won't move for three years. You'll build a product that can never be attributed and so never repriced.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 1.3</b> &nbsp;· &nbsp;Six areas: current level and level reachable within three years</div>
+      <table class="heat">
+        <tr><th>Area</th><th>L0</th><th>L1</th><th>L2</th><th>L3</th><th>L4</th>
+          <th style="width:50mm;text-align:left">The one thing holding it back</th></tr>
+        <tr><td>Payment risk</td><td><span class="cell c1">Passed</span></td><td><span class="cell c1">Passed</span></td>
+          <td><span class="cell c3">Now</span></td><td><span class="cell c4">≤ 3 yrs</span></td><td><span class="cell c0">—</span></td>
+          <td style="text-align:left;color:var(--ink2)">No standard yet for agent authorization and chargeback liability</td></tr>
+        <tr><td>Service &amp; operations</td><td><span class="cell c1">Passed</span></td><td><span class="cell c2">Now</span></td>
+          <td><span class="cell c4">≤ 3 yrs</span></td><td><span class="cell c0">—</span></td><td><span class="cell c0">—</span></td>
+          <td style="text-align:left;color:var(--ink2)">Overreach and inconsistent definitions</td></tr>
+        <tr><td>Tax &amp; reconciliation</td><td><span class="cell c1">Passed</span></td><td><span class="cell c2">Now</span></td>
+          <td><span class="cell c4">≤ 3 yrs</span></td><td><span class="cell c0">—</span></td><td><span class="cell c0">—</span></td>
+          <td style="text-align:left;color:var(--ink2)">Dirty data and fragmented systems</td></tr>
+        <tr><td>Research &amp; wealth</td><td><span class="cell c1">Passed</span></td><td><span class="cell c3">Now</span></td>
+          <td><span class="cell c0">Blocked</span></td><td><span class="cell c0">—</span></td><td><span class="cell c0">—</span></td>
+          <td style="text-align:left;color:var(--ink2)">Suitability obligations and mis-selling liability</td></tr>
+        <tr><td>Credit &amp; pricing</td><td><span class="cell c1">Passed</span></td><td><span class="cell c3">Now</span></td>
+          <td><span class="cell c0">Blocked</span></td><td><span class="cell c0">—</span></td><td><span class="cell c0">—</span></td>
+          <td style="text-align:left;color:var(--ink2)">Explainability and fairness review</td></tr>
+        <tr><td>Trading &amp; treasury</td><td><span class="cell c1">Passed</span></td><td><span class="cell c2">Now</span></td>
+          <td><span class="cell c0">Blocked</span></td><td><span class="cell c0">—</span></td><td><span class="cell c0">—</span></td>
+          <td style="text-align:left;color:var(--ink2)">Tail risk and herding across markets</td></tr>
+      </table>
+      <div class="note">Levels are this book's research judgments, based on public product materials and regulatory documents. "≤ 3 yrs" means reachable if the triggers are met, not that it will necessarily happen.</div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 1.3b</b> &nbsp;· &nbsp;What each blocked area needs in order to unlock</div>
+      <table>
+        <tr><th style="width:22mm">Area</th><th style="width:36mm">The real blocker</th><th style="width:50mm">What has to happen</th>
+          <th style="width:30mm">Who can drive it</th><th>Our view</th></tr>
+        <tr><td class="k">Research &amp; wealth</td><td>Suitability rules require an accountable natural person</td>
+          <td>A standard liability split for "machine advice + licensed human review," or regulators clearly defining an exemption</td>
+          <td>Securities regulators and self-regulatory bodies</td><td>Little real change before 2030</td></tr>
+        <tr class="alt"><td class="k">Credit &amp; pricing</td><td>Every feature must be explainable and pass fairness review</td>
+          <td>Reviewers formally accept explainability methods, or a two-track norm forms: traditional models price, LLMs prepare supporting material</td>
+          <td>Banking supervisors and consumer-protection agencies</td><td>Partial easing before full opening</td></tr>
+        <tr><td class="k">Trading &amp; treasury</td><td>Failures can't be contained; herding risk</td>
+          <td>Model-diversity requirements, concentration monitoring and linked circuit breakers</td>
+          <td>Macroprudential authorities and market infrastructure</td><td>Will persist under limits and scope restrictions</td></tr>
+      </table>
+      <div class="note">Each row has an entirely different driver, so the three unlock paths are independent. For product teams: don't expect a single regulatory breakthrough to open all three doors.<span class="ref">[7][10][11][12]</span></div>
+    </div>
+    <div class="rail">
+      <div class="m">
+        <p>The table carries one more message: <b>blocked doesn't mean no business</b>. Research, credit and trading can still support large businesses at L1 — but value has to be priced on productivity, not outcomes. Confusing the two pricing logics is the most common commercial mistake in all three areas.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>Blocked ≠ no business</b>You just have to price on productivity, not outcomes. Pick the wrong pricing logic and no product, however good, will close the deal.</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 1</span><span>09</span></div>
+</section>
+
+<!-- ═════════ 1.4 ═════════ -->
+<section class="pg" data-fit style="--fs:9.2pt">
+  <div class="rh"><span>CHAPTER 1 · THE FIVE-RUNG LADDER</span><span><b>1.4</b> Why it moves in steps, not gradually</span></div>
+  <div class="bd">
+    <h2 class="ch">1.4 &nbsp;Why it moves in steps, not gradually</h2>
+    <div class="rail">
+      <div class="m">
+        <p>If the trusted amount rose along a smooth curve, the industry would reshuffle gently: every company would climb at its own pace and first-mover advantage would be limited. But I don't think the curve is smooth. It hugs the floor for a long time, then jumps up in steps. There are three reasons, none of them technical.</p>
+        <p><b>First, liability is discrete.</b> Law and contracts don't accept "the system is 70% responsible." Liability sits either with the human or with the system provider. So every step up must come with an explicit <em>transfer of liability</em> — and liability doesn't transfer gradually. It takes a specific date and a specific clause.</p>
+        <p><b>Second, insurance is discrete.</b> No actuarial basis, no policy; no policy, and no institution dares hand over routine decisions. Actuaries need incident data, and incident data requires someone to have tried without insurance first. It's a classic cold-start problem: <b>the market either stalls indefinitely or suddenly opens at a tipping point</b>.</p>
+        <p><b>Third, audit is discrete.</b> Auditors can't issue a "partially compliant" opinion. Either a system can fully reconstruct its decision chain or it can't. Full reconstruction needs an entire infrastructure — an event bus, tamper-proof logs, versioned models and prompts, permission snapshots. None of it is any use until it is finished, and all of it is usable the moment it is.</p>
+        <p>Finance has been through exactly this pattern before. The card industry's migration from magnetic stripe to chip used technology that had long been mature; the real migration came <b>after the liability shift took effect</b> — the rule that if a merchant hadn't upgraded its terminals, it bore the loss from counterfeit-card fraud. The technology was ready for years; behavior changed within a year or two either side of the rule.</p>
+        <p>I believe every step up for AI in finance will happen the same way: a long stretch of technical preparation and scattered pilots, then a regulatory or industry-level allocation of liability, then rapid, almost forced adoption. <em>So what's worth watching isn't model launches but changes in the wording of liability clauses</em>.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>Three discontinuities</b>Liability, insurance, audit. None takes continuous values, so stacked together they are bound to produce steps.</div>
+        <div class="sn w"><b>Insurance's cold-start loop</b>No incident data → no actuarial model → no policy → nobody dares use it → no incident data. Breaking the loop usually takes a big player willing to self-insure, or a regulatory push.</div>
+        <div class="sn"><b>A historical parallel: the card liability shift</b>Chip technology was mature for years, yet adoption clustered around the date the liability rule took effect. Rules changed behavior; technical availability did not.</div>
+        <div class="sn q"><b>What to watch</b>Not benchmark scores, but how tender documents, insurance terms and regulatory Q&amp;As word "who bears the loss." Changes in those texts lead market behavior.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 1.4</b> &nbsp;· &nbsp;Anatomy of a step change: four events that must happen in order</div>
+      <table>
+        <tr><th style="width:30mm">Stage</th><th style="width:44mm">What happens</th><th style="width:46mm">Observable signals</th><th>Typical duration</th></tr>
+        <tr><td class="k">1 &nbsp;Technical readiness</td><td>Capability available, demos mature, scattered pilots</td><td>Product launches, papers, demo videos</td><td>1 – 3 years; long under way</td></tr>
+        <tr class="alt"><td class="k">2 &nbsp;Evidence builds</td><td>A few firms take the risk themselves and generate incident data and baselines</td>
+          <td>Company-reported efficiency data; industry evaluation sets appear</td><td>2 – 4 years; where we are now</td></tr>
+        <tr><td class="k">3 &nbsp;Liability shifts</td><td>Regulatory or industry rules make clear who bears the loss</td>
+          <td>Changing wording in tenders, insurance products and regulatory Q&amp;As</td><td>Concentrated within 1 – 2 years</td></tr>
+        <tr class="alt"><td class="k">4 &nbsp;Rapid adoption</td><td>Those who don't upgrade start bearing the cost; migration is forced</td>
+          <td>Procurement standards converge; vendors reshuffle fast</td><td>1 – 3 years; irreversible</td></tr>
+      </table>
+      <div class="note">In this book's view, the L1 → L2 step is late in stage 2. Stage-3 signals (insurance products and liability clauses) are the window most worth positioning for early.</div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 1</span><span>10</span></div>
+</section>
+
+<!-- ═════════ 1.5 ═════════ -->
+<section class="pg" data-fit style="--fs:8.6pt">
+  <div class="rh"><span>CHAPTER 1 · THE FIVE-RUNG LADDER</span><span><b>1.5</b> Extrapolation and timeline</span></div>
+  <div class="bd">
+    <h2 class="ch">1.5 &nbsp;Extrapolation and timeline</h2>
+    <div class="rail">
+      <div class="m">
+        <p>Taken together, the four sections above yield a timeline. It isn't a forecast but a <b>conditional projection</b>: each item carries triggers and falsification conditions, and the judgment should change when those conditions are observed — not because a date has passed.</p>
+        <p>The core call: <em>the L1 → L2 step is late in evidence-building, and the liability shift is most likely to cluster between 2027 and 2029</em>. Signals are moving on three fronts at once — regulators requiring full-lifecycle records, large institutions writing exit mechanisms into tenders, and the first commercial arrangements to compensate for AI decisions.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>Conditional, not predictive</b>Update on conditions, not on the calendar. If triggers are slow to appear, the right response is to push the timeline out, not to abandon the framework.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 1.5</b> &nbsp;· &nbsp;Projected timeline, 2026 — 2035</div>
+      <div class="gantt">
+        <div class="hd"><span>Event</span><div class="yrs">
+          <span>26</span><span>27</span><span>28</span><span>29</span><span>30</span>
+          <span>31</span><span>32</span><span>33</span><span>34</span><span>35</span></div></div>
+        <div class="row"><b>L2 bounded execution in production</b><div class="lane"><i style="left:0;width:30%">High</i></div></div>
+        <div class="row"><b>Governance stack written into tenders</b><div class="lane"><i style="left:0;width:40%">High</i></div></div>
+        <div class="row"><b>AI decision liability insurance matures</b><div class="lane"><i class="m" style="left:20%;width:40%">Medium</i></div></div>
+        <div class="row"><b>First L3 conditional autonomy</b><div class="lane"><i class="m" style="left:30%;width:50%">Medium</i></div></div>
+        <div class="row"><b>Cross-institution agent protocols recognized</b><div class="lane"><i class="l" style="left:40%;width:50%">Low</i></div></div>
+        <div class="row"><b>L4 full autonomy at scale</b><div class="lane"><i class="l" style="left:80%;width:20%">Very low</i></div></div>
+      </div>
+      <div class="note">Bars mark the most likely window, not a firm prediction. Confidence reflects how strongly current public evidence supports each item; colors follow the confidence scale used throughout the book.</div>
+    </div>
+
+    <div class="rail">
+      <div class="m">
+        <h4 class="sub" style="margin-bottom:1.2mm">Three windows to watch</h4>
+        <p><b>2026 — 2027: the contract window.</b> Once "ownership of evaluation sets," "audit retention periods" and "exit and data return" appear as standalone clauses in tenders, the governance stack has gone from nice-to-have to mandatory.</p>
+        <p><b>2027 — 2029: the insurance window.</b> Watch for a standalone line of cover for AI decision errors, and the basis on which it is priced. Once policies are available, the economics of L2 → L3 work immediately.</p>
+        <p><b>2029 — 2032: the protocol window.</b> Watch whether agent-payment authorization, chargebacks and cross-platform recognition converge on a standard — the battle that decides how the end state is divided. See Chapter 3d.</p>
+        <h4 class="sub" style="margin-top:4mm">Where I might be wrong</h4>
+        <p>The strongest objection: <b>the liability shift may never happen</b>. Finance could simply keep AI at L1 forever — smaller gains, but zero institutional cost. If the industry settles into that conservative equilibrium, only L0 and L1 of this ladder matter.</p>
+        <p>A second, more technical objection: the trusted amount is highly scenario-dependent. The same system may be allowed amounts orders of magnitude apart for refunds and for loan disbursement. Hence the per-area table in Section 1.3.</p>
+        <p>The third objection points the other way: the step could come <b>sooner</b>. If a large institution chooses to self-insure and absorb the first few incidents, it bypasses the insurance cold start alone, pulling the medium-confidence windows forward by about two years.</p>
+      </div>
+      <div class="s">
+        <div class="sn"><b>What to do in the contract window</b>Build those three items into the product now and price them separately. It's an order of magnitude cheaper than retrofitting them. Chapter 4 expands on this.</div>
+        <div class="sn w"><b>This chapter's falsification condition</b>If by end-2029 no category of financial action in a major market is broadly allowed to execute without per-transaction review, or no liability insurance product for AI decisions has appeared, the ladder extrapolation has failed.</div>
+        <div class="sn w"><b>Don't underestimate the conservative equilibrium</b>Finance has repeatedly chosen "the technology works, but the institution won't adopt it." If that happens again, value stays in labor substitution rather than flowing to execution rights.</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 1</span><span>11</span></div>
+</section>
+
+<!-- ═════════ Chapter 2 opener ═════════ -->
+<section class="pg" data-fit style="--fs:9.7pt">
+  <div class="op">
+    <div class="no">CHAPTER TWO</div>
+    <h1>From Executor to<br>Financial Operating System</h1>
+    <div class="rule"></div>
+    <p class="lede">Suppose the ladder in Chapter 1 holds and L2 takes hold in several areas. What happens next isn't that systems get smarter; it's that they get wider — from one scenario to adjacent processes, then across institutions. This chapter projects the three stages of that expansion, and what settlement, identity and pricing look like once machines become customers.</p>
+    <div class="claim"><span>THE CLAIM</span>
+      <p>Finance will not get one dominant "AI brain." It will get a layered operating system: payment rails handle execution, systems of record hold the facts, and a governance layer handles evidence and accountability. Value will concentrate in those three layers, not in the model layer.</p></div>
+    <div class="toc">
+      <span><b>2.1</b> Three stages of expansion</span>
+      <span><b>2.2</b> When machines become customers</span>
+      <span><b>2.3</b> Settlement, identity and pricing rearranged</span>
+      <span><b>2.4</b> Who becomes the operating system</span>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 2</span><span>12</span></div>
+</section>
+
+<!-- ═════════ 2.1 ═════════ -->
+<section class="pg" data-fit style="--fs:9.4pt">
+  <div class="rh"><span>CHAPTER 2 · THE FINANCIAL OPERATING SYSTEM</span><span><b>2.1</b> Three stages of expansion</span></div>
+  <div class="bd">
+    <h2 class="ch">2.1 &nbsp;Three stages of expansion</h2>
+    <div class="rail">
+      <div class="m">
+        <p>Once a system has L2 working in one area, the team's next move is almost always the same: not to make that area better, but to <b>connect it to the one next door</b>. That's not ambition; it's economics. Automation gains in a single area plateau quickly, while connecting an adjacent process costs far less than acquiring customers from scratch.</p>
+        <p><b>Stage one: a single closed loop.</b> Read, judge, act and audit within one area. The boundary is clear: the system touches one document type, one interface and one accountable owner. Its value ceiling is equally clear — roughly that area's labor cost plus its error cost.</p>
+        <p><b>Stage two: across processes.</b> Chain adjacent steps together — reconciliation into collections, collections into provisioning, provisioning into filing. Value multiplies rather than adds, because what gets removed is the waiting and information loss between steps. But the hard part changes immediately: <em>different processes usually have inconsistent permission systems, identity definitions and approval chains</em>, all of which were invisible at stage one.</p>
+        <p><b>Stage three: across institutions.</b> One institution's systems interact directly with another's — a supplier's receivables matched against a buyer's payables, a merchant's dispute against an issuer's rules. This stage holds the most value, but what it needs is no longer within any one company's control: <b>protocols, liability allocation and dispute arbitration</b>.</p>
+        <p>The stages aren't linear. Each step up adds roughly an order of magnitude of achievable value — and an order of magnitude of governance complexity. And <em>governance complexity usually arrives before the value does</em>. That's why so many teams stall at stage two: they underestimate the work of unifying permissions and identity, which is neither glamorous nor easy to charge for.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>Expansion is economics, not ambition</b>Single-area automation gains plateau fast; connecting adjacent processes costs far less than winning new customers. Every product that gets L2 working will expand outward.</div>
+        <div class="sn w"><b>Stage two is a graveyard</b>Expanding across processes means unifying identity, permissions and approval chains first — a huge, invisible body of work that's hard to charge for on its own. Most teams die here.</div>
+        <div class="sn"><b>Costs that come before the value</b>Governance complexity must be paid for before any value appears. That's why only well-resourced players, or those with an existing platform position, can go the distance.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 2.1</b> &nbsp;· &nbsp;Three stages of expansion: scope, value and new difficulties</div>
+      <table>
+        <tr><th style="width:26mm">Stage</th><th style="width:36mm">Scope</th><th style="width:38mm">New source of value</th>
+          <th style="width:38mm">New difficulty</th><th>Prerequisite</th></tr>
+        <tr><td class="k">1 &nbsp;Single loop</td><td>One area, one document type, one owner</td>
+          <td>Labor cost + error cost</td><td>Confidence, rollback, audit trail</td><td>Technical prerequisites suffice</td></tr>
+        <tr class="alt"><td class="k">2 &nbsp;Cross-process</td><td>Adjacent steps within one institution</td>
+          <td>Removes waiting and information loss between steps</td><td>Inconsistent permissions, identity and approval chains</td>
+          <td>A unified identity and permission model</td></tr>
+        <tr><td class="k">3 &nbsp;Cross-institution</td><td>Systems at different institutions interact directly</td>
+          <td>Removes reconciliation, dispute and credit friction</td><td>Protocols, liability allocation and arbitration</td>
+          <td>Industry-level standards; see Ch. 3d</td></tr>
+      </table>
+      <div class="note">How to read it: moving down, value and governance complexity each grow by roughly an order of magnitude. But governance costs are paid before value is realized — the main reason expansion fails.</div>
+    </div>
+
+    <div class="rail">
+      <div class="m">
+        <p>A counter-intuitive corollary: <b>the companies best suited to stage two are often not the ones best at stage one</b>. Winning at a single point takes deep domain understanding; succeeding across processes takes identity and permission infrastructure — closer to a platform capability than a product one. This explains why so many single-point champions end up absorbed or bypassed by platform players.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>The fate of single-point champions</b>Domain understanding doesn't automatically become platform capability. Stage two needs an entirely different set of engineering and organizational assets.</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 2</span><span>13</span></div>
+</section>
+
+<!-- ═════════ 2.2 ═════════ -->
+<section class="pg" data-fit style="--fs:8.8pt">
+  <div class="rh"><span>CHAPTER 2 · THE FINANCIAL OPERATING SYSTEM</span><span><b>2.2</b> When machines become customers</span></div>
+  <div class="bd">
+    <h2 class="ch">2.2 &nbsp;When machines become customers</h2>
+    <div class="rail">
+      <div class="m">
+        <p>Cross-institution expansion raises a problem finance has never seriously dealt with: <b>the party initiating a transaction may not be a person</b>. Not a person using a tool, but an authorized software agent acting for an individual or a business, choosing counterparty, timing and amount on its own.</p>
+        <p>This isn't a distant hypothetical. Shared payment tokens, agentic commerce protocols, payments MCP servers and AI wallets are all early answers to the same question: <em>how do you let a software agent safely spend someone else's money?</em><span class="ref">[16][14][24]</span> The technical details differ, but the problems they have to solve are the same.</p>
+        <p><b>Who gets verified changes.</b> Traditional know-your-customer checks verify a natural or legal person. An agent is not a legal person; it is a <b>chain of delegation</b>: a user authorized a business, the business configured an agent, and the agent took an action at a given moment. Institutions need to verify the integrity and validity of the whole chain, not just the request at the end of it.</p>
+        <p><b>What fraud looks like changes.</b> Fraud prevention used to spot "transactions that shouldn't happen" — stolen cards, counterfeits, account takeover. The hardest category in the agent era is <b>the legitimate agent that oversteps</b>: the authorization is real, the agent is real, but what it does goes beyond what the user actually intended. Transaction features alone can't catch this; it takes an explicit statement of authorization scope.</p>
+        <p><b>How bargaining works changes.</b> People stay with an institution out of brand loyalty, habit and interface friction; machines don't. When an agent can compare ten providers' fees and settlement times in milliseconds, <em>margins sustained by information asymmetry and switching costs get squeezed systematically</em>. That's bad news for any business that lives on them.</p>
+        <p><b>Who owns a dispute changes.</b> If an agent places the wrong order, whose fault is it — the user's, the business's, the agent vendor's, or the institution that accepted the transaction? Today's chargeback rules are built around "the cardholder didn't authorize it." They have no slot for "it was authorized, but the agent misunderstood." That is the central issue of Chapter 3d.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>KYC → KYA</b>What needs verifying is no longer a single party but a delegation chain: user → business → agent → action. If any link fails, the whole authorization should fail.</div>
+        <div class="sn w"><b>The hardest fraud</b>Not forgery, but the legitimate agent that oversteps. Real authorization, real identity, but behavior beyond the user's actual intent. Transaction features can't detect it.</div>
+        <div class="sn"><b>Margin compression</b>Machines don't stay because the interface looks nice. Every business that profits from switching friction will be repriced once agents are common.</div>
+        <div class="sn w"><b>The gap in chargeback rules</b>Current rules are built around "the cardholder didn't authorize it." "Authorized, but the agent got it wrong" has no corresponding clause.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 2.2</b> &nbsp;· &nbsp;Six structural differences between human and machine customers</div>
+      <table>
+        <tr><th style="width:26mm">Dimension</th><th style="width:48mm">Human customer</th><th style="width:52mm">Machine customer</th><th>Most affected function</th></tr>
+        <tr><td class="k">Identity</td><td>A single party, verifiable directly</td><td>A delegation chain; each link verified and revocable</td><td>KYC, account opening</td></tr>
+        <tr class="alt"><td class="k">Intent</td><td>Implicit in behavior, inferred after the fact</td><td>Must be stated explicitly as an authorization scope</td><td>Authorization and risk</td></tr>
+        <tr><td class="k">Frequency &amp; size</td><td>Infrequent, varied amounts</td><td>High-frequency, small, batchable</td><td>Clearing and settlement costs</td></tr>
+        <tr class="alt"><td class="k">Comparison shopping</td><td>Swayed by brand and friction</td><td>Near-perfectly rational; routes instantly</td><td>Margins and fees</td></tr>
+        <tr><td class="k">Fraud pattern</td><td>Identity forgery, account takeover</td><td>Legitimate agents that overstep</td><td>Fraud models</td></tr>
+        <tr class="alt"><td class="k">Dispute ownership</td><td>Mature rules, ample precedent</td><td>No rules; unclear chain of liability</td><td>Chargebacks and arbitration</td></tr>
+      </table>
+      <div class="note">Five of the six rows point to the same thing: today's financial infrastructure assumes a person is on the other side. Once that assumption loosens, far more than the risk model has to change.</div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 2</span><span>14</span></div>
+</section>
+
+<!-- ═════════ 2.3 ═════════ -->
+<section class="pg" data-fit style="--fs:9.4pt">
+  <div class="rh"><span>CHAPTER 2 · THE FINANCIAL OPERATING SYSTEM</span><span><b>2.3</b> Settlement, identity and pricing rearranged</span></div>
+  <div class="bd">
+    <h2 class="ch">2.3 &nbsp;Settlement, identity and pricing rearranged</h2>
+    <div class="rail">
+      <div class="m">
+        <p>If machine customers become the norm, three pieces of infrastructure get rearranged first. What they share is that today's designs assume transactions are initiated by people, happen at limited frequency, and carry a meaningful amount each.</p>
+        <p><b>Settlement.</b> Machine transactions tend to be smaller, more frequent and more fragmented. Faced with that flow, the fixed per-transaction cost of today's clearing systems becomes hard to bear — not because it's technically impossible, but because the fee structure doesn't fit. There are three likely responses: batch netting, book-transfer within accounts with periodic clearing, and execute-first-reconcile-later against pre-funded limits. <em>All three lead to the same conclusion: whoever holds the balance captures a new economic benefit</em>.</p>
+        <p><b>Identity.</b> What's needed is no longer an identity but a <b>verifiable, scoped, revocable delegation credential</b>, able to express something like: "this agent may, over the next seven days, pay allowlisted counterparties for this category of goods, up to a cumulative amount." Whoever defines the standard for such credentials decides who sits at the center of the authorization chain.</p>
+        <p><b>Pricing.</b> When the cost of comparison approaches zero, differences between products collapse onto a few quantifiable dimensions: fees, settlement time, success rate and dispute handling. The premium for brand and interface falls sharply. Good news for new entrants, bad news for institutions that charge on existing relationships.</p>
+        <p>Taken together, the three suggest where value will move: <b>from the interface that touches the user, to the account that holds limits and credentials, and then to the protocol that defines what an authorization means</b>. Interfaces get cheap, because agents don't need them. Accounts matter more, because limits have to live somewhere. Protocols become decisive, because they decide whose authorization is recognized.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>Whoever holds the balance wins</b>All three settlement responses leave funds sitting in some intermediate account. It is the most direct — and most underestimated — economic benefit in the agent economy.</div>
+        <div class="sn"><b>Four elements of a delegation credential</b>Validity period, scope, limit and counterparty allowlist. Without any one of them, the authorization can't be executed safely by a machine.</div>
+        <div class="sn w"><b>The devaluation of interfaces</b>Agents don't need pretty interfaces. Products whose moat is user experience are in the most awkward position this cycle.</div>
+        <div class="sn q"><b>The direction of value</b>Interface → account → protocol. The further along, the harder to replace — and the harder to see.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 2.3</b> &nbsp;· &nbsp;How value moves once agents are common: who gains, who loses</div>
+      <table>
+        <tr><th style="width:36mm">Function</th><th style="width:46mm">How it makes money today</th><th style="width:44mm">Once agents are common</th><th>Our view</th></tr>
+        <tr><td class="k">Front-end interface &amp; traffic</td><td>Acquisition, habit, conversion funnels</td><td>Agents bypass the interface and call directly</td><td>Clear loser</td></tr>
+        <tr class="alt"><td class="k">Information brokers &amp; comparison</td><td>Information asymmetry and paid placement</td><td>Comparison costs approach zero</td><td>Clear loser</td></tr>
+        <tr><td class="k">Accounts &amp; limit holding</td><td>Float and reserves</td><td>Limits have to be held somewhere</td><td>Winner</td></tr>
+        <tr class="alt"><td class="k">Clearing &amp; rails</td><td>Per-transaction or ad valorem fees</td><td>Far more transactions, each smaller</td><td>Structural winner, but fees must change</td></tr>
+        <tr><td class="k">Authorization &amp; protocol standards</td><td>Almost no revenue today</td><td>Becomes an unavoidable step</td><td>Biggest winner</td></tr>
+        <tr class="alt"><td class="k">Disputes &amp; arbitration</td><td>A cost center</td><td>Becomes a service once rule gaps are filled</td><td>Turns from cost into revenue</td></tr>
+      </table>
+      <div class="note">A conditional projection: it holds only if agent-initiated transactions reach a meaningful share. If agents stay in a supporting role for long, the table as a whole does not hold.</div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 2</span><span>15</span></div>
+</section>
+
+<!-- ═════════ 2.4 ═════════ -->
+<section class="pg" data-fit style="--fs:9.4pt">
+  <div class="rh"><span>CHAPTER 2 · THE FINANCIAL OPERATING SYSTEM</span><span><b>2.4</b> Who becomes the operating system</span></div>
+  <div class="bd">
+    <h2 class="ch">2.4 &nbsp;Who becomes the operating system</h2>
+    <div class="rail">
+      <div class="m">
+        <p>"Operating system" is an overused term, so it needs a strict definition. Something is an operating system if and only if it meets two conditions: <b>others build on top of it</b>, and <b>it defines the permission model</b>. The second matters far more than the first — real control comes from deciding who may do what.</p>
+        <p>By that standard, no AI product in finance today is an operating system. But three kinds of players are closing in from different directions, and they are approaching <b>different layers</b>.</p>
+        <p><b>Payment networks are closing in on the execution layer.</b> They already have money-movement interfaces, outcome data across merchants and working dispute processes. What they lack is command of facts inside the enterprise — they know how money flows, not how it should be booked.</p>
+        <p><b>System-of-record vendors are closing in on the fact layer.</b> Tax and accounting software, terminals and data platforms hold the authoritative version of business facts. What they lack is an execution interface — they know what should be done but have to go through someone else to do it.</p>
+        <p><b>Super-apps and ecosystems are closing in on the entry layer.</b> They combine use cases, identity and payments, and in theory are closest to full-stack. Their problem isn't capability but <b>openness</b>: a closed ecosystem can become its own operating system, but rarely the industry's.</p>
+        <p>My view: <em>there will be no single AI operating system for finance, but a three-layer division of labor</em> — payment rails handle execution, systems of record hold the facts, and a governance layer handles evidence and accountability. The layers will fight hard over their borders, but none will swallow the other two, because their strengths come from entirely different sources: one from licences and networks, one from customer data and switching costs, one from regulatory recognition and professional liability.</p>
+        <p>If this holds, the layer most worth watching is actually the third. The execution and fact layers have clear incumbents, while <b>the governance layer is nearly empty today</b> — nobody is systematically turning evaluation, logging, permissions and exit into products reusable across institutions. This book considers it the most underrated position.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>A strict definition of an OS</b>Others build on it, and it defines the permission model. The second is where control comes from.</div>
+        <div class="sn"><b>Three challengers, three layers</b>Payment networks lack facts, record vendors lack execution, super-apps lack openness. None of the gaps is technical.</div>
+        <div class="sn w"><b>The ceiling of closed ecosystems</b>They can become their own operating system but rarely the industry's. Openness decides whether it's a platform or a walled garden.</div>
+        <div class="sn q"><b>The most underrated position</b>The governance layer. Execution and facts have powerful incumbents; governance is almost unoccupied, yet every transaction above L2 has to pass through it.</div>
+      </div>
+    </div>
+
+    <div class="rail">
+      <div class="m">
+        <h4 class="sub">Where I might be wrong</h4>
+        <p>The weakest link in this chapter is the assumption that machine customers reach a meaningful share. If agents remain assistants for a long time, with a human still clicking to confirm every transaction, the projections in 2.2 and 2.3 fail and value won't move away from interfaces.</p>
+        <p>The second risk is that the three-layer split proves unstable. If one player captures both execution and facts — say, a payments company acquiring or deeply integrating tax and accounting software — the three layers collapse into two, and the governance layer's independent value shrinks with them.</p>
+      </div>
+      <div class="s">
+        <div class="sn w"><b>This chapter's falsification condition</b>If by 2030 agent-initiated, automatically completed transactions in major markets still don't warrant rules of their own (no dedicated authorization, chargeback or arbitration clauses), this chapter's projection has failed.</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 2</span><span>16</span></div>
+</section>
+
+<!-- ═════════ Chapter 3a opener ═════════ -->
+<section class="pg" data-fit style="--fs:9.7pt">
+  <div class="op">
+    <div class="no">CHAPTER THREE · A</div>
+    <h1>Fighting for<br>the Rails</h1>
+    <div class="rule"></div>
+    <p class="lede">If value concentrates in the execution, fact and governance layers, the next decade is a fight over those three layers. This section takes the first, and the most often misjudged: why execution rights are not diluted by model progress, and who already holds them.</p>
+    <div class="claim"><span>THE CLAIM</span>
+      <p>Model progress lowers the cost of judgment, not the cost of access. Access costs are made of licences, clearing networks, dispute processes and the capacity to bear liability — none of which fall as compute gets cheaper. That makes execution rights the one asset technical progress cannot dilute.</p></div>
+    <div class="toc">
+      <span><b>3a.1</b> Why execution rights don't dilute</span>
+      <span><b>3a.2</b> The four control rights converge</span>
+      <span><b>3a.3</b> Where China stands</span>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 3a</span><span>17</span></div>
+</section>
+
+<!-- ═════════ 3a.1 ═════════ -->
+<section class="pg" data-fit style="--fs:9.2pt">
+  <div class="rh"><span>CHAPTER 3A · FIGHTING FOR THE RAILS</span><span><b>3a.1</b> Why execution rights don't dilute</span></div>
+  <div class="bd">
+    <h2 class="ch">3a.1 &nbsp;Why execution rights don't dilute</h2>
+    <div class="rail">
+      <div class="m">
+        <p>Over the past three years, almost every AI-related cost has fallen: inference per unit, fine-tuning, deployment, even the headcount needed to build a working product. That broad decline has created an illusion — that <b>every moat will be eroded by technical progress</b>.</p>
+        <p>Look closely, though, and only one kind of cost has fallen: <em>the cost of judgment</em>. Getting a system to know what to do has become cheap. Getting a system permitted to do it has not.</p>
+        <p>The cost of access is made of four things, none of which has anything to do with compute. <b>Licences</b>: initiating money movement usually requires authorization, and obtaining it takes years. <b>Clearing networks</b>: connecting requires counterparties to accept you, and acceptance depends on history, scale and trust. <b>Dispute processes</b>: handling things after they go wrong is a whole organizational capability, not an API. <b>Liability capacity</b>: you need a balance sheet or insurance to absorb the consequences.</p>
+        <p>The cost curve for all four is <b>flat or even rising</b> — tighter regulation makes licences dearer and liability requirements heavier. The result is a scissors gap: the cost of judgment is collapsing while the cost of access holds or rises. <em>The two blades of that gap point in the direction value is moving</em>.</p>
+        <p>This explains something that is otherwise hard to explain. Over the past two years, the companies with the strongest models have not won a matching commercial position in finance. Instead, companies with ordinary models but control of payment or ledger interfaces turned AI into revenue. The difference isn't who is smarter; it's who is allowed to act.</p>
+        <p>The value of the network shows up in the same place. Stripe says about <b>92% of transactions on its network come from a card it has seen before</b>, with models trained on more than 70 trillion data points.<span class="ref">[18]</span> Data like that can't be bought — it is a by-product of execution rights running continuously. <em>A company must first be allowed to act before it can accumulate the evidence that keeps it allowed to act</em>.</p>
+        <p>That leads to a fairly brutal conclusion for founders: <b>if your product's value comes entirely from the quality of its judgment, you are standing on the side where costs are collapsing</b>. The next generation of models will erase today's edge, and you are accumulating no asset that resists technical deflation. The only way out is to attach judgment to some form of execution or liability as fast as possible — even if that means slower, heavier and less glamorous.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>Two kinds of cost</b>The cost of judgment is collapsing; the cost of access is rising. Every intuition that "moats will erode" applies only to the first.</div>
+        <div class="sn"><b>Four sources of access cost</b>Licences, clearing networks, dispute processes, liability capacity. All four accumulate over years, and none depends on compute.</div>
+        <div class="sn w"><b>The scissors gap</b>Tighter regulation will push access costs higher still. The gap will widen, not close.</div>
+        <div class="sn q"><b>A test for founders</b>Ask yourself: will the next generation of models erase my edge? If so, what am I building that doesn't deflate with technology?</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 3a.1</b> &nbsp;· &nbsp;Two costs moving in opposite directions</div>
+      <table>
+        <tr><th style="width:28mm">Cost type</th><th style="width:48mm">What it includes</th><th style="width:30mm">Past three years</th>
+          <th style="width:34mm">Going forward</th><th>Who benefits</th></tr>
+        <tr><td class="k">Cost of judgment</td><td>Inference, fine-tuning, deployment, headcount to build products</td><td>Falling fast</td>
+          <td>Keeps falling</td><td>Everyone — so it's no advantage</td></tr>
+        <tr class="alt"><td class="k">Cost of access</td><td>Licences, clearing-network acceptance, dispute handling, bearing liability</td>
+          <td>Flat or rising</td><td>Rises further as regulation tightens</td><td>Incumbents</td></tr>
+      </table>
+      <div class="note">This table underpins every conclusion in the book. If the cost of judgment stops falling, or the cost of access starts collapsing, the analytical framework needs rewriting from scratch.</div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 3a</span><span>18</span></div>
+</section>
+
+<!-- ═════════ 3a.2 ═════════ -->
+<section class="pg" data-fit style="--fs:8.7pt">
+  <div class="rh"><span>CHAPTER 3A · FIGHTING FOR THE RAILS</span><span><b>3a.2</b> The four control rights converge</span></div>
+  <div class="bd">
+    <h2 class="ch">3a.2 &nbsp;The four control rights converge</h2>
+    <div class="rail">
+      <div class="m">
+        <p>Break "access cost" down further and you get four control rights that can be held — and taken away — separately. The combination a company holds decides whether it collects rent along this value chain or merely takes orders.</p>
+        <p><b>Data rights</b> are ownership of continuous outcome labels: data refreshed automatically with every transaction, which goes stale the moment the business stops. They differ fundamentally from purchased corpora — one is a stock, the other a flow.</p>
+        <p><b>Entry rights</b> are the position of system of record: the authoritative version of some business fact lives with you, and replacing you means migrating years of history and process configuration. Their strength is set not by the interface but by switching costs.</p>
+        <p><b>Execution rights</b> are the ability to initiate real actions without going through a third party. They are the hardest of the four to obtain and the hardest to erode.</p>
+        <p><b>Liability rights</b> are the ability to present complete evidence and absorb losses after something goes wrong. They are often mistaken for a cost; in fact they are <em>the pass into core processes</em> — without them, the other three stay stuck at the advice layer.</p>
+        <p>Apply these four to five benchmark companies and an interesting pattern appears: none is strong on all four, but the way their strengths combine sets each one's ceiling.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>Stock versus flow</b>Purchased corpora are a stock and depreciate; outcome labels flowing back from the business are a flow and appreciate. That's the test for data rights.</div>
+        <div class="sn"><b>Liability rights are systematically underrated</b>They look like a cost center but are really an entry permit. Without them, even the best judgment stays at the advice layer.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 3a.2</b> &nbsp;· &nbsp;Which control rights five benchmark companies hold</div>
+      <table>
+        <tr><th style="width:26mm">Company</th><th style="width:15mm;text-align:center">Data</th>
+          <th style="width:15mm;text-align:center">Entry</th><th style="width:17mm;text-align:center">Execution</th>
+          <th style="width:15mm;text-align:center">Liability</th><th>What the structure implies</th></tr>
+        <tr><td class="k">Stripe</td><td style="text-align:center">Strong</td><td style="text-align:center">Medium</td>
+          <td style="text-align:center">Strong</td><td style="text-align:center">Medium</td>
+          <td>Shortest feedback loop; weaker on governance transparency and agent-authorization standards</td></tr>
+        <tr class="alt"><td class="k">Ant Group</td><td style="text-align:center">Strong</td><td style="text-align:center">Strong</td>
+          <td style="text-align:center">Strong</td><td style="text-align:center">Medium</td>
+          <td>The most complete set of rights; constrained by openness and by the lack of separate disclosure of AI's incremental contribution</td></tr>
+        <tr><td class="k">Bloomberg</td><td style="text-align:center">Strong</td><td style="text-align:center">Strong</td>
+          <td style="text-align:center">Weak</td><td style="text-align:center">Strong</td>
+          <td>The strongest trust assets, but conclusions can't turn directly into actions</td></tr>
+        <tr class="alt"><td class="k">Intuit</td><td style="text-align:center">Strong</td><td style="text-align:center">Strong</td>
+          <td style="text-align:center">Medium</td><td style="text-align:center">Strong</td>
+          <td>Strong on both records and liability; weaker on globalization and extending standards outward</td></tr>
+        <tr><td class="k">Hithink RoyalFlush</td><td style="text-align:center">Medium</td><td style="text-align:center">Strong</td>
+          <td style="text-align:center">Weak</td><td style="text-align:center">Medium</td>
+          <td>Has entry but lacks execution and liability; advertising and online promotion were 57% of 2025 revenue, capping it at traffic monetization<span class="ref">[23]</span></td></tr>
+      </table>
+      <div class="note">Ratings are this book's research judgments based on publicly disclosed product capabilities and business mix; they are not credit or investment ratings.<span class="ref">[14][16][19][21][23][24]</span></div>
+    </div>
+
+    <div class="rail">
+      <div class="m">
+        <p>Two convergence paths can be read from the table. <b>The first is "have execution, add facts"</b>: payment players extend toward the system of record, usually by acquiring or deeply integrating tax, ERP or reconciliation products. <b>The second is "have facts, add execution"</b>: record players extend toward money movement, usually by partnering with licensed institutions or building payments in-house.</p>
+        <p>The two paths are not equally hard. Adding facts means buying or building software — expensive but predictable. <em>Adding execution needs licences, network acceptance and liability capacity, which money often can't buy</em>. So over the long run the first path succeeds more often — a risk today's record-keeping incumbents should take seriously.</p>
+      </div>
+      <div class="s">
+        <div class="sn w"><b>Two asymmetric paths</b>Adding facts is a problem money can solve; adding execution often isn't. Record-keeping incumbents' moats are shallower than they look.</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 3a</span><span>19</span></div>
+</section>
+
+<!-- ═════════ 3a.3 ═════════ -->
+<section class="pg" data-fit style="--fs:9.4pt">
+  <div class="rh"><span>CHAPTER 3A · FIGHTING FOR THE RAILS</span><span><b>3a.3</b> Where China stands</span></div>
+  <div class="bd">
+    <h2 class="ch">3a.3 &nbsp;Where China stands</h2>
+    <div class="rail">
+      <div class="m">
+        <p>Apply the same framework to China and you get a clear but lopsided picture: <b>very strong execution rights, a thin fact layer, and a governance layer under construction</b>.</p>
+        <p><b>Execution is China's thickest layer.</b> The depth of mobile-payment penetration, density of use cases and degree of identity binding are world-leading. Alipay+ extends that execution capability to overseas acceptance by interoperating with local wallets and national QR-code standards, and experiments such as a payments MCP server and AI wallets point squarely at plugging agents into money movement.<span class="ref">[14][15][24]</span> This is Chinese companies' most real asset in this round of competition.</p>
+        <p><b>The fact layer is the thinnest.</b> Enterprise systems of record are highly fragmented: tax, ERP, supply chain and bank statements belong to different vendors, and penetration is far below comparable products in mature markets. That directly raises the cost of cross-process expansion — linking reconciliation to filing may mean integrating five incompatible systems. It is also the structural reason AI delivery in China skews toward bespoke projects with thin margins.</p>
+        <p><b>The governance layer is being rapidly shaped by regulators.</b> The National Financial Regulatory Administration's 32 guiding opinions of 2026 establish that "whoever uses it is responsible," call for technological self-reliance, and require full-lifecycle management spanning requirements, data, development, deployment, operation and exit.<span class="ref">[10]</span> That is both a constraint and an opportunity: <em>the constraint is compliance cost paid up front; the opportunity is that it turns governance capability into something that can carry a price</em>.</p>
+        <p>Put the three layers together and the strategic implications are quite concrete. Chinese companies already lead at the execution layer and have nothing left to prove there. Catching up at the fact layer offers poor returns, because it takes years to accumulate. <b>The prize actually worth fighting for is the governance layer</b> — regulators have only just defined it, it has no incumbent, and once it takes shape every cross-institution transaction will have to pass through it.</p>
+        <p>The logic for going global follows. Copying the domestic retail-finance playbook fails in most markets — no licences, no relationships, no local data. <b>Payments, treasury, risk and compliance for cross-border merchants</b> are the exception: execution rights in this segment can be extended, governance capability can be standardized, and local licensed partners have a reason to deliver jointly.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>The thickest layer</b>Execution rights. A real asset left by fifteen years of mobile-payment competition; nothing left to prove.</div>
+        <div class="sn w"><b>The thinnest layer</b>Enterprise systems of record. Fragmented, under-penetrated and mutually incompatible, which drives up the cost of cross-process expansion and squeezes delivery margins.</div>
+        <div class="sn"><b>A new layer defined by regulators</b>The 32 opinions turn full-lifecycle governance into a requirement. A requirement is a market — for the first time, governance capability can be priced on its own.<span class="ref">[10]</span></div>
+        <div class="sn q"><b>The exception abroad</b>Cross-border merchants: execution can be extended, governance standardized, and local licensed partners have a motive to cooperate. One of the few replicable paths.</div>
+      </div>
+    </div>
+
+    <div class="rail">
+      <div class="m">
+        <h4 class="sub">Where I might be wrong</h4>
+        <p>This section assumes execution rights can extend across borders. But success in exporting payments doesn't automatically translate into exporting "agent execution rights" — the latter involves the semantics of authorization and the allocation of liability, both of which differ in every jurisdiction and are highly political. If agent-payment standards end up fragmented by region, China's execution advantage stays locked inside its home market.</p>
+      </div>
+      <div class="s">
+        <div class="sn w"><b>This section's falsification condition</b>If by 2030 major markets' agent-payment authorization standards don't recognize one another, and cross-border agent transactions require fresh licensing market by market, the assumption that execution rights can extend has failed.</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 3a</span><span>20</span></div>
+</section>
+
+<!-- ═════════ Chapter 3b opener ═════════ -->
+<section class="pg" data-fit style="--fs:9.7pt">
+  <div class="op">
+    <div class="no">CHAPTER THREE · B</div>
+    <h1>Locking<br>the Ledger</h1>
+    <div class="rule"></div>
+    <p class="lede">While the fight over the rails goes on, a quieter one is under way over data rights, access permissions and supply-chain concentration. What needs locking here isn't model weights but ledgers, logs and keys — what finance really fears has never been stolen capability, but misused permissions.</p>
+    <div class="claim"><span>THE CLAIM</span>
+      <p>The most likely systemic incident in financial AI is not a bad model judgment but a misconfigured permission or a concentrated third-party failure. The first is a product defect; the second is an industry risk — and almost nobody is pricing the second today.</p></div>
+    <div class="toc">
+      <span><b>3b.1</b> Three things that must be locked down</span>
+      <span><b>3b.2</b> Concentration: the overlooked systemic risk</span>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 3b</span><span>21</span></div>
+</section>
+
+<!-- ═════════ 3b.1 ═════════ -->
+<section class="pg" data-fit style="--fs:9.6pt">
+  <div class="rh"><span>CHAPTER 3B · LOCKING THE LEDGER</span><span><b>3b.1</b> Three things that must be locked down</span></div>
+  <div class="bd">
+    <h2 class="ch">3b.1 &nbsp;Three things that must be locked down</h2>
+    <div class="rail">
+      <div class="m">
+        <p>Once a system is allowed to move money, the shape of the attack surface changes. Traditional information security asks "could data leak?" The agent era must also ask "could permissions be misused?" The second is more dangerous, because it needs no break-in at all — a single misconfiguration will do.</p>
+        <p><b>One: data rights.</b> Is there clear authorization to use the data you train and retrieve on? In finance this is not just a compliance question but one of product durability: a dataset of unclear origin can force a product offline after it's already working, breaking the entire loop. A data-rights register belongs at project kickoff, not bolted on during legal review.</p>
+        <p><b>Two: access permissions.</b> Agents often need broader permissions than people — reading several systems, calling several APIs. The most common mistake is making convenience the default: give the agent a high-privilege account and rely on the prompt to constrain it. <em>A prompt is not a permission boundary</em>. The real boundary must live at the API layer, in the token's scope, not in natural language.</p>
+        <p><b>Three: audit and keys.</b> The decision chain must be fully reconstructable: what the inputs were, what was retrieved, which model and prompt versions ran, what the permission snapshot was, and what was finally executed. The integrity of that evidence itself needs protecting — if the system writing the logs can also alter them, they're worthless as evidence.</p>
+        <p>Together the three impose a direct requirement on product design: <b>governance must live in the architecture, not in procedures</b>. "Operating guidelines" written in policy documents are almost useless against agents, because agents don't read policy documents; they are constrained only by interfaces and tokens.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>A new attack surface</b>Not data leakage but permission misuse. No intrusion needed; one misconfiguration is enough.</div>
+        <div class="sn w"><b>A prompt is not a permission boundary</b>In this book's view, the most widespread and most dangerous engineering mistake. The boundary has to be in the token scope.</div>
+        <div class="sn"><b>Trustworthy logs</b>If logs can be altered by the system that produces them, they have no evidential value. Tamper-proofing is the minimum bar for audit events.</div>
+        <div class="sn q"><b>The principle in one line</b>Governance lives in architecture, not in procedure. Agents don't read policy manuals.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 3b.1</b> &nbsp;· &nbsp;Three locks: common mistakes and the right approach</div>
+      <table>
+        <tr><th style="width:26mm">Category</th><th style="width:48mm">Common mistake</th><th style="width:54mm">Right approach</th><th>Consequence of failure</th></tr>
+        <tr><td class="k">Data rights</td><td>Build first, secure authorization later; mix in corpora of unclear origin</td>
+          <td>Create a data-rights register at kickoff, recording source, scope of authorization and expiry</td><td>Product forced offline; the loop breaks</td></tr>
+        <tr class="alt"><td class="k">Access permissions</td><td>Give the agent a high-privilege account and constrain it with prompts</td>
+          <td>Least-privilege tokens scoped by limit, counterparty and validity period</td><td>Unauthorized actions that are hard to attribute</td></tr>
+        <tr><td class="k">Audit &amp; keys</td><td>Record outcomes but not process; logs share a database and permissions with business systems</td>
+          <td>An independent, tamper-proof event bus; versioned models and prompts; permission snapshots</td><td>No evidence, so no way to allocate liability</td></tr>
+      </table>
+      <div class="note">What the three rows share: the wrong approach causes no visible problem during a demo and only surfaces after a production incident. That's exactly why these mistakes are so common.</div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 3b</span><span>22</span></div>
+</section>
+
+<!-- ═════════ 3b.2 ═════════ -->
+<section class="pg" data-fit style="--fs:9.4pt">
+  <div class="rh"><span>CHAPTER 3B · LOCKING THE LEDGER</span><span><b>3b.2</b> Concentration: the overlooked systemic risk</span></div>
+  <div class="bd">
+    <h2 class="ch">3b.2 &nbsp;Concentration: the overlooked systemic risk</h2>
+    <div class="rail">
+      <div class="m">
+        <p>A misconfigured permission at one institution is a product defect, fixable with engineering discipline. The genuinely hard problem is a different one: <b>the whole industry depending on the same handful of vendors</b>.</p>
+        <p>This isn't a theoretical worry. The UK regulators' survey shows <b>a third of AI use cases are third-party implementations</b>, 16% of which are rated high materiality.<span class="ref">[4]</span> The Financial Stability Board has explicitly flagged concentration in compute and model supply, third-party dependency, model risk, data quality, cyberattacks and market herding.<span class="ref">[7][8]</span> Product teams most often overlook the last one: when many institutions use similar models, similar prompts and similar data sources, their judgments fail at the same time — and <em>in the same direction</em>.</p>
+        <p>This is fundamentally different from traditional model risk. If a bank's in-house credit model fails, the damage stays with that bank. If an entire industry's fraud systems sit on the same few foundation models, one shared failure mode can open holes at many institutions at once. Finance has learned similar lessons before, from credit rating agencies and from risk models.</p>
+        <p>This risk is currently priced at almost nothing. Procurement assesses a vendor's financial stability and security certifications, but rarely asks <b>"what happens if this vendor also serves ten of my peers?"</b> The question won't resolve itself any time soon, because it's never the top priority for any single buyer.</p>
+        <p>My view: <em>concentration will become one of the central themes of the next round of fintech regulation, and it will land on vendors in the form of procurement requirements</em>. Likely forms include model-source diversity, proof of switchability, disclosure of upstream dependencies and direct oversight of critical third parties. For product teams, "replaceability" will turn from a negotiating weakness into a selling point.</p>
+        <p>There's a counter-intuitive commercial implication here. Most vendors instinctively try to create lock-in, because lock-in means renewals. In this direction, though, <b>vendors that can prove they are replaceable are more likely to be chosen</b> — because the buyer's compliance team needs that proof. Productizing the exit mechanism is one of the few designs that is good for the customer and good for the vendor.</p>
+      </div>
+      <div class="s">
+        <div class="sn w"><b>Herding</b>Similar models + similar data = failing in the same direction at the same time. The FSB calls this out by name, yet product teams consider it least.<span class="ref">[7]</span></div>
+        <div class="sn"><b>A familiar pattern</b>Finance learned the "everyone uses the same method" lesson with ratings and risk models. Such risks are invisible in normal times and appear everywhere at once.</div>
+        <div class="sn q"><b>Concentration won't fix itself</b>It is never any single buyer's top priority, so only regulation or industry standards can drive it.</div>
+        <div class="sn q"><b>A counter-intuitive selling point</b>Vendors that can prove "I can be replaced" win more tenders. Exit mechanisms are one of the few designs that benefit both sides.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 3b.2</b> &nbsp;· &nbsp;Three forms of concentration and how to respond to each</div>
+      <table>
+        <tr><th style="width:30mm">Where it concentrates</th><th style="width:46mm">What happens when it fails</th>
+          <th style="width:46mm">What buyers can require</th><th>What vendors can sell</th></tr>
+        <tr><td class="k">Compute &amp; foundation models</td><td>The same judgments degrade across many institutions at once</td>
+          <td>Model-source diversity; proof of switchability</td><td>Multi-model routing with consistency guarantees</td></tr>
+        <tr class="alt"><td class="k">Data &amp; knowledge sources</td><td>One bad dataset contaminates conclusions industry-wide</td>
+          <td>Disclosure of data sources; cross-validation</td><td>Independent data verification services</td></tr>
+        <tr><td class="k">Middleware &amp; agent frameworks</td><td>One vulnerability is exploitable at many firms at once</td>
+          <td>Dependency inventories; vulnerability-response commitments</td><td>Auditable dependency governance and incident drills</td></tr>
+      </table>
+      <div class="note">The shared structure of all three rows: what buyers need is exactly what vendors can productize and price separately. This is the most direct route to commercializing the governance layer.</div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 3b</span><span>23</span></div>
+</section>
+
+<!-- ═════════ Chapter 3c opener ═════════ -->
+<section class="pg" data-fit style="--fs:9.7pt">
+  <div class="op">
+    <div class="no">CHAPTER THREE · C</div>
+    <h1>The Trustworthiness<br>Problem</h1>
+    <div class="rule"></div>
+    <p class="lede">How do you let a system you don't fully understand move money? It sounds like a philosophical question, but finance doesn't need to answer the philosophical version — only the engineering and contractual one. This section argues that trustworthiness is a product problem, and that workable solutions already exist.</p>
+    <div class="claim"><span>THE CLAIM</span>
+      <p>Trustworthiness doesn't come from "making the model more reliable." It comes from placing unreliable components inside a reliable structure: limits, circuit breakers, dual-track checks, human-review triggers and reversible execution. The ability to design that structure will be the scarcest product skill of the next decade.</p></div>
+    <div class="toc">
+      <span><b>3c.1</b> Fix the structure, not the model</span>
+      <span><b>3c.2</b> Five structural components</span>
+      <span><b>3c.3</b> Put it in the contract</span>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 3c</span><span>24</span></div>
+</section>
+
+<!-- ═════════ 3c.1 ═════════ -->
+<section class="pg" data-fit style="--fs:9.6pt">
+  <div class="rh"><span>CHAPTER 3C · THE TRUSTWORTHINESS PROBLEM</span><span><b>3c.1</b> Fix the structure, not the model</span></div>
+  <div class="bd">
+    <h2 class="ch">3c.1 &nbsp;Fix the structure, not the model</h2>
+    <div class="rail">
+      <div class="m">
+        <p>Faced with the fact that models can be wrong, engineering teams' first instinct is usually to make them wrong less often: better prompts, more fine-tuning, stronger retrieval. That path has value, but it has one fatal property — <b>it never reaches zero</b>. And what finance needs isn't zero errors; it's <em>consequences that stay contained when errors happen</em>.</p>
+        <p>That distinction produces two entirely different product philosophies. The first tries to make components reliable enough. The second accepts that components are unreliable and designs a structure that can contain them. <b>Finance itself is a product of the second philosophy</b>: double-entry bookkeeping assumes clerks make mistakes, four-eyes review assumes one person will err, limits assume judgment will fail, and clearing and reconciliation assume transmission will go wrong.</p>
+        <p>So the right question isn't "is this model accurate enough?" but "<b>when it's wrong, who notices first, how big is the loss, and can it be reversed?</b>" The answers to those three questions matter far more than two extra points of accuracy.</p>
+        <p>This brings a conclusion engineering teams may find uncomfortable: <em>most of the work of trustworthiness is not on the model side</em>. It's in limit design, trigger rules, rollback paths, event logging and the hand-off interface with humans. None of it makes a dazzling demo, but it is the only bridge between L1 and L2.</p>
+        <p>Intuit's approach is instructive here. It doesn't pretend AI can replace tax experts; instead it explicitly builds review by CPAs and tax experts into its products and services.<span class="ref">[19][20]</span> That looks like admitting the technology falls short. In fact it is <b>using a structural component to buy entry into a high-liability arena</b>.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>The core distinction</b>Not "prevent errors" but "keep the consequences of errors contained." The whole institutional apparatus of finance is built on the second philosophy.</div>
+        <div class="sn"><b>Three questions that replace accuracy</b>Who notices first? How big is the loss? Can it be reversed? These answers decide whether an area can cross into L2.</div>
+        <div class="sn w"><b>The uncomfortable conclusion</b>Most trustworthiness work isn't on the model side. It makes no dazzling demo, yet it is the only bridge from L1 to L2.</div>
+        <div class="sn q"><b>Building human review into the product</b>Not an admission of technical weakness, but a structural component that buys entry into high-liability work.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 3c.1</b> &nbsp;· &nbsp;Two product philosophies compared</div>
+      <table>
+        <tr><th style="width:30mm">Dimension</th><th style="width:52mm">Make the component more reliable</th><th style="width:54mm">Make the structure contain unreliability</th><th>Finance's choice</th></tr>
+        <tr><td class="k">Where the work goes</td><td>Prompts, fine-tuning, retrieval, evaluation</td><td>Limits, circuit breakers, dual tracks, rollback, logging</td><td>Mainly the latter, supported by the former</td></tr>
+        <tr class="alt"><td class="k">Convergence</td><td>Improves asymptotically; never reaches zero</td><td>An upper bound on consequences can be set explicitly</td><td>The latter</td></tr>
+        <tr><td class="k">Negotiability</td><td>Hard to write into a contract</td><td>Every element can become a clause</td><td>The latter</td></tr>
+        <tr class="alt"><td class="k">Explainability to regulators</td><td>Depends on model-interpretability research</td><td>Depends on process and chain of evidence</td><td>The latter</td></tr>
+      </table>
+      <div class="note">This isn't to say model quality doesn't matter. In finance, model quality decides whether a product is good to use; structural design decides whether it can go live at all.</div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 3c</span><span>25</span></div>
+</section>
+
+<!-- ═════════ 3c.2 ═════════ -->
+<section class="pg" data-fit style="--fs:9.4pt">
+  <div class="rh"><span>CHAPTER 3C · THE TRUSTWORTHINESS PROBLEM</span><span><b>3c.2</b> Five structural components</span></div>
+  <div class="bd">
+    <h2 class="ch">3c.2 &nbsp;Five structural components</h2>
+    <div class="rail">
+      <div class="m">
+        <p>Made concrete, the principle of the previous section yields five components of trustworthiness. They aren't options but a minimal complete set — without any one of them, a system can't safely cross into L2.</p>
+        <p><b>1. Limits.</b> A per-transaction cap, a daily cumulative cap, a per-counterparty cap. Limits don't prevent errors; they <em>put a tolerable upper bound on the total size of errors</em>. They should be adjustable by customer, scenario and time, and every adjustment must be logged.</p>
+        <p><b>2. Circuit breakers.</b> When anomaly rates, amount distributions or decline rates drift far enough from baseline, execution stops automatically and passes to a human. What matters isn't how precise the threshold is, but that it is <b>triggered by the system itself</b> rather than depending on someone happening to watch a dashboard.</p>
+        <p><b>3. Dual-track checks.</b> Re-check critical decisions along a path independent of the main model — a rules engine, a traditional model, or a model from a different source. Independence matters more than accuracy: <em>two paths from the same source will make the same mistake at the same time</em>.</p>
+        <p><b>4. Human-review triggers.</b> Write "when a human is needed" as decidable rules, not "confirm manually when it matters." Workable triggers include confidence below a threshold, amounts above a tier, customer segment, historical anomaly flags and a first transaction with a new counterparty.</p>
+        <p><b>5. Reversible execution.</b> Prefer action forms that can be undone: pre-authorization rather than immediate capture, drafts rather than submissions, freezes rather than transfers. When an action is irreversible, human-review triggers must tighten significantly.</p>
+        <p>The five involve an important trade-off: <b>tightening any one of them lowers the automation rate</b>. So the core work of product design is finding the combination with the highest automation rate within a given risk budget — an optimization problem you can quantify, iterate on and show to customers. That is where the real technical depth of these products lies.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>A minimal complete set</b>Limits, circuit breakers, dual tracks, review triggers, reversibility. Missing any one, L2 can't be crossed safely.</div>
+        <div class="sn"><b>What limits really do</b>They don't prevent errors; they cap the total size of errors. It's the one thing you can explain clearly to a risk committee.</div>
+        <div class="sn w"><b>Independence &gt; accuracy</b>A dual-track check from the same source as the main path is no check at all — both will make the same mistake together.</div>
+        <div class="sn q"><b>The real technical depth</b>Maximizing the automation rate under a given risk budget: a quantifiable, iterable, demonstrable optimization problem.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 3c.2</b> &nbsp;· &nbsp;The five components and the failure modes each one stops</div>
+      <table>
+        <tr><th style="width:28mm">Component</th><th style="width:46mm">What it stops</th><th style="width:46mm">What it doesn't stop</th><th>The cost of tightening it</th></tr>
+        <tr><td class="k">Limits</td><td>Runaway single or cumulative losses</td><td>Steady leakage through frequent small amounts</td><td>Large-ticket business can't be automated</td></tr>
+        <tr class="alt"><td class="k">Circuit breakers</td><td>Systemic shifts and sudden drift</td><td>Slow degradation that stays within baseline</td><td>False trips interrupt the business</td></tr>
+        <tr><td class="k">Dual-track checks</td><td>Systematic errors on a single path</td><td>Blind spots shared by both paths</td><td>Double the cost; higher latency</td></tr>
+        <tr class="alt"><td class="k">Review triggers</td><td>High-risk individual cases</td><td>Reviewer fatigue and rubber-stamping</td><td>Labor costs return and offset the gains</td></tr>
+        <tr><td class="k">Reversible execution</td><td>Consequences of actions already taken</td><td>Time-critical, irreversible situations</td><td>Worse user experience; longer flows</td></tr>
+      </table>
+      <div class="note">The "doesn't stop" column often matters more than the "stops" column — it defines residual risk, and residual risk is exactly what insurance and compensation clauses have to cover.</div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 3c</span><span>26</span></div>
+</section>
+
+<!-- ═════════ 3c.3 ═════════ -->
+<section class="pg" data-fit style="--fs:8.7pt">
+  <div class="rh"><span>CHAPTER 3C · THE TRUSTWORTHINESS PROBLEM</span><span><b>3c.3</b> Put it in the contract</span></div>
+  <div class="bd">
+    <h2 class="ch">3c.3 &nbsp;Put it in the contract</h2>
+    <div class="rail">
+      <div class="m">
+        <p>While the five components exist only in code, they're engineering details. Once they appear in a contract, they become commercial assets. This is the step technical teams are least used to and the one that matters most.</p>
+        <p>The reason is simple: the buyer's procurement, risk and legal teams need something they can sign. "Our system is robust" can't be signed. "A per-transaction execution cap of ¥10,000; automatic circuit break when anomalies exceed twice the baseline; mandatory human review above ¥50,000; errors compensated up to this cap" can. <em>Translating technical capability into clauses is, in essence, doing the customer's internal business case for them</em>.</p>
+        <p>Writing clauses also improves the product: the moment you must commit to a compensation cap, you see which residual risks you won't carry — precisely where the product should go next. <b>A contract is the most honest roadmap</b>.</p>
+        <p>Six clauses need spelling out. They don't map one-to-one onto the five components in 3c.2; rather, they bind components, evidence and consequences together.</p>
+        <p>The most overlooked is <b>the baseline and evaluation method</b>. Without a human baseline both sides accept, any claim of "improved results" is just marketing; once the baseline is in the contract, outcome-based pricing becomes legally enforceable. It has to be done during the pilot; afterwards the manual process has changed and the baseline can't be measured retroactively.</p>
+        <p><b>Exit and data return</b> is also a pricing tool: a vendor willing to commit to a full exit mechanism can charge a higher unit price, because the buyer saves an entire vendor-risk assessment.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>From usable to sellable</b>The five components are engineering details in code; written into a contract, they become commercial assets.</div>
+        <div class="sn"><b>Write the customer's business case</b>Procurement, risk and legal need something signable. Clauses translate technical capability into the language they work in.</div>
+        <div class="sn q"><b>A contract is the most honest roadmap</b>The residual risk you won't commit to compensating is exactly where the product should go next.</div>
+        <div class="sn w"><b>Baselines must be set during the pilot</b>They can't be measured retroactively — by then the manual process has changed. The most common, and most fatal, omission.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 3c.3</b> &nbsp;· &nbsp;Six must-have clauses and the component each one binds</div>
+      <table class="tight">
+        <tr><th style="width:34mm">Clause</th><th style="width:52mm">What it must spell out</th>
+          <th style="width:30mm">Component bound</th><th>If it's left out</th></tr>
+        <tr><td class="k">Scope</td><td>Which customers, document types and amount ranges are in scope</td><td>Scenario boundary</td><td>Scope creep; unbounded liability</td></tr>
+        <tr class="alt"><td class="k">Limits &amp; restricted authority</td><td>Per-transaction, daily and per-counterparty caps and how they change</td><td>Limits</td><td>No upper bound on losses</td></tr>
+        <tr><td class="k">Human-review triggers</td><td>Decidable rules, not "confirm when it matters"</td><td>Review triggers</td><td>Review becomes a box-ticking exercise</td></tr>
+        <tr class="alt"><td class="k">Baseline &amp; evaluation method</td><td>How the human baseline is sampled, who owns the eval set, how often it's re-checked</td><td>Dual-track checks</td><td>Outcome pricing is unenforceable</td></tr>
+        <tr><td class="k">Compensation limits</td><td>Error severity tiers, compensation caps, exclusions</td><td>Circuit breakers &amp; rollback</td><td>No basis for disputes; the relationship breaks</td></tr>
+        <tr class="alt"><td class="k">Exit &amp; data return</td><td>Export formats, asset ownership, length of transition period</td><td>Replaceability</td><td>Customers won't integrate deeply</td></tr>
+      </table>
+      <div class="note">Make these six a standard schedule rather than negotiating them line by line each time. Standardization is itself proof of capability, and it markedly shortens procurement cycles at large institutions.</div>
+    </div>
+
+    <div class="rail">
+      <div class="m">
+        <h4 class="sub">Where I might be wrong</h4>
+        <p>This section assumes buyers are willing to sign clauses with compensation terms for AI decisions. The opposite equilibrium is possible: buyers insist "all liability sits with the vendor," vendors can't carry it, and both retreat to low-limit, low-value pilots that never scale. If no established template for compensation clauses emerges within three years, this path needs rethinking.</p>
+      </div>
+      <div class="s">
+        <div class="sn w"><b>This section's falsification condition</b>If by 2029 the industry still has no reference template for AI-decision compensation clauses, or insurers still refuse to underwrite the risk, the path to commercializing trustworthiness has failed.</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 3c</span><span>27</span></div>
+</section>
+
+<!-- ═════════ Chapter 3d opener ═════════ -->
+<section class="pg" data-fit style="--fs:9.7pt">
+  <div class="op">
+    <div class="no">CHAPTER THREE · D</div>
+    <h1>The Standards<br>War</h1>
+    <div class="rule"></div>
+    <p class="lede">Rails, ledgers and trustworthiness are all problems a single company can solve internally. Standards are not. Whoever defines the semantics of agent authorization, chargeback liability and cross-border recognition decides who collects rent and who pays it for the next decade — and this contest is barely being discussed in public.</p>
+    <div class="claim"><span>THE CLAIM</span>
+      <p>China, the US and the EU are building three governance frameworks on different logics: China regulates by accountable party and lifecycle, the US by use and materiality, the EU by risk tier. They won't unify any time soon, so "compliance adaptation" will itself become a business that can be sold on its own.</p></div>
+    <div class="toc">
+      <span><b>3d.1</b> Three governance logics</span>
+      <span><b>3d.2</b> The standards gap in agent payments</span>
+      <span><b>3d.3</b> What China can win</span>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 3d</span><span>28</span></div>
+</section>
+
+<!-- ═════════ 3d.1 ═════════ -->
+<section class="pg" data-fit style="--fs:8.7pt">
+  <div class="rh"><span>CHAPTER 3D · THE STANDARDS WAR</span><span><b>3d.1</b> Three governance logics</span></div>
+  <div class="bd">
+    <h2 class="ch">3d.1 &nbsp;Three governance logics</h2>
+    <div class="rail">
+      <div class="m">
+        <p>Read the three jurisdictions' regulatory documents side by side and the direction is strikingly consistent: risk tiers, full lifecycle, traceability. But <b>the logic that organizes those requirements is completely different</b> — and the differences fall exactly where they affect product design most.</p>
+        <p><b>China organizes around the accountable party and the lifecycle.</b> The NFRA's 32 guiding opinions of 2026 state that "whoever uses it is responsible," stress technological self-reliance, require coverage of the full chain from requirements, data and development through deployment, operation and exit, and focus supervision on high-risk scenarios.<span class="ref">[10]</span> The lever is <em>the user</em>: financial institutions bear full responsibility for the AI they use, and vendors are constrained indirectly through the institutions' compliance requirements.</p>
+        <p><b>The US organizes around use and materiality.</b> Treasury's AI risk management framework for financial services and the revised model-risk guidance build on the existing risk-management regime, emphasizing tiering by use, materiality assessment, third-party risk, independent validation, transparency and resilience.<span class="ref">[11]</span> The lever is <em>the materiality of the risk</em>: the more material the model, the higher the bar for validation and governance — with materiality argued by the institution and examined by the regulator.</p>
+        <p><b>The EU organizes around risk classification.</b> The AI Act places credit scoring and some insurance pricing among potential high-risk categories, requiring data quality, log retention, human oversight and robustness; DORA already covers ICT resilience and critical third-party risk.<span class="ref">[12][13]</span> The lever is <em>the classification of the system itself</em>: first determine what kind of AI it is, then apply the matching list of obligations.</p>
+        <p>The practical consequences are very concrete. Taking one product into all three markets means answering three different questions: in China, "can the institution using it prove control across the full lifecycle?"; in the US, "how material is this use, and is validation independent?"; in the EU, "which category does it fall into, and are the matching obligations all met?" <b>The evidence for these three questions is not interchangeable</b>.</p>
+        <p>That leads to a commercial conclusion: <em>compliance adaptation will become a product layer in its own right</em>. It isn't translating documents into three languages; it's mapping one set of capabilities onto three different evidence structures — the same logs organized and presented three ways. Companies willing to productize this can turn everyone else's cost into their own revenue.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>Same direction, different logic</b>All three want tiering, full lifecycle and traceability, but organize it differently: China regulates the party, the US materiality, the EU classification.</div>
+        <div class="sn"><b>Why the differences matter</b>They decide what evidence you need. The same logs must be organized three ways for three jurisdictions, and one can't stand in for another.</div>
+        <div class="sn q"><b>The compliance adapter</b>Mapping one set of capabilities onto three evidence structures. In this book's view, the clearest standalone product opportunity.</div>
+        <div class="sn w"><b>Don't expect unification</b>Behind the three logics lie three regulatory philosophies and political structures. What converges in the near term is direction, not interfaces.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 3d.1</b> &nbsp;· &nbsp;What the three governance logics mean for products</div>
+      <table>
+        <tr><th style="width:15mm">Jurisdiction</th><th style="width:30mm">Organizing logic</th><th style="width:46mm">Core requirements</th>
+          <th style="width:42mm">Concrete impact on products</th><th>Evidence you need</th></tr>
+        <tr><td class="k">China</td><td>By accountable party and full lifecycle</td>
+          <td>Whoever uses it is responsible; self-reliance; records across the chain from requirements to exit<span class="ref">[10]</span></td>
+          <td>On-premise deployment and domestic-stack compatibility become entry requirements</td><td>Complete records of development and operation</td></tr>
+        <tr class="alt"><td class="k">US</td><td>Tiered by use and materiality</td>
+          <td>Tiering by use, independent validation, third-party risk, transparency and resilience<span class="ref">[11]</span></td>
+          <td>Reproducible validation documentation and a model inventory</td><td>Independent validation reports and materiality assessments</td></tr>
+        <tr><td class="k">EU</td><td>By risk classification of the AI system</td>
+          <td>Data quality, logging, human oversight and robustness for high-risk uses<span class="ref">[12][13]</span></td>
+          <td>Log retention is a mandatory feature, not an add-on</td><td>Conformity assessments and technical documentation</td></tr>
+      </table>
+      <div class="note">The "evidence you need" column doesn't overlap across rows — which is exactly the value of a compliance adapter: collect once, organize three ways.</div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 3d</span><span>29</span></div>
+</section>
+
+<!-- ═════════ 3d.2 ═════════ -->
+<section class="pg" data-fit style="--fs:9.4pt">
+  <div class="rh"><span>CHAPTER 3D · THE STANDARDS WAR</span><span><b>3d.2</b> The standards gap in agent payments</span></div>
+  <div class="bd">
+    <h2 class="ch">3d.2 &nbsp;The standards gap in agent payments</h2>
+    <div class="rail">
+      <div class="m">
+        <p>All three frameworks discuss "how AI systems should be governed," yet almost none answers the concrete question raised in Chapter 2: <b>when an agent initiates a transaction on a user's behalf and gets it wrong, who pays?</b></p>
+        <p>This isn't an oversight but a matter of timing — regulators usually step in only once a phenomenon reaches scale. But that gap is precisely <em>the window in which standards form</em>, and once formed, standards are extremely hard to change. Many of the rules in payments were settled in similar windows, and first movers' designs often became de facto standards.</p>
+        <p>Three kinds of players are currently trying to fill the gap, each with its own logic. <b>Payment networks</b> push shared tokens and agentic commerce protocols, aiming to fold agents into existing authorization and dispute systems while changing as few rules as possible. <b>Platforms and ecosystems</b> push their own agent-access schemes (payments MCP servers, AI wallets and the like), aiming to make it work inside their own ecosystem first and export it later.<span class="ref">[14][16][24]</span> <b>Model and device makers</b> want the agent layer to stay neutral, so they aren't tied to any single payment provider.</p>
+        <p>Their interests genuinely conflict. Payment networks want liability to follow existing rules, which favor them; platforms want liability kept inside their ecosystems, where they control it; model makers want liability to fall on the payment side, because they can't bear financial risk. <b>No party can set the standard alone</b>, so the likeliest outcome is a long period of competing standards, until an incident at scale forces regulators to step in.</p>
+        <p>For Chinese companies this gap carries a particular meaning: <em>an execution advantage only turns into cross-border revenue in a world where standards are mutually recognized</em>. If standards fragment by region, even the strongest domestic execution capability remains a domestic asset. That gives participation in international standards discussions — even just proposing technical designs others can cite — strategic value beyond any direct commercial return.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>The gap is the window</b>Regulators arrive after a phenomenon scales. The de facto standards formed in the gap often become the final ones.</div>
+        <div class="sn"><b>Real conflicts of interest</b>Payment networks want the old rules, platforms want liability kept in-house, model makers want it pushed onto payments. None can set the standard alone.</div>
+        <div class="sn w"><b>The likeliest outcome</b>Competing standards until an incident at scale forces unification. That means the window is longer than most people expect.</div>
+        <div class="sn q"><b>What it means for Chinese companies</b>Execution rights are a cross-border asset only in a world of mutual recognition. Taking part in standards work is worth more strategically than it earns directly.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 3d.2</b> &nbsp;· &nbsp;Four ways to allocate liability when an agent transaction goes wrong (none has mature rules yet)</div>
+      <table>
+        <tr><th style="width:36mm">Allocation</th><th style="width:46mm">Who bears the loss</th><th style="width:46mm">Who favors it</th><th>Main problem</th></tr>
+        <tr><td class="k">Apply unauthorized-use rules</td><td>The institution or merchant that accepted the transaction</td><td>Users and consumer-protection advocates</td><td>The agent <i>was</i> authorized, so the premise fails</td></tr>
+        <tr class="alt"><td class="k">Authorization means no recourse</td><td>The user</td><td>Payment providers and merchants</td><td>Users can't foresee everything an agent will do</td></tr>
+        <tr><td class="k">Agent vendor is liable</td><td>The company that provides the agent</td><td>Payment networks and platforms</td><td>Model makers can't carry financial risk</td></tr>
+        <tr class="alt"><td class="k">Tiered by authorization scope</td><td>User within scope; vendor when the agent oversteps</td><td>This book's pick for the likely mainstream</td><td>Needs a common way to express authorization</td></tr>
+      </table>
+      <div class="note">The fourth option requires "authorization scope" to be expressed in machine-readable form. Whoever's way of expressing it is widely adopted owns the definition of this layer.</div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 3d</span><span>30</span></div>
+</section>
+
+<!-- ═════════ 3d.3 ═════════ -->
+<section class="pg" data-fit style="--fs:8.7pt">
+  <div class="rh"><span>CHAPTER 3D · THE STANDARDS WAR</span><span><b>3d.3</b> What China can win</span></div>
+  <div class="bd">
+    <h2 class="ch">3d.3 &nbsp;What China can win</h2>
+    <div class="rail">
+      <div class="m">
+        <p>Putting the previous sections together allows a concrete judgment about the positions Chinese companies can realistically take in this round. I think three are winnable, and two most likely are not.</p>
+        <p><b>Winnable, one: agent payments and treasury for cross-border merchants.</b> Customers here are Chinese-owned merchants or those serving China's supply chains, with a natural dependence on Chinese payment capabilities. Execution rights can be extended, governance can be standardized, and local licensed partners have a reason to deliver jointly. This is the most realistic path abroad.</p>
+        <p><b>Winnable, two: exporting the governance layer as a product.</b> Chinese regulators' requirements for full-lifecycle records, self-reliance and exit mechanisms effectively force domestic vendors to build these capabilities earlier.<span class="ref">[10]</span> Packaged as standalone modules rather than rebuilt for every project, they are in demand in other heavily regulated markets too — the <em>form</em> of the requirements differs, but the <em>evidence</em> needed overlaps heavily.</p>
+        <p><b>Winnable, three: domain evaluation assets built on Chinese-language and local data.</b> Public domain evaluation sets are a cheap, high-leverage form of standards influence. Hithink RoyalFlush open-sourcing BizFinBench and building Chinese financial Q&amp;A benchmarks is the right direction<span class="ref">[23]</span> — evaluation sets become references in procurement, and being referenced is influence.</p>
+        <p><b>Probably not winnable, one: a globally adopted standard for authorization semantics.</b> This layer is deeply bound up with payment networks' existing rules and with each jurisdiction's consumer-protection regime; control will most likely stay within the established international payments and regulatory system. The realistic goal is to be "compatible," not "adopted."</p>
+        <p><b>Probably not winnable, two: exporting the domestic retail-finance playbook wholesale.</b> Licences, credit-reporting systems, consumer-protection rules and acquisition costs all differ, and past attempts don't support this route. <em>Rather than copy retail, go after merchants</em>.</p>
+        <p>Taken together, the five suggest a strategic posture: <b>defend the existing lead at the execution layer, attack at the governance layer, and aim for compatibility at the standards layer</b>. That's more realistic than "benchmark against everyone on everything," and more likely to leave real assets ten years from now.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>The most realistic path abroad</b>Payments, treasury, risk and compliance for cross-border merchants. Execution extends, governance standardizes, local partners are motivated.</div>
+        <div class="sn"><b>Different form, overlapping evidence</b>The three jurisdictions want evidence presented differently, but the underlying evidence to collect is largely the same. That's why governance modules can be reused across markets.</div>
+        <div class="sn"><b>Evaluation sets are influence</b>An evaluation set cited in procurement documents ends up defining what "qualified" means. Cheap standards influence.<span class="ref">[23]</span></div>
+        <div class="sn w"><b>The realistic goal is compatibility</b>At the authorization-semantics layer, being "adopted" isn't realistic; ensuring you're "compatible" is achievable.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 3d.3</b> &nbsp;· &nbsp;Three fights to pick, two to skip: positions open to Chinese companies</div>
+      <table class="tight">
+        <tr><th style="width:14mm">Posture</th><th style="width:44mm">Target</th><th style="width:56mm">Basis</th><th>Test of success</th></tr>
+        <tr><td class="k">Fight</td><td>Agent payments and treasury for cross-border merchants</td>
+          <td>Execution rights extend; local licensed partners motivated to deliver jointly</td><td>Share of revenue from standard products rather than bespoke projects</td></tr>
+        <tr class="alt"><td class="k">Fight</td><td>Exporting the governance layer as a product</td>
+          <td>Domestic rules forced the capability to be built early, and evidence overlaps heavily across jurisdictions<span class="ref">[10]</span></td>
+          <td>Whether governance modules can be priced separately and win repeat purchases</td></tr>
+        <tr><td class="k">Fight</td><td>Domain evaluation assets on Chinese-language and local data</td>
+          <td>Public evaluation sets are cheap, high-leverage standards influence<span class="ref">[23]</span></td>
+          <td>Whether they're cited in procurement documents and regulatory Q&amp;As</td></tr>
+        <tr class="alt"><td class="k">Skip</td><td>A global standard for authorization semantics</td>
+          <td>Deeply tied to existing payment rules and local consumer protection</td><td>Reset the goal to "compatible," not "adopted"</td></tr>
+        <tr><td class="k">Skip</td><td>Copying domestic retail finance abroad</td>
+          <td>Licences, credit reporting, consumer protection and acquisition costs are all different</td><td>Success means not investing</td></tr>
+      </table>
+      <div class="note">The point of this table is to be explicit about what not to fight for. Most strategies fail not by choosing the wrong direction but by choosing too many at once.</div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 3d</span><span>31</span></div>
+</section>
+
+<!-- ═════════ Chapter 4 opener ═════════ -->
+<section class="pg" data-fit style="--fs:9.7pt">
+  <div class="op">
+    <div class="no">CHAPTER FOUR</div>
+    <h1>How Regulation<br>Arrives</h1>
+    <div class="rule"></div>
+    <p class="lede">Public debate about AI regulation mostly asks whether something will be banned. In finance that's the wrong question — finance never bans a technology; it decides who may use it and on what terms. This chapter projects the form regulation will actually take, and what that means for products.</p>
+    <div class="claim"><span>THE CLAIM</span>
+      <p>Regulation won't arrive as prohibition but as conditions for market access. Once evaluation, logging, permissions, fallback and exit are written into tender documents, the market will go through a complete vendor shake-out without a single ban.</p></div>
+    <div class="toc">
+      <span><b>4.1</b> Not prohibition, but access</span>
+      <span><b>4.2</b> Three possible institutional arrangements</span>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 4</span><span>32</span></div>
+</section>
+
+<!-- ═════════ 4.1 ═════════ -->
+<section class="pg" data-fit style="--fs:9.4pt">
+  <div class="rh"><span>CHAPTER 4 · HOW REGULATION ARRIVES</span><span><b>4.1</b> Not prohibition, but access</span></div>
+  <div class="bd">
+    <h2 class="ch">4.1 &nbsp;Not prohibition, but access</h2>
+    <div class="rail">
+      <div class="m">
+        <p>Financial regulators rarely ban a technology outright. Their more usual tool is to <b>raise the bar for using it</b> — require validation, records, capital, human review. In effect this resembles a partial ban, but the form is entirely different: the technology isn't illegal; using it just becomes much more expensive.</p>
+        <p>The distinction matters enormously to product teams. If you expect a ban, your response is to lobby and wait. If you expect access conditions, your response should be <em>to turn the conditions into features ahead of time</em>. The second is an engineering task you can start today.</p>
+        <p>The outline of this form is already visible. The US Treasury's FS AI RMF, published in February 2026, isn't legally binding, yet it breaks AI governance into <b>230 control objectives</b> arranged under govern, map, measure and manage.<span class="ref">[11]</span> The real effect of such "soft law" isn't punishment; it defines what examiners will ask — and what examiners ask ends up on procurement checklists. The tiering, full lifecycle, traceability, third-party risk and human oversight that all three jurisdictions require will eventually become concrete checklist items.<span class="ref">[10][11][12]</span> Once they do, vendors that fall short aren't fined; <b>they can't even bid</b>.</p>
+        <p>That's what I mean by "a shake-out without a ban." Suppose that from some year on, major institutions' tenders uniformly require an independent evaluation report, tamper-proof audit events, a fine-grained permission model, a rehearsed fallback plan and enforceable exit and data-return clauses. Most of today's active AI vendors would be eliminated on that one page — not because their products are bad, but because none of this was ever on their roadmap.</p>
+        <p>Conversely, this is the clearest opportunity in the book. <b>Access conditions can be known in advance</b>: the regulatory documents are public, the direction is consistent, and all that's left is translating them into features and documentation. Teams willing to finish this before anyone asks will, at the moment of the shake-out, hold a lead others need two years to close.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>Regulators' real tool</b>Not prohibition but higher conditions of use. The technology stays legal; using it just costs more.</div>
+        <div class="sn"><b>Two expectations, two responses</b>Expect a ban → lobby and wait. Expect access conditions → build the conditions into features now. The second can start today.</div>
+        <div class="sn w"><b>How vendors get eliminated</b>Not fined, just ineligible to bid. There's no appeal against this kind of elimination.</div>
+        <div class="sn q"><b>Why this is the clearest opportunity</b>The access conditions are already public in regulatory documents. A rare exam where you can know the answers two years early.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Figure 4.1</b> &nbsp;· &nbsp;From regulatory principle to tender clause: a predictable chain of translation</div>
+      <table>
+        <tr><th style="width:36mm">Regulatory principle (public)</th><th style="width:52mm">The tender clause it becomes</th>
+          <th style="width:44mm">Matching product feature</th><th>Cost to build now</th></tr>
+        <tr><td class="k">Tiered, categorized management</td><td>Differentiated controls by scenario risk level</td>
+          <td>Tiered authorization and scenario-specific limits</td><td>Low</td></tr>
+        <tr class="alt"><td class="k">Full-lifecycle traceability</td><td>Tamper-proof decision-chain records retained for N years</td>
+          <td>Independent audit event bus</td><td>Medium, and rising the longer you wait</td></tr>
+        <tr><td class="k">Independent validation</td><td>Evaluation reports from a third party or independent team</td>
+          <td>Standardized eval sets and report generation</td><td>Medium</td></tr>
+        <tr class="alt"><td class="k">Human oversight</td><td>Explicit human-review triggers and review records</td>
+          <td>A decidable review-rules engine</td><td>Low</td></tr>
+        <tr><td class="k">Third-party risk &amp; resilience</td><td>Disclose upstream dependencies; provide switching and exit plans</td>
+          <td>Productized dependency inventory and exit mechanism</td><td>High, but can be charged for separately</td></tr>
+      </table>
+      <div class="note">The last column is the key: the cost of building these features rises over time (the more data you have, the harder it is to backfill records), while the payoff jumps once regulation lands. A clear "cheaper if done early" structure.</div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 4</span><span>33</span></div>
+</section>
+
+<!-- ═════════ 4.2 ═════════ -->
+<section class="pg" data-fit style="--fs:9.4pt">
+  <div class="rh"><span>CHAPTER 4 · HOW REGULATION ARRIVES</span><span><b>4.2</b> Three possible institutional arrangements</span></div>
+  <div class="bd">
+    <h2 class="ch">4.2 &nbsp;Three possible institutional arrangements</h2>
+    <div class="rail">
+      <div class="m">
+        <p>Beyond access conditions, three heavier institutional arrangements may emerge. What they share is that each turns something that is an internal company matter today into industry-level public infrastructure.</p>
+        <p><b>First: industry-level evaluation and certification.</b> Regulators, industry associations or authorized third parties maintain public evaluation sets, and vendors must be certified to enter certain scenarios. Other regulated industries have mature precedents. The benefit is lower validation costs for every buyer; the risk is that the evaluation set itself gets over-optimized and becomes a new exam to teach to.</p>
+        <p><b>Second: mandatory incident disclosure.</b> Institutions must report AI-related production incidents, and de-identified failure modes are shared across the industry. This is the most likely source of the data actuaries need, so it also unlocks the insurance window discussed in Chapter 1. <em>If I had to pick one institutional signal to watch, it would be this one</em>.</p>
+        <p><b>Third: direct oversight of critical third parties.</b> When some vendors' failure would hit many institutions at once, regulators may bypass the indirect route of "institutions answer for their vendors" and impose requirements on vendors directly. The EU's DORA has already built this kind of mechanism for ICT resilience.<span class="ref">[13]</span> For leading vendors it cuts both ways: compliance costs rise, but so do barriers to entry.</p>
+        <p>The likely sequence: access conditions first (already happening), mandatory disclosure second, and direct oversight last, applying only to a few critical vendors. Product teams need to prepare actively for the first two; the third concerns very few companies.</p>
+        <p>Two common misconceptions are worth separating out. The first treats regulation as pure cost — in fact access conditions are also a <b>competitive barrier</b>: they keep out rivals unwilling to do this work, work you'll have to do sooner or later anyway. The second treats regulation as paperwork you can fill in afterwards — but audit trails, permission models and exit mechanisms are architectural decisions, and <em>the later you change them, the more it costs, exponentially</em>.</p>
+        <p>One more judgment about timing is worth recording: institutional arrangements usually accelerate <b>after the first incident at scale</b>. That means the industry's actual pace may be set not by regulators acting proactively but by a single public incident. So making "what evidence must we produce within 48 hours of an incident?" a design input is more useful than predicting when regulatory documents will be published.</p>
+        <h4 class="sub" style="margin-top:4mm">Where I might be wrong</h4>
+        <p>This chapter assumes regulation keeps tightening. But regulators also feel competitive pressure: if a major economy concludes that strict governance is hurting its competitiveness, it may loosen, and other jurisdictions may follow. <b>That would fundamentally change this book's conclusions</b> — the premium on governance capability would vanish, and speed and scale would once again be the only variables.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>The signal most worth watching</b>Mandatory incident disclosure. It is the source of actuarial data, and therefore the key step in unlocking L3.</div>
+        <div class="sn"><b>The side effect of certification</b>Once a public eval set becomes an entry requirement, it gets over-optimized. Every standardized test suffers this; it can't be avoided, only refreshed regularly.</div>
+        <div class="sn"><b>The DORA precedent</b>The EU already directly oversees critical ICT third parties. There's a real chance the AI supply chain goes the same way.<span class="ref">[13]</span></div>
+        <div class="sn w"><b>This chapter's falsification condition</b>If any major economy explicitly loosens financial AI governance "to stay competitive" and other jurisdictions follow, this chapter's — and the whole book's — view of the governance premium must be revised down.</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 4</span><span>34</span></div>
+</section>
+
+<!-- ═════════ Chapter 5 ═════════ -->
+<section class="pg" data-fit style="--fs:9.5pt">
+  <div class="rh"><span>CHAPTER 5 · SIX BETS</span><span><b>5.1</b> A falsifiable list of bets</span></div>
+  <div class="bd">
+    <h2 class="ch">Chapter 5 &nbsp;Six bets</h2>
+    <div class="rail">
+      <div class="m">
+        <p>A projection is worth something not because it sounds reasonable but because it can be tested. The six items below compress every claim in this book into bets: each has a clear time frame, a clear falsification condition, and what you should do now if it holds.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>How to use this list</b>Check the falsification conditions each quarter. When one is triggered, revise the corresponding action — not the whole framework.</div>
+      </div>
+    </div>
+
+    <div class="bet">
+      <div class="r"><div class="n">1</div><div>
+        <h6>The governance stack becomes a procurement threshold before model capability does</h6>
+        <p>Evaluation, logging, permissions, fallback and exit enter mainstream tenders as standalone clauses, and vendors that don't meet them lose eligibility to bid.</p>
+        <div class="w">Falsified if: by 2029, mainstream financial institutions' tenders still compare only model benchmarks and price.</div></div>
+        <div class="tm">2026 — 2028<br>High confidence</div></div>
+      <div class="r alt"><div class="n">2</div><div>
+        <h6>The trusted amount clearly leaves zero in several areas</h6>
+        <p>In at least one of refunds, reconciliation, collections or fraud prevention, routine execution appears without per-transaction human review, with limits and rollback.</p>
+        <div class="w">Falsified if: by end-2029, no category of financial action is broadly allowed to execute without per-transaction review.</div></div>
+        <div class="tm">2026 — 2029<br>High confidence</div></div>
+      <div class="r"><div class="n">3</div><div>
+        <h6>Mandatory incident disclosure arrives before insurance products</h6>
+        <p>Regulators require AI production incidents to be reported and failure modes shared; only then does insurable AI-decision liability cover appear.</p>
+        <div class="w">Falsified if: insurance products appear at scale before any mandatory disclosure regime.</div></div>
+        <div class="tm">2027 — 2031<br>Medium confidence</div></div>
+      <div class="r alt"><div class="n">4</div><div>
+        <h6>Agent payments will run on competing standards for a long time</h6>
+        <p>Authorization semantics and chargeback liability won't unify within a decade; cross-ecosystem recognition stays at the level of bilateral agreements.</p>
+        <div class="w">Falsified if: a single authorization standard is jointly adopted by the major payment networks and major platforms.</div></div>
+        <div class="tm">2027 — 2035<br>Medium confidence</div></div>
+      <div class="r"><div class="n">5</div><div>
+        <h6>Value splits three ways: execution, facts and governance</h6>
+        <p>No single AI operating system for finance emerges; each layer has incumbents, and the governance layer forms last and is the most underrated.</p>
+        <div class="w">Falsified if: one player firmly holds both execution and facts, and governance is absorbed as one of its features.</div></div>
+        <div class="tm">2028 — 2035<br>Medium confidence</div></div>
+      <div class="r alt"><div class="n">6</div><div>
+        <h6>Fully autonomous finance won't be mainstream before 2035</h6>
+        <p>Unreviewed lending, advice and trade execution will keep limits and scope boundaries for a long time, with the boundaries adjusted as incident rates change.</p>
+        <div class="w">Falsified if: any major market lets autonomous lending or trade execution without limits become routine business.</div></div>
+        <div class="tm">2030 — 2035<br>High confidence</div></div>
+    </div>
+
+    <div class="rail" style="margin-top:5mm">
+      <div class="m">
+        <p>The six aren't independent of one another. <b>Bet 3 is the linchpin</b>: once mandatory incident disclosure happens, actuaries have data, the economics of bet 2 work, and the procurement clauses of bet 1 are forced to accelerate. Conversely, if disclosure regimes are slow to appear, bets 2 and 1 slip significantly and bet 6 becomes even safer.</p>
+        <p>Bets 4 and 5 form another pair: competing standards mean no one can monopolize authorization semantics, which is exactly what keeps the three layers from collapsing into one. <em>If a single standard is ever widely adopted, bet 5 needs rethinking too</em> — because whoever sets the standard will use it to expand up and down the stack.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>The linchpin is bet 3</b>Mandatory disclosure → actuarial data → insurance → L3 economics work. Watch this one ahead of the other five.</div>
+        <div class="sn w"><b>Linked falsification</b>If bet 4 is falsified, rethink bet 5 too: the standard-setter will expand up and down the stack.</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 5</span><span>35</span></div>
+</section>
+
+<!-- ═════════ 5.2 ═════════ -->
+<section class="pg" data-fit style="--fs:9.4pt">
+  <div class="rh"><span>CHAPTER 5 · SIX BETS</span><span><b>5.2</b> If you're building products in 2026</span></div>
+  <div class="bd">
+    <h2 class="ch">5.2 &nbsp;If you're building products in 2026</h2>
+    <div class="rail">
+      <div class="m">
+        <p>Translated into action, the six bets mean different things depending on where you sit.</p>
+        <p><b>If you're founding a startup.</b> Don't build a general-purpose financial assistant. Pick an area where errors are observable and reversible, finish all five components — limits, circuit breakers, dual tracks, review triggers and rollback — and then find three institutions willing to share your first incident with you. Your moat won't come from the model. It will come from the fact that those three institutions were willing to hand you the permissions.</p>
+        <p><b>If you run products at a large institution.</b> Your scarcest resource isn't budget; it's <em>an attributable baseline</em>. Before any AI project, spend two months building a human baseline and a gold-standard evaluation set — without them, three years from now you still won't be able to say whether the investment was worth it. And treat governance capability as part of the product roadmap, not as compliance's afterthought.</p>
+        <p><b>If you work in investment or strategy.</b> Use "which control rights does this company hold?" as your first screen and "will the next generation of models erase its edge?" as your second. Demand faster returns from pure judgment-layer companies, because they're standing on the side where costs are collapsing.</p>
+        <p><b>If you work in regulation or policy.</b> The most valuable step, in this book's view, is to push for mandatory incident disclosure and the sharing of de-identified failure modes. It solves three problems at once: institutions learn from one another, insurance becomes priceable, and concentration risk becomes visible.</p>
+        <p>What all four have in common: <b>none of them needs to wait for technology to advance another step</b>. Every recommendation above can start today, and each one gets more expensive over time while its payoff jumps when liability shifts. It's the classic "cheaper if done early" structure — and most organizations will wait until they have no choice.</p>
+        <h4 class="sub" style="margin-top:4mm">Closing</h4>
+        <p>The whole argument of this book fits in one sentence: <em>the next decade of fintech won't be decided by whose model is strongest, but by who is allowed to move money when nobody is watching</em>.</p>
+        <p>That variable is close to zero today, so nobody models it and nobody prices it. But it won't stay at zero forever — because nothing needed to move it off zero is out of reach. Limits can be designed, circuit breakers built, audits recorded, liability priced and insurance underwritten. <b>They just haven't been systematically finished yet</b>.</p>
+        <p>Whoever finishes them first will be standing on the allowed side when the next liability shift comes. And when that moment arrives, the market will suddenly discover it has been pricing the wrong thing all along.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>Founders</b>Your moat isn't the model; it's the fact that institutions are willing to hand you permissions.</div>
+        <div class="sn w"><b>Product managers at large institutions</b>Your scarcest resource isn't budget but an attributable baseline. Without one, three years on you still can't prove anything.</div>
+        <div class="sn"><b>Investment and strategy</b>First screen: which control rights does it hold? Second screen: will the next generation of models erase its edge?</div>
+        <div class="sn q"><b>Policy</b>Mandatory incident disclosure solves three problems in one step: shared learning, priceable insurance, visible concentration.</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Chapter 5</span><span>36</span></div>
+</section>
+
+<!-- ═════════ Appendix A ═════════ -->
+<section class="pg" data-fit style="--fs:9.4pt">
+  <div class="rh"><span>APPENDIX</span><span><b>A</b> Tracking list and definitions</span></div>
+  <div class="bd">
+    <h2 class="ch">Appendix A &nbsp;Tracking list and definitions</h2>
+    <div class="fig">
+      <div class="cap"><b>Table A.1</b> &nbsp;· &nbsp;Ten signals to track each quarter</div>
+      <table>
+        <tr><th style="width:8mm">#</th><th style="width:62mm">Signal</th><th style="width:46mm">Where to look</th><th>What it means once it appears</th></tr>
+        <tr><td class="k">1</td><td>Standalone governance clauses appear in tenders</td><td>Public tender notices; master service agreement templates</td><td>The access shake-out has begun; bet 1 pays off</td></tr>
+        <tr class="alt"><td class="k">2</td><td>A standalone insurance line for AI decision errors</td><td>Insurance product filings; industry announcements</td><td>The economics of L2 → L3 work</td></tr>
+        <tr><td class="k">3</td><td>Mandatory AI incident reporting or failure-mode sharing</td><td>Regulatory notices; self-regulatory rules</td><td>The insurance window is about to open</td></tr>
+        <tr class="alt"><td class="k">4</td><td>Agent-payment authorization and chargeback rules written down for the first time</td><td>Payment network rulebooks; platform developer agreements</td><td>The standards war enters its substantive phase</td></tr>
+        <tr><td class="k">5</td><td>Separate revenue, paid penetration and renewal rates for AI modules disclosed</td><td>Annual and quarterly reports; investor calls</td><td>Commercial proof turns from narrative into fact</td></tr>
+        <tr class="alt"><td class="k">6</td><td>Critical third parties brought under direct oversight</td><td>Regulatory designations; rule amendments</td><td>Concentration risk is formally priced</td></tr>
+        <tr><td class="k">7</td><td>Public domain eval sets cited in procurement documents</td><td>Technical requirements in tenders; industry standards</td><td>Evaluation assets become influence</td></tr>
+        <tr class="alt"><td class="k">8</td><td>The first public dispute or ruling over an agent exceeding its authority</td><td>Court records; regulatory enforcement actions</td><td>Liability allocation starts to converge</td></tr>
+        <tr><td class="k">9</td><td>Production incident rates, model drift or vendor concentration rise markedly</td><td>Regulatory reports; industry surveys</td><td>The whole timeline may slip</td></tr>
+        <tr class="alt"><td class="k">10</td><td>Outcome-based pricing moves from marketing slogan to auditable contract clause</td><td>Contract templates; customer case studies</td><td>The pricing model has completed its migration</td></tr>
+      </table>
+    </div>
+    <div class="rail">
+      <div class="m">
+        <h4 class="sub">Definitions</h4>
+        <p><b>Trusted-amount ceiling.</b> The maximum amount of money movement a system is allowed to initiate without per-transaction human review. The book's core variable, measured separately for each area.</p>
+        <p><b>Automation depth L0–L4.</b> A five-level framework defined by whether a system can reach conclusions alone, act alone, and who bears the consequences. See Section 1.1.</p>
+        <p><b>System of record.</b> The authoritative home of a class of business facts (ledgers, positions, filings). Replacing it means migrating historical data and process configuration.</p>
+        <p><b>Continuous outcome labels.</b> Real outcomes that flow back automatically with the business (was it charged back, did it default, was it accepted), as opposed to static corpora bought or labelled once.</p>
+        <p><b>Governance stack.</b> Evaluation sets, logging, permissions, red-teaming, fallback and vendor exit mechanisms, taken together. In this book's view, it is turning from a cost item into an entry requirement.</p>
+        <p><b>Delegation chain.</b> The chain of authorization user → business → agent → action. What identity verification has to check in the agent era.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>How the ceiling is measured</b>The trusted-amount ceiling is set per area; there is no single company-wide number. Be suspicious of anyone who claims one.</div>
+        <div class="sn"><b>How it differs from common terms</b>This book doesn't use "automation rate," because it lumps L0 report generation together with L2 automatic execution.</div>
+      </div>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Appendix</span><span>37</span></div>
+</section>
+
+<!-- ═════════ Appendix B ═════════ -->
+<section class="pg" data-fit style="--fs:9.4pt">
+  <div class="rh"><span>APPENDIX</span><span><b>B</b> Sources</span></div>
+  <div class="bd">
+    <h2 class="ch">Appendix B &nbsp;Sources</h2>
+    <div class="rail">
+      <div class="m">
+        <p>Evidence hierarchy: regulatory and legal documents and audited annual reports come first; official product pages confirm features and self-reported scale; academic and international-organization reports inform judgments about mechanisms. Efficiency, transaction and user figures disclosed by companies are not treated as third-party verified. Market spending forecasts indicate direction only and are never a basis for valuation.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>The projections in this book</b>Any judgment without a cited source is the author's projection, with its triggers and falsification conditions stated in the text.</div>
+      </div>
+    </div>
+    <div class="fig">
+      <table class="tight">
+        <tr><th style="width:10mm">#</th><th style="width:98mm">Source</th><th style="width:28mm">Type</th><th>Used for</th></tr>
+        <tr><td class="k">[1]</td><td>Mao Zedong, <i>Oppose Book Worship</i>, 1930</td><td>Methodology</td><td>Research method</td></tr>
+        <tr class="alt"><td class="k">[2]</td><td>Mao Zedong, <i>Preface and Postscript to "Rural Surveys"</i>, 1941</td><td>Methodology</td><td>Research method</td></tr>
+        <tr><td class="k">[3]</td><td>Mao Zedong, <i>On Practice</i>, 1937</td><td>Methodology</td><td>Method of judgment</td></tr>
+        <tr class="alt"><td class="k">[4]</td><td>BoE / FCA, <i>Artificial Intelligence in UK Financial Services</i>, 2024 (118 firms)</td><td>Regulatory survey</td><td>Adoption and share of autonomous decisions</td></tr>
+        <tr><td class="k">[5]</td><td>World Economic Forum, <i>Artificial Intelligence in Financial Services</i>, 2025</td><td>International org.</td><td>Spending scale and direction</td></tr>
+        <tr class="alt"><td class="k">[6]</td><td>BIS, <i>Intelligent Financial System: How AI Is Transforming Finance</i>, 2024</td><td>International org.</td><td>Industry structure</td></tr>
+        <tr><td class="k">[7]</td><td>Financial Stability Board, <i>The Financial Stability Implications of Artificial Intelligence</i>, 2024</td><td>International org.</td><td>Systemic risk and herding</td></tr>
+        <tr class="alt"><td class="k">[8]</td><td>FSB, <i>Sound Practices for Responsible Adoption of AI</i> — consultation, 2026</td><td>International org.</td><td>Governance practice</td></tr>
+        <tr><td class="k">[9]</td><td>China Academy of Information and Communications Technology (CAICT), <i>Research Report on Digital Finance Innovation and Development (2025)</i>, 2026</td><td>Research institute</td><td>State of China's industry</td></tr>
+        <tr class="alt"><td class="k">[10]</td><td>National Financial Regulatory Administration, <i>Guiding Opinions on the Safe Development and Application of AI in the Banking and Insurance Sectors</i>, 18 June 2026</td><td>Regulatory document</td><td>China's governance logic</td></tr>
+        <tr><td class="k">[11]</td><td>U.S. Treasury, <i>Financial Services AI RMF</i> + <i>AI Lexicon</i>, 19 February 2026 (230 control objectives; non-binding)</td><td>Regulatory framework</td><td>US governance logic</td></tr>
+        <tr class="alt"><td class="k">[12]</td><td>European Commission, <i>AI Act — Regulatory Framework and Timeline</i>, 2026</td><td>Legislation</td><td>EU risk tiers</td></tr>
+        <tr><td class="k">[13]</td><td>EUR-Lex, <i>Digital Operational Resilience Act (DORA)</i>, applicable since 2025</td><td>Legislation</td><td>Third parties and resilience</td></tr>
+        <tr class="alt"><td class="k">[14]</td><td>Ant Group, <i>Product and Technology Updates at the 2025 World Artificial Intelligence Conference</i>, 2025</td><td>Company disclosure</td><td>Direction of agent payments</td></tr>
+        <tr><td class="k">[15]</td><td>Ant Group, <i>2024 Sustainability Report Highlights</i>, 2025</td><td>Company disclosure</td><td>Global reach</td></tr>
+        <tr class="alt"><td class="k">[16]</td><td>Stripe, <i>2025 Annual Letter</i>, 2026</td><td>Company disclosure</td><td>Payment volume and agentic commerce</td></tr>
+        <tr><td class="k">[17]</td><td>Stripe, <i>2025 Annual Letter</i>: adaptive acceptance recovered about $6B in false declines in 2024</td><td>Company disclosure</td><td>False-decline recovery</td></tr>
+        <tr class="alt"><td class="k">[18]</td><td>Stripe, Radar product page, September 2026: 70T+ data points; 32% average fraud reduction</td><td>Official product page</td><td>Scale of network data</td></tr>
+        <tr><td class="k">[19]</td><td>Intuit, FY2026 full-year results, 25 August 2026: revenue $21.4B (+14%)</td><td>Company financials</td><td>Revenue and business mix</td></tr>
+        <tr class="alt"><td class="k">[20]</td><td>Intuit, <i>Virtual Team of AI Agents for QuickBooks</i>, 2025</td><td>Official product page</td><td>Agents and expert review</td></tr>
+        <tr><td class="k">[21]</td><td>Bloomberg Professional, <i>AI on Bloomberg / ASKB</i>, accessed September 2026</td><td>Official product page</td><td>Data and workflow</td></tr>
+        <tr class="alt"><td class="k">[22]</td><td>Wu et al., <i>BloombergGPT: A Large Language Model for Finance</i>, arXiv, 2023</td><td>Academic</td><td>Early view of domain models</td></tr>
+        <tr><td class="k">[23]</td><td>Hithink RoyalFlush (Tonghuashun), <i>2025 Annual Report</i>, 2026: revenue ¥6.029B; net profit attributable to shareholders ¥3.205B</td><td>Audited annual report</td><td>China research and eval assets</td></tr>
+        <tr class="alt"><td class="k">[24]</td><td>Ant Group, corporate website: AI payments and group business facts, accessed September 2026</td><td>Official product page</td><td>Payments MCP and AI wallet</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Appendix</span><span>38</span></div>
+</section>
+
+<!-- ═════════ Appendix C ═════════ -->
+<section class="pg" data-fit style="--fs:9.4pt">
+  <div class="rh"><span>APPENDIX</span><span><b>C</b> Method, discount rules and limits</span></div>
+  <div class="bd">
+    <h2 class="ch" style="margin-bottom:2mm">Appendix C &nbsp;Method, discount rules and research limits</h2>
+    <div class="rail" style="margin-bottom:2.5mm">
+      <div class="m">
+        <h4 class="sub">Method</h4>
+        <p>The approach: first use regulatory documents, audited annual reports and international-organization reports to establish what has already happened; then build conditional projections on those facts, giving each projection observable triggers and falsification conditions. Claims that can't be falsified are, as far as possible, left out.</p>
+        <p>The book does <b>not</b> forecast model capability or rely on any assumption about model performance — it rests precisely on the premise that model capability keeps commoditizing. If that premise falls, the scissors-gap argument in Chapter 3a is the first to fail.</p>
+        <h4 class="sub" style="margin-top:3mm">Data verification statement</h4>
+        <p>Every public figure cited was checked against its primary source on <b>11 September 2026</b>: original regulatory surveys and legislation, company financial statements and results announcements, and official product pages. Nine statements were corrected as a result before the first edition was finalized, three of them substantive errors; the corrections are preserved in the repository's commit history.</p>
+        <p>That doesn't mean the book is now error-free. Four caveats remain. First, <b>company-reported figures cannot be independently verified</b>; the book uses them to judge direction, never to support a conclusion. Second, figures on official product pages change over time; the text reflects them as of the access date. Third, the author is not a finance professional and may misread regulatory documents. Fourth, anything marked "research judgment" or appearing in a projection chapter is the author's inference, not a statement of fact.</p>
+        <p><b>If you find an error, please raise it in the repository; corrections will be recorded in the version history.</b> Research that circulates with known errors is more dangerous than research that admits it may be wrong.</p>
+      </div>
+      <div class="s">
+        <div class="sn"><b>Why publish the list of errors</b>Only when readers know what changed do they know what to re-check. A hidden correction leaves everyone who cited the old version still wrong.</div>
+        <div class="sn"><b>Why state the number of errors</b>"Nine corrections, three of them substantive" is more useful than a vague "the data may be inaccurate" — the first can be checked; the second is just a disclaimer.</div>
+      </div>
+    </div>
+
+    <div class="fig">
+      <div class="cap"><b>Table C.1</b> &nbsp;· &nbsp;Three substantive corrections made before the first edition was finalized</div>
+      <table>
+        <tr><th style="width:46mm">Earlier claim</th><th style="width:58mm">Verification result</th><th>Current wording</th></tr>
+        <tr><td class="k">Regulated activities rank 9th–21st of 21 in AI penetration</td>
+          <td>No such ranking <b>exists</b> in the 2024 BoE/FCA report, which does not rank 21 business areas</td>
+          <td>Replaced with the report's actual data: only 2% of use cases are fully autonomous</td></tr>
+        <tr class="alt"><td class="k">Radar recovered $6B of declined transactions and cut user dispute rates by 17%</td>
+          <td>The $6B belongs to <b>adaptive acceptance</b>, not Radar, and is for 2024, up 60% year on year; the 17% appears in no public source</td>
+          <td>Each figure attributed as the company reports it; Radar cited for its official "32% average fraud reduction"</td></tr>
+        <tr><td class="k">Intuit saves customers up to 12 hours a month and gets them paid 5 days faster</td>
+          <td><b>No source found</b> in public disclosures</td>
+          <td>Replaced with FY2026 disclosures: 3M+ customers using AI agents, repeat usage &gt;85%</td></tr>
+      </table>
+      <div class="note">Six further corrections concerned precision and naming: Intuit's revenue basis, the name and date of the US regulatory document, the full title and publication date of China's guiding opinions, Alipay+ coverage figures, Bloomberg Terminal user numbers, and the number of firms surveyed.</div>
+    </div>
+
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Appendix</span><span>39</span></div>
+</section>
+
+<!-- ═════════ Appendix C cont. ═════════ -->
+<section class="pg">
+  <div class="rh"><span>APPENDIX</span><span><b>C</b> Research limits (continued)</span></div>
+  <div class="bd">
+    <div class="rail" style="margin-bottom:4mm">
+      <div class="m">
+        <h4 class="sub" style="margin-top:0">Evidence-discount rules</h4>
+        <p>Company-reported efficiency gains indicate direction only; unaudited revenue and user numbers never enter structural conclusions; media valuations and funding rumors are not used at all; the number of product launches doesn't count as commercial proof; features still in beta count toward product capability but not commercial validation; "number of institutions covered" does not equal paid penetration and is always flagged separately when cited.</p>
+      </div>
+      <div class="s">
+        <div class="sn q"><b>Writing principle</b>Leave out claims that can't be falsified. This is the main difference between this book and most industry forecasts.</div>
+        <div class="sn w"><b>The most fragile premise</b>That model capability keeps commoditizing. If one company builds a durable lead in finance-specific models, the scissors-gap argument fails first.</div>
+      </div>
+    </div>
+    <div class="rail">
+      <div class="m">
+        <h4 class="sub" style="margin-top:0">Research limits</h4>
+        <p>This book is not an industry directory. It makes no valuation judgments about private companies and does not constitute investment advice. The five companies discussed illustrate different types of industry control point; they are not the only representatives of their fields. In-house bank development, insurtech, regtech and foundation-model makers appear in the value-chain discussion but are not analyzed separately.</p>
+        <p>Every statement about the period after 2026 is a conditional projection. Readers should revise their judgments quarterly as new facts arrive, particularly the ten signals in Appendix A. <b>If a projection's falsification condition appears first, the right response is to overturn it, not to explain it away.</b></p>
+        <h4 class="sub" style="margin-top:3mm">Three known blind spots</h4>
+        <p><b>1. Insurance is barely discussed.</b> AI in insurance has its own structure (underwriting, claims, actuarial regulation) whose logic differs markedly from banking and payments. Including it would blunt the argument, but its absence is a real gap in coverage.</p>
+        <p><b>2. A gradual geopolitical environment is assumed.</b> Major technology export controls or a decoupling of financial infrastructure would require the cross-border projections to be rewritten entirely.</p>
+        <p><b>3. The perspective is mainly institutional.</b> Whether consumers are willing to let agents spend money on their behalf is treated as exogenous. This may be the biggest untested assumption in the book.</p>
+      </div>
+      <div class="s">
+        <div class="sn"><b>How to update</b>Check against the ten signals in Appendix A each quarter. Adjust judgments only when a signal appears, never just because time has passed.</div>
+        <div class="sn q"><b>Errata</b>Please report errors in the repository. Corrections carry version numbers and old versions are never deleted — so anyone who cited an older version knows what they cited.</div>
+      </div>
+    </div>
+    <div class="box" style="margin-top:2.5mm;padding:2.6mm 3mm">
+      <h5>ABOUT THIS BOOK</h5>
+      <p style="font-size:7.1pt;line-height:1.5"><i>The Money AI Is Allowed to Move: Fintech's Next Decade</i> is an independent industry projection. It sets out to reframe a question usually told as a technology race as a question of how authority, liability and standards are allocated. All company facts come from public disclosures; no non-public information is used, and nothing here constitutes investment advice.<br><br>
+      <b>Author</b>　Zhihua Zou. The thesis, framework, judgments and conclusions are the author's; structured drafting, research organization and typesetting were done with Claude (Anthropic), and every fact and projection was checked by the author line by line.<br><br>
+      <b>Edition</b>　English edition, September 2026, translated from the Chinese first edition (《被允许动的钱：金融科技的下一个十年》)　·　Research current to 10 September 2026<br>
+      <b>Repository</b>　github.com/joshuazou-web/money-ai-is-allowed-to-move<br><br>
+      <b>Copyright</b>　© 2026 Zhihua Zou. All rights reserved. Licensed under <b>CC BY-NC-ND 4.0</b>: you may freely share, quote and redistribute it with full attribution and a link to the source; no commercial use; no distribution of adapted versions. The full writing process is preserved in the commit history of the repository above.</p>
+    </div>
+  </div>
+  <div class="ft"><span>The Money AI Is Allowed to Move ｜ Appendix</span><span>40</span></div>
+</section>
+</body></html>

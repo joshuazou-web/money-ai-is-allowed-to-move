@@ -7,7 +7,7 @@
 
 一份 40 页的独立产业推演。全文只跟踪一条趋势线：**一个 AI 系统在无人逐笔复核的前提下，被允许动多少钱**——书里称之为「可托付金额上限」。
 
-📄 **[阅读全文（PDF，40 页）](docs/被允许动的钱_金融科技的下一个十年.pdf)**　·　🌐 **[网页版](https://joshuazou-web.github.io/money-ai-is-allowed-to-move/)**
+📄 **[阅读全文（PDF，40 页）](docs/被允许动的钱_金融科技的下一个十年.pdf)**　·　🌐 **[网页版](https://joshuazou-web.github.io/money-ai-is-allowed-to-move/)**　·　📘 **[English edition (PDF, 40 pages)](docs/The_Money_AI_Is_Allowed_to_Move_Fintechs_Next_Decade.pdf)**
 
 ---
 
@@ -94,6 +94,8 @@ cd src
 python fit.py       # 逐页配页
 python sabuild.py   # 输出 PDF
 ```
+
+英文版源文件为 `src/sa_en.html`（由作者授权的英文译本，排版沿用中文版设计）。
 
 ## 作者
 
